@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="pmgmt-ear:ear exploded">
+    <output-path>$PROJECT_DIR$/pmgmt-ear/target/pmgmt-ear</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="pmgmt-ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/pmgmt-ear/target/MANIFEST.MF" />
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/pmgmt-ear/src/main/application" />
+      <element id="archive" name="pmgmt-web.war">
+        <element id="artifact" artifact-name="pmgmt-web:war exploded" />
+      </element>
+      <element id="archive" name="pmgmt-ejb.jar">
+        <element id="artifact" artifact-name="pmgmt-ejb:ejb exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>

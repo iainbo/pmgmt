@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="pmgmt-ear:ear">
+    <output-path>$PROJECT_DIR$/pmgmt-ear/target</output-path>
+    <root id="archive" name="pmgmt-ear.ear">
+      <element id="artifact" artifact-name="pmgmt-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>
