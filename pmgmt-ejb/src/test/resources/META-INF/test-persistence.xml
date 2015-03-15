@@ -26,11 +26,18 @@
          database. Production applications should use a managed datasource. -->
       <!-- The datasource is deployed as WEB-INF/test-ds.xml, 
          you can find it in the source at src/test/resources/test-ds.xml -->
-      <jta-data-source>java:jboss/datasources/pmgmtTestDS</jta-data-source>
+
+
+       <!--<jta-data-source>java:jboss/datasources/pmgmtTestDS</jta-data-source>-->
+       <jta-data-source>java:/datasource/pmgmt</jta-data-source>
+
+       <class>org.iainbo.model.Member</class>
       <properties>
          <!-- Properties for Hibernate -->
-         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+         <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
          <property name="hibernate.show_sql" value="false" />
+          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
       </properties>
    </persistence-unit>
 </persistence>

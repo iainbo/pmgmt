@@ -23,7 +23,7 @@
    xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
    <!-- The datasource is bound into JNDI at this location. We reference 
       this in META-INF/test-persistence.xml -->
-   <datasource jndi-name="java:jboss/datasources/pmgmtTestDS"
+   <!--<datasource jndi-name="java:jboss/datasources/pmgmtTestDS"
       pool-name="pmgmt-test" enabled="true"
       use-java-context="true">
       <connection-url>jdbc:h2:mem:pmgmt-test;DB_CLOSE_DELAY=-1</connection-url>
@@ -32,6 +32,17 @@
          <user-name>sa</user-name>
          <password>sa</password>
       </security>
-   </datasource>
+   </datasource>-->
+
+    <datasource jndi-name="java:/datasource/pmgmt"
+                pool-name="mysql_pmgmt" enabled="true" use-java-context="true">
+        <connection-url>jdbc:mysql://imbp:3306/pmgmt</connection-url>
+        <driver>mysql-connector-java-5.1.29.jar</driver>
+        <security>
+            <user-name>dbauser</user-name>
+            <password>Password01</password>
+        </security>
+    </datasource>
+
 </datasources>
  
