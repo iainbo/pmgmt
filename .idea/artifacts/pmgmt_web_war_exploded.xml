@@ -6,6 +6,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="pmgmt-web" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:5.1" />
+          <element id="library" level="project" name="Maven: org.primefaces.themes:cupertino:1.0.10" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/pmgmt-web/target/MANIFEST.MF" />
