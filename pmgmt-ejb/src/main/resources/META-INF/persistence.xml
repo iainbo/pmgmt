@@ -16,12 +16,11 @@
        <jta-data-source>java:jboss/datasource/pmgmt</jta-data-source>
 
        <class>org.iainbo.model.Member</class>
-       <class>org.iainbo.service.MemberRegistration</class>
 
 
       <properties>
          <!-- Properties for Hibernate -->
-         <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
          <property name="hibernate.show_sql" value="false" />
          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
