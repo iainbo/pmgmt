@@ -7,32 +7,34 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
+    <title>Photographs from Scotland</title>
     <h:outputStylesheet name="common-style.css" library="css"/>
 </h:head>
 
     <h:body>
+        <h:form>
+            <div id="page">
 
-        <div id="page">
+                <div id="header">
+                    <ui:insert name="header">
+                        <ui:include src="/common/header.xhtml"/>
+                    </ui:insert>
+                </div>
 
-            <div id="header">
-                <ui:insert name="header">
-                    <ui:include src="/common/header.xhtml"/>
-                </ui:insert>
+                <!--<div id="content">
+                    <ui:insert name="content">
+                        <ui:include src="/common/content.xhtml"/>
+                    </ui:insert>
+                </div>
+
+                <div id="footer">
+                    <ui:insert name="footer">
+                        <ui:include src="/common/footer.xhtml"/>
+                    </ui:insert>
+                </div>-->
+
             </div>
-
-            <div id="content">
-                <ui:insert name="content">
-                    <ui:include src="/common/content.xhtml"/>
-                </ui:insert>
-            </div>
-
-            <div id="footer">
-                <ui:insert name="footer">
-                    <ui:include src="/common/footer.xhtml"/>
-                </ui:insert>
-            </div>
-
-        </div>
+        </h:form>
 
     </h:body>
 
