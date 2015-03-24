@@ -8,8 +8,6 @@ import javax.faces.context.FacesContext;
 
 public class MenuViewController {
 
-    private boolean loginStatus;
-
     public void save() {
         addMessage("Success", "Data saved");
     }
@@ -25,13 +23,5 @@ public class MenuViewController {
     public void addMessage(String summary, String detail) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-
-    public boolean isLoginStatus() {
-        return loginStatus;
-    }
-
-    public void setLoginStatus(boolean loginStatus) {
-        this.loginStatus = loginStatus;
     }
 }

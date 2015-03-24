@@ -7,8 +7,10 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 
-
+<h:form>
             <p:growl id="messages"/>
+
+            <h:outputText value="Photographs From Scotland"/>
 
             <p:menubar>
                 <p:submenu label="File" icon="ui-icon-document">
@@ -21,12 +23,12 @@
                     <p:menuitem value="Quit" url="#" />
                 </p:submenu>
 
-                <p:submenu label="Edit" icon="ui-icon-pencil">
-                    <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-                    <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+                <p:submenu label="Account" icon="ui-icon-pencil">
+                    <p:menuitem value="Create Account" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                    <p:menuitem value="Manage Account" url="#" icon="ui-icon-arrowreturnthick-1-e" />
                 </p:submenu>
 
-                <p:submenu label="Help" icon="ui-icon-help">
+                <p:submenu label="Administration" icon="ui-icon-help">
                     <p:menuitem value="Contents" url="#" />
                     <p:submenu label="Search" icon="ui-icon-search">
                         <p:submenu label="Text">
@@ -46,19 +48,25 @@
                     </p:submenu>
                 </p:submenu>
 
+                <p:submenu label="Shopping Basket">
+                    <p:menuitem value="View Basket" icon="fa fa-shopping-cart"/>
+                </p:submenu>
+
                 <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
 
                 <f:facet name="options">
                     <p:inputText style="margin-right:10px" placeholder="Search"/>
-                    <p:menuButton value="Login"
-                                  rendered="#{!menuViewController.loginStatus}">
+
+                    <p:menuButton value="Login" disabled="#{loginController.loginStatus}">
 
                         <p:menuitem>
                             <p:panelGrid columns="2">
                                 <h:outputText value="Username" style="font-size: 10px"/>
-                                <p:inputText style="width: 100px"/>
+                                <p:inputText style="width: 100px" value="#{loginController.userName}"/>
+
                                 <h:outputText value="Password" style="font-size: 10px"/>
-                                <p:password style="width: 100px"/>
+                                <p:password style="width: 100px" id="userPassword"
+                                            value="#{loginController.password}"/>
                             </p:panelGrid>
                         </p:menuitem>
 
@@ -69,5 +77,7 @@
 
                 </f:facet>
             </p:menubar>
+
+</h:form>
 
 </html>
