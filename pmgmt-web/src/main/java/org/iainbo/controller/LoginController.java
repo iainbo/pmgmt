@@ -51,7 +51,7 @@ public class LoginController {
         String enteredUserName = getUserName();
         String enteredPassword = getPassword();
         System.out.println("Username is: " + enteredUserName);
-        if(authenticationService.getUser(enteredUserName) != null){
+        if(authenticationService.verifyUserExisits(enteredUserName)){
             UserDTO userDTO = authenticationService.getUser(enteredUserName);
             if(userDTO.getPassword().equals(enteredPassword)){
                 userAuthenticated = true;
