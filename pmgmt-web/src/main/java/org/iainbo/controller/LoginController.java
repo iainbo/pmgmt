@@ -15,7 +15,6 @@ public class LoginController {
     @Inject
     AuthenticationService authenticationService;
 
-    //variables only added till the rest of the structure is in place
     private boolean loginStatus;
 
     private String userName;
@@ -57,7 +56,7 @@ public class LoginController {
                 userAuthenticated = true;
             }
         }
-        System.out.println(userAuthenticated);
+        System.out.println("User is Authenticated: " + userAuthenticated);
         return userAuthenticated;
     }
 }
