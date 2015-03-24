@@ -13,6 +13,9 @@
       <element id="archive" name="pmgmt-ejb.jar">
         <element id="artifact" artifact-name="pmgmt-ejb:ejb exploded" />
       </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-jdk8/1.0.0.Beta3/mapstruct-jdk8-1.0.0.Beta3.jar" output-file-name="mapstruct-jdk8.jar" />
+      </element>
     </root>
   </artifact>
 </component>

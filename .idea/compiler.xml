@@ -24,8 +24,15 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="pmgmt-ear" />
-        <module name="pmgmt-ejb" />
         <module name="pmgmt-web" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-ejb" enabled="true">
+        <sourceOutputDir name="target/generated-sources" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processor name="org.mapstruct.ap.MappingProcessor" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-ejb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

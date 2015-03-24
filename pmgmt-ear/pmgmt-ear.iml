@@ -19,5 +19,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pmgmt-web" />
     <orderEntry type="module" module-name="pmgmt-ejb" />
+    <orderEntry type="library" name="Maven: org.mapstruct:mapstruct-jdk8:1.0.0.Beta3" level="project" />
   </component>
 </module>
