@@ -15,7 +15,7 @@
       <!--<jta-data-source>java:jboss/datasources/pmgmtDS</jta-data-source>-->
        <jta-data-source>java:jboss/datasource/pmgmt</jta-data-source>
 
-       <class>org.iainbo.model.Member</class>
+       <class>org.iainbo.entities.User</class>
 
 
       <properties>

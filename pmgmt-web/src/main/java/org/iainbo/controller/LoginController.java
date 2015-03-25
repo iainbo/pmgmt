@@ -54,9 +54,13 @@ public class LoginController {
             UserDTO userDTO = authenticationService.getUser(enteredUserName);
             if(userDTO.getPassword().equals(enteredPassword)){
                 userAuthenticated = true;
+                System.out.println("User is Authenticated: " + userAuthenticated);
+            }else {
+                System.out.println("Password is incorrect!");
             }
+        }else{
+            System.out.println("User does not exist!");
         }
-        System.out.println("User is Authenticated: " + userAuthenticated);
         return userAuthenticated;
     }
 }
