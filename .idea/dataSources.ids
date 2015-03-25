@@ -7,25 +7,36 @@
     </database-info>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
     <schema name="" catalog="pmgmt"/>
-    <table name="Member" schema="" catalog="pmgmt" type="TABLE">
-      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
-      <column name="phone_number" sqlType="VARCHAR" precision="12" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <index name="UK_9qv6yhjqm8iafto8qk452gx8h" unique="true" columns="email"/>
+    <table name="ROLES" schema="" catalog="pmgmt" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="DATE_CREATED" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="ROLE" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FK_96r56h7mdfan1py247a2k80k" table="USERROLES" schema="" catalog="pmgmt" columns="roleID"/>
+      <index name="UK_7nrxu2qfipnfacptqa3vo0ft3" unique="true" columns="ROLE"/>
+    </table>
+    <table name="USERROLES" schema="" catalog="pmgmt" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="roleID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="userID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_96r56h7mdfan1py247a2k80k" columns="roleID" ref-table="ROLES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_n28bx2dhmxukisdbhjcpa94a8" columns="userID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_96r56h7mdfan1py247a2k80k" unique="false" columns="roleID"/>
+      <index name="FK_n28bx2dhmxukisdbhjcpa94a8" unique="false" columns="userID"/>
     </table>
     <table name="USERS" schema="" catalog="pmgmt" type="TABLE">
-      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="first_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="phone_number" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="surname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="user_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <index name="UK_kvhwbk5lhqt930aim14xscy6t" unique="true" columns="user_name"/>
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="DATE_CREATED" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="EMAIL" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="FIRST_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PHONE_NUMBER" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SURNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="USER_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FK_n28bx2dhmxukisdbhjcpa94a8" table="USERROLES" schema="" catalog="pmgmt" columns="userID"/>
+      <index name="UK_21q8fvry4wix31petp1awxsx9" unique="true" columns="USER_NAME"/>
     </table>
   </data-source>
 </component>

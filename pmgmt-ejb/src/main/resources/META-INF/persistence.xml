@@ -16,6 +16,8 @@
        <jta-data-source>java:jboss/datasource/pmgmt</jta-data-source>
 
        <class>org.iainbo.entities.User</class>
+       <class>org.iainbo.entities.Role</class>
+       <class>org.iainbo.entities.UserRole</class>
 
 
       <properties>

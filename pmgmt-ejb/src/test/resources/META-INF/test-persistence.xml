@@ -32,6 +32,9 @@
        <jta-data-source>java:/datasource/pmgmt</jta-data-source>
 
        <class>org.iainbo.entities.User</class>
+       <class>org.iainbo.entities.Role</class>
+       <class>org.iainbo.entities.UserRole</class>
+
       <properties>
          <!-- Properties for Hibernate -->
          <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
