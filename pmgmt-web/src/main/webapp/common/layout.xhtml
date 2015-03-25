@@ -22,38 +22,6 @@
                     </ui:insert>
                 </div>
 
-                <h:form id="loginForm">
-                <p:growl id="msg" showDetail="true" life="3000" />
-                <p:panel header="Login" style="width: 360px;">
-
-                    <h:panelGrid id="loginPanel" columns="2">
-
-                        <h:outputText value="Username" />
-
-                        <p:inputText id="username" value="#{loginController.userName}"/>
-
-                        <p:spacer></p:spacer>
-
-                        <p:message for="username"/>
-
-                        <h:outputText value="Password" />
-
-                        <p:password id="password" value="#{loginController.password}"  feedback="false"/>
-
-                        <p:spacer></p:spacer>
-
-                        <p:message for="password"/>
-
-                        <p:spacer></p:spacer>
-
-                        <p:commandButton action="#{loginController.checkUserDetails}" value="Login" update="loginForm" ajax="true"/>
-
-                    </h:panelGrid>
-
-                </p:panel>
-
-            </h:form>
-
                 <!--<div id="content">
                     <ui:insert name="content">
                         <ui:include src="/common/content.xhtml"/>

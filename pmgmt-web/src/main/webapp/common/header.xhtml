@@ -57,23 +57,29 @@
                 <f:facet name="options">
                     <p:inputText style="margin-right:10px" placeholder="Search"/>
 
-                    <p:menuButton value="Login" disabled="#{loginController.loginStatus}">
+                    <p:menuitem>
+                        <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                            <p:graphicImage name="/img/login.png" />
+                        </h:outputLink>
 
-                        <p:menuitem>
-                            <p:panelGrid columns="2">
-                                <h:outputText value="Username" style="font-size: 10px"/>
-                                <p:inputText style="width: 100px" value="#{loginController.userName}"/>
+                        <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
-                                <h:outputText value="Password" style="font-size: 10px"/>
-                                <p:password style="width: 100px" id="userPassword"
-                                            value="#{loginController.password}"/>
-                            </p:panelGrid>
-                        </p:menuitem>
+                        <p:dialog header="Login" widgetVar="dlg" resizable="false">
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputLabel for="username" value="Username:" />
+                                <p:inputText id="username" value="#{loginController.userName}" required="true" label="username" />
 
-                        <p:menuitem>
-                            <p:commandButton value="Login"/>
-                        </p:menuitem>
-                    </p:menuButton>
+                                <h:outputLabel for="password" value="Password:" />
+                                <p:password id="password" value="#{loginController.password}" required="true" label="password" />
+
+                                <f:facet name="footer">
+                                    <p:commandButton value="Login" update="growl" actionListener="#{loginController.checkUserDetails}"
+                                                     oncomplete="handleLoginRequest(xhr, status, args)" />
+                                </f:facet>
+                            </h:panelGrid>
+                        </p:dialog>
+
+                    </p:menuitem>
 
                 </f:facet>
             </p:menubar>

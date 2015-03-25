@@ -4,8 +4,10 @@ package org.iainbo.controller;
 import org.iainbo.dto.UserDTO;
 import org.iainbo.service.AuthenticationService;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 @ManagedBean(name = "loginController")
@@ -45,22 +47,26 @@ public class LoginController {
         this.password = password;
     }
 
-    public boolean checkUserDetails(){
-        boolean userAuthenticated = false;
+    public void checkUserDetails(){
+
         String enteredUserName = getUserName();
         String enteredPassword = getPassword();
         System.out.println("Username is: " + enteredUserName);
+
         if(authenticationService.verifyUserExisits(enteredUserName)){
             UserDTO userDTO = authenticationService.getUser(enteredUserName);
             if(userDTO.getPassword().equals(enteredPassword)){
-                userAuthenticated = true;
-                System.out.println("User is Authenticated: " + userAuthenticated);
+                addGrowlMessage("User is Authenticated!");
             }else {
-                System.out.println("Password is incorrect!");
+                addGrowlMessage("Password is incorrect!");
             }
         }else{
-            System.out.println("User does not exist!");
+            addGrowlMessage("User does not exist!");
         }
-        return userAuthenticated;
+    }
+
+    public void addGrowlMessage(String newMessage){
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, newMessage,  null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }
