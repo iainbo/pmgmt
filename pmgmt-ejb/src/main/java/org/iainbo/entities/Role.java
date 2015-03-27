@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "ROLES")
-public class Role implements Serializable{
+public class Role extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

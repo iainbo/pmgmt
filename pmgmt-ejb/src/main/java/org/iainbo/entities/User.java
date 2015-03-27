@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "USERS")
-public class User implements Serializable{
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

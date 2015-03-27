@@ -5,8 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@Table (name = "USERROLES")
-public class UserRole implements Serializable{
+@Table(name = "USER_ROLES", uniqueConstraints = @UniqueConstraint(columnNames = {"USER_ID", "ROLE_ID"}))
+public class UserRole extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,12 +14,12 @@ public class UserRole implements Serializable{
     @NotNull
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "userID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "roleID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ROLE_ID")
     private Role role;
 
     public Long getId() {
