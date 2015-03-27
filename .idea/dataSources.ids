@@ -12,18 +12,8 @@
       <column name="DATE_CREATED" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="ROLE" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <exported-key name="FK_96r56h7mdfan1py247a2k80k" table="USERROLES" schema="" catalog="pmgmt" columns="roleID"/>
+      <exported-key name="FK_6oxkx373ix67kf0lg3iyvewqd" table="USER_ROLES" schema="" catalog="pmgmt" columns="ROLE_ID"/>
       <index name="UK_7nrxu2qfipnfacptqa3vo0ft3" unique="true" columns="ROLE"/>
-    </table>
-    <table name="USERROLES" schema="" catalog="pmgmt" type="TABLE">
-      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="roleID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-      <column name="userID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-      <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="FK_96r56h7mdfan1py247a2k80k" columns="roleID" ref-table="ROLES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_n28bx2dhmxukisdbhjcpa94a8" columns="userID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_96r56h7mdfan1py247a2k80k" unique="false" columns="roleID"/>
-      <index name="FK_n28bx2dhmxukisdbhjcpa94a8" unique="false" columns="userID"/>
     </table>
     <table name="USERS" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -35,8 +25,18 @@
       <column name="SURNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="USER_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <exported-key name="FK_n28bx2dhmxukisdbhjcpa94a8" table="USERROLES" schema="" catalog="pmgmt" columns="userID"/>
+      <exported-key name="FK_isqniqpjxwcvf0iip6l1qy0r2" table="USER_ROLES" schema="" catalog="pmgmt" columns="USER_ID"/>
       <index name="UK_21q8fvry4wix31petp1awxsx9" unique="true" columns="USER_NAME"/>
+    </table>
+    <table name="USER_ROLES" schema="" catalog="pmgmt" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="ROLE_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <foreign-key name="FK_6oxkx373ix67kf0lg3iyvewqd" columns="ROLE_ID" ref-table="ROLES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_isqniqpjxwcvf0iip6l1qy0r2" columns="USER_ID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="UK_bn7eio710s65m181h4y6pyw36" unique="true" columns="USER_ID,ROLE_ID"/>
+      <index name="FK_6oxkx373ix67kf0lg3iyvewqd" unique="false" columns="ROLE_ID"/>
     </table>
   </data-source>
 </component>
