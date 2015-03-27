@@ -23,22 +23,34 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="pmgmt-controller" />
+        <module name="pmgmt-dao" />
+        <module name="pmgmt-dto" />
         <module name="pmgmt-ear" />
+        <module name="pmgmt-ejb" />
+        <module name="pmgmt-entities" />
+        <module name="pmgmt-view" />
         <module name="pmgmt-web" />
       </profile>
-      <profile default="false" name="Annotation profile for pmgmt-ejb" enabled="true">
+      <profile default="false" name="Annotation profile for pmgmt-services" enabled="true">
         <sourceOutputDir name="target/generated-sources" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processor name="org.mapstruct.ap.MappingProcessor" />
         <processorPath useClasspath="true" />
-        <module name="pmgmt-ejb" />
+        <module name="pmgmt-services" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="pmgmt" target="1.7" />
+      <module name="pmgmt-controller" target="1.7" />
+      <module name="pmgmt-dao" target="1.7" />
+      <module name="pmgmt-dto" target="1.7" />
       <module name="pmgmt-ear" target="1.7" />
       <module name="pmgmt-ejb" target="1.7" />
+      <module name="pmgmt-entities" target="1.7" />
+      <module name="pmgmt-services" target="1.7" />
+      <module name="pmgmt-view" target="1.7" />
       <module name="pmgmt-web" target="1.7" />
     </bytecodeTargetLevel>
   </component>

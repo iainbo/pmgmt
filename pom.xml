@@ -33,9 +33,14 @@
         </license>
     </licenses>
     <modules>
-        <module>pmgmt-ejb</module>
         <module>pmgmt-web</module>
         <module>pmgmt-ear</module>
+        <module>pmgmt-entities</module>
+        <module>pmgmt-dto</module>
+        <module>pmgmt-dao</module>
+        <module>pmgmt-services</module>
+        <module>pmgmt-controller</module>
+        <module>pmgmt-view</module>
     </modules>
 
     <properties>
@@ -73,12 +78,6 @@
 
             <!-- Define the version of the EJB jar so that we don't need 
                 to repeat ourselves in every module -->
-            <dependency>
-                <groupId>org.iainbo</groupId>
-                <artifactId>pmgmt-ejb</artifactId>
-                <version>${project.version}</version>
-                <type>ejb</type>
-            </dependency>
             
             <!-- Define the version of the WAR so that we don't need to repeat 
                 ourselves in every module -->

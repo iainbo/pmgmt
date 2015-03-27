@@ -2,8 +2,14 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmgmt-controller" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmgmt-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmgmt-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pmgmt-ear" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pmgmt-ejb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmgmt-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmgmt-services" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pmgmt-view" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pmgmt-web" charset="UTF-8" />
   </component>
 </project>

@@ -3,8 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/pmgmt.iml" filepath="$PROJECT_DIR$/pmgmt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmgmt-controller/pmgmt-controller.iml" filepath="$PROJECT_DIR$/pmgmt-controller/pmgmt-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmgmt-dao/pmgmt-dao.iml" filepath="$PROJECT_DIR$/pmgmt-dao/pmgmt-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmgmt-dto/pmgmt-dto.iml" filepath="$PROJECT_DIR$/pmgmt-dto/pmgmt-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/pmgmt-ear/pmgmt-ear.iml" filepath="$PROJECT_DIR$/pmgmt-ear/pmgmt-ear.iml" />
       <module fileurl="file://$PROJECT_DIR$/pmgmt-ejb/pmgmt-ejb.iml" filepath="$PROJECT_DIR$/pmgmt-ejb/pmgmt-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmgmt-entities/pmgmt-entities.iml" filepath="$PROJECT_DIR$/pmgmt-entities/pmgmt-entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmgmt-services/pmgmt-services.iml" filepath="$PROJECT_DIR$/pmgmt-services/pmgmt-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pmgmt-view/pmgmt-view.iml" filepath="$PROJECT_DIR$/pmgmt-view/pmgmt-view.iml" />
       <module fileurl="file://$PROJECT_DIR$/pmgmt-web/pmgmt-web.iml" filepath="$PROJECT_DIR$/pmgmt-web/pmgmt-web.iml" />
     </modules>
   </component>

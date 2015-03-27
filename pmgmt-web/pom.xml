@@ -26,13 +26,18 @@
 
    <dependencies>
 
-      <!-- Dependency on the EJB module so we can use it's services if needed -->
-      <dependency>
-         <groupId>org.iainbo</groupId>
-         <artifactId>pmgmt-ejb</artifactId>
-         <type>ejb</type>
-         <scope>provided</scope>
-      </dependency>
+      <!-- Dependency on Controller and View/Model modules -->
+       <dependency>
+           <groupId>org.iainbo</groupId>
+           <artifactId>pmgmt-controller</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency>
+
+       <dependency>
+           <groupId>org.iainbo</groupId>
+           <artifactId>pmgmt-view</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency>
 
       <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss WildFly -->
       <dependency>
