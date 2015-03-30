@@ -27,7 +27,6 @@
         <module name="pmgmt-dao" />
         <module name="pmgmt-dto" />
         <module name="pmgmt-ear" />
-        <module name="pmgmt-ejb" />
         <module name="pmgmt-entities" />
         <module name="pmgmt-view" />
         <module name="pmgmt-web" />
