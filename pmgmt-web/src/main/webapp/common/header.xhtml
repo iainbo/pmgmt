@@ -70,27 +70,28 @@
                     <p:inputText style="margin-right:10px" placeholder="Search"/>
 
                     <p:menuitem>
-                        <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
-                            <p:graphicImage name="/img/login.png" />
-                        </h:outputLink>
+                        <h:form id="loginForm" onsubmit="document.loginForm.action = 'j_security_check';">
+                            <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+                                <p:graphicImage name="/img/login.png" />
+                            </h:outputLink>
 
-                        <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+                            <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
-                        <p:dialog header="Login" widgetVar="dlg" resizable="false">
-                            <h:panelGrid columns="2" cellpadding="5">
-                                <h:outputLabel for="username" value="Username:" />
-                                <p:inputText id="username" value="#{loginController.userName}" required="true" label="username" />
+                            <p:dialog header="Login" widgetVar="dlg" resizable="false">
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <h:outputLabel for="username" value="Username:" />
+                                    <p:inputText id="username" name="j_username" required="true" label="username" />
 
-                                <h:outputLabel for="password" value="Password:" />
-                                <p:password id="password" value="#{loginController.password}" required="true" label="password" />
-
-                                <f:facet name="footer">
-                                    <p:commandButton value="Login" update="growl" actionListener="#{loginController.checkUserDetails}"
-                                                     oncomplete="handleLoginRequest(xhr, status, args)" />
-                                </f:facet>
-                            </h:panelGrid>
-                        </p:dialog>
-
+                                    <h:outputLabel for="password" value="Password:" />
+                                    <p:password id="password" name="j_password" size="15" required="true" label="password" />
+                                    <h:commandButton value="Login"/>
+                                    <f:facet name="footer">
+                                        <!--<p:commandButton value="Login" update="growl"
+                                                         oncomplete="handleLoginRequest(xhr, status, args)" />-->
+                                    </f:facet>
+                                </h:panelGrid>
+                            </p:dialog>
+                        </h:form>
                     </p:menuitem>
 
                 </f:facet>
