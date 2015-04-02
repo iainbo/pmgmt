@@ -70,9 +70,4 @@ public class LoginController {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
-    public void currentUser(){
-        String currentUser = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
-        setUserName(currentUser);
-        System.out.println(currentUser);
-    }
 }
