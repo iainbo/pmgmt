@@ -2,7 +2,7 @@ package org.iainbo.controller;
 
 
 import org.iainbo.dto.UserDTO;
-import org.iainbo.service.AuthenticationService;
+import org.iainbo.pmgmt.service.AuthenticationService;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -68,5 +68,11 @@ public class LoginController {
     public void addGrowlMessage(String newMessage){
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, newMessage,  null);
         FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+
+    public void currentUser(){
+        String currentUser = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+        setUserName(currentUser);
+        System.out.println(currentUser);
     }
 }

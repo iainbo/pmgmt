@@ -1,4 +1,4 @@
-package org.iainbo.service.mapper;
+package org.iainbo.pmgmt.service.mapper;
 
 import org.iainbo.dto.UserDTO;
 import org.iainbo.entities.User;

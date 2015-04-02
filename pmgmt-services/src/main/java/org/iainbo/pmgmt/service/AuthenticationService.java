@@ -1,17 +1,14 @@
-package org.iainbo.service;
+package org.iainbo.pmgmt.service;
 
 import org.iainbo.dao.UserDAO;
 import org.iainbo.dto.UserDTO;
 import org.iainbo.entities.User;
-import org.iainbo.service.mapper.UserMapper;
-import org.mapstruct.factory.Mappers;
+import org.iainbo.pmgmt.service.mapper.UserMapper;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Stateless
 @Named
