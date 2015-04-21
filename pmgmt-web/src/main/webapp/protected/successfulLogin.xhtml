@@ -4,14 +4,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        xmlns:p="http://primefaces.org/ui">
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <title>Succesful Login</title>
+        <title>Photographs from Scotland</title>
     </h:head>
 
-    <body>
-        <p:panelGrid>
-            <p:outputLabel value="Congratulations, you have logged in!"/>
-        </p:panelGrid>
-    </body>
+    <h:body>
+
+        <div>
+            #{loginController.getCurrentlyLoggedInUser()}
+            <p>Hello #{userView.fullName}</p>
+        </div>
+
+        <div id="page">
+
+            <div id="header">
+                <ui:insert name="header">
+                    <ui:include src="/protected/header.xhtml"/>
+                </ui:insert>
+            </div>
+
+        </div>
+
+
+    </h:body>
+
 </html>

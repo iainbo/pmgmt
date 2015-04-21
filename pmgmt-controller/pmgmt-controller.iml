@@ -26,9 +26,10 @@
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.1-GA" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
-    <orderEntry type="module" module-name="pmgmt-dto" />
     <orderEntry type="module" module-name="pmgmt-dao" />
     <orderEntry type="library" name="Maven: org.mapstruct:mapstruct-jdk8:1.0.0.Beta3" level="project" />
+    <orderEntry type="module" module-name="pmgmt-dto" />
+    <orderEntry type="module" module-name="pmgmt-view" />
     <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.1.11" level="project" />
     <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.1" level="project" />

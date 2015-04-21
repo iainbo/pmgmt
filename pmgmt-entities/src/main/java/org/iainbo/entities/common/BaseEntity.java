@@ -1,4 +1,4 @@
-package org.iainbo.entities;
+package org.iainbo.entities.common;
 
 import java.io.Serializable;
 

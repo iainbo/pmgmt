@@ -1,8 +1,9 @@
-package org.iainbo.entities;
+package org.iainbo.entities.user;
+
+import org.iainbo.entities.common.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "USER_ROLES", uniqueConstraints = @UniqueConstraint(columnNames = {"USER_ID", "ROLE_ID"}))

@@ -2,7 +2,7 @@ package org.iainbo.pmgmt.service;
 
 import org.iainbo.dao.UserDAO;
 import org.iainbo.dto.UserDTO;
-import org.iainbo.entities.User;
+import org.iainbo.entities.user.User;
 import org.iainbo.pmgmt.service.mapper.UserMapper;
 
 import javax.ejb.Stateless;

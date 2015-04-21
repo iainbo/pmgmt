@@ -1,9 +1,10 @@
-package org.iainbo.entities;
+package org.iainbo.entities.user;
 
+
+import org.iainbo.entities.common.BaseEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity

@@ -1,11 +1,9 @@
 package org.iainbo.dao;
 
-import org.iainbo.entities.User;
+import org.iainbo.entities.user.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.List;
 

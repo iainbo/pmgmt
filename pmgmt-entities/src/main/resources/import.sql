@@ -1,6 +1,6 @@
 -- This file us used to load seed data into the database using SQL statements on Application build
 
-INSERT INTO USERS(user_name, password, first_name, surname, email, phone_number, date_created) VALUES('admin', 'jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=', 'Admin', 'User', 'test@email.com', '123456789', sysdate());
+INSERT INTO USERS(user_name, password, first_name, surname, email, phone_number, date_created) VALUES('admin', 'jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=', 'Administrator', 'User', 'test@email.com', '123456789', sysdate());
 
 INSERT INTO USERS(user_name, password, first_name, surname, email, phone_number, date_created) VALUES('test', 'XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg=', 'Admin', 'User', 'test@email.com', '123456789', sysdate());
 

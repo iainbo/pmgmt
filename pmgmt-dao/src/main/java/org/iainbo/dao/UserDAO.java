@@ -1,6 +1,6 @@
 package org.iainbo.dao;
 
-import org.iainbo.entities.User;
+import org.iainbo.entities.user.User;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

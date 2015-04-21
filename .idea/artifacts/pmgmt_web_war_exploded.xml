@@ -26,13 +26,13 @@
           <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.4.Final" />
           <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.Final" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
-          <element id="archive" name="pmgmt-dto-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="pmgmt-dto" />
-          </element>
           <element id="archive" name="pmgmt-dao-1.0-SNAPSHOT.jar">
             <element id="module-output" name="pmgmt-dao" />
           </element>
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct-jdk8:1.0.0.Beta3" />
+          <element id="archive" name="pmgmt-dto-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="pmgmt-dto" />
+          </element>
           <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.1.11" />
           <element id="library" level="project" name="Maven: javax:javaee-api:7.0" />
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.1" />

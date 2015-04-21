@@ -6,25 +6,25 @@
         http://java.sun.com/xml/ns/persistence
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
    <persistence-unit name="pmgmt-persistenceUnit" transaction-type="JTA">
-      <!-- If you are running in a production environment, add a managed 
-         data source, this example data source is just for development and testing! -->
-      <!-- The datasource is deployed as <EAR>/META-INF/pmgmt-ds.xml, you
-         can find it in the source at ear/src/main/application/META-INF/pmgmt-ds.xml -->
 
-       <!--original data source on line 15, lines 26 and 27 added as well-->
-      <!--<jta-data-source>java:jboss/datasources/pmgmtDS</jta-data-source>-->
+       <!--The datasource is to be used by Hibernate-->
        <jta-data-source>java:jboss/datasource/pmgmt</jta-data-source>
 
-       <class>org.iainbo.entities.User</class>
-       <class>org.iainbo.entities.Role</class>
-       <class>org.iainbo.entities.UserRole</class>
+       <!--The classes to be persisted as database tables-->
+       <class>org.iainbo.entities.user.User</class>
+       <class>org.iainbo.entities.user.Role</class>
+       <class>org.iainbo.entities.user.UserRole</class>
 
 
       <properties>
          <!-- Properties for Hibernate -->
+          <!-- Creates new database tables based on the classes above on each deployment -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
-         <property name="hibernate.show_sql" value="false" />
+          <!-- Whether or not sql statements are shown in WildFly, used for troubleshooting -->
+          <property name="hibernate.show_sql" value="false" />
+          <!-- The database driver -->
          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+          <!-- The SQL dialect used in the database -->
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
       </properties>
    </persistence-unit>
