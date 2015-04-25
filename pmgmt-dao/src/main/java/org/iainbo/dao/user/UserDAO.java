@@ -1,5 +1,6 @@
-package org.iainbo.dao;
+package org.iainbo.dao.user;
 
+import org.iainbo.dao.BaseDAO;
 import org.iainbo.entities.user.User;
 
 import javax.ejb.Stateless;
@@ -8,7 +9,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 @Stateless
-public class UserDAO extends BaseDAO<User>{
+public class UserDAO extends BaseDAO<User> {
     public static final String FIND_USER_BY_USERNAME = "select u from User u where u.userName = :userName";
 
     public UserDAO() {

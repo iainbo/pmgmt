@@ -10,10 +10,6 @@ import java.util.Date;
 @Table(name = "USERS")
 public class User extends BaseEntity {
 
-    public User(){
-
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "ID")

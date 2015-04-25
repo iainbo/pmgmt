@@ -14,6 +14,9 @@
        <class>org.iainbo.entities.user.User</class>
        <class>org.iainbo.entities.user.Role</class>
        <class>org.iainbo.entities.user.UserRole</class>
+       <class>org.iainbo.entities.gallery.Gallery</class>
+       <class>org.iainbo.entities.gallery.GalleryMetadata</class>
+       <class>org.iainbo.entities.image.Image</class>
 
 
       <properties>
