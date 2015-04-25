@@ -13,7 +13,7 @@ public abstract class BaseDAO<T> implements Serializable{
     protected EntityManager entityManager;
     private Class<T> entityClass;
 
-    public BaseDAO(Class<User> entityClass) {
+    public BaseDAO(Class<T> entityClass) {
         this.entityClass = (Class<T>) entityClass;
     }
 
