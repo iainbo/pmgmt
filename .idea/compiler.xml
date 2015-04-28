@@ -23,21 +23,56 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="pmgmt-controller" />
-        <module name="pmgmt-dao" />
-        <module name="pmgmt-dto" />
         <module name="pmgmt-ear" />
-        <module name="pmgmt-entities" />
-        <module name="pmgmt-view" />
-        <module name="pmgmt-web" />
       </profile>
       <profile default="false" name="Annotation profile for pmgmt-services" enabled="true">
-        <sourceOutputDir name="target/generated-sources" />
+        <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <processor name="org.mapstruct.ap.MappingProcessor" />
         <processorPath useClasspath="true" />
         <module name="pmgmt-services" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-controller" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-controller" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-web" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-web" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-entities" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-entities" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-view" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-view" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-dao" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-dao" />
+      </profile>
+      <profile default="false" name="Annotation profile for pmgmt-dto" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="pmgmt-dto" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

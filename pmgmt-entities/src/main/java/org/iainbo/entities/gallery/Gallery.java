@@ -21,7 +21,7 @@ public class Gallery extends BaseEntity {
 
     @NotNull
     @Column(unique = true, name = "NAME")
-    private String name;
+    private String galleryName;
 
     @NotNull
     @Column(name = "DATE_CREATED")
@@ -50,12 +50,12 @@ public class Gallery extends BaseEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getGalleryName() {
+        return galleryName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGalleryName(String name) {
+        this.galleryName = name;
     }
 
     public Date getDateCreated() {

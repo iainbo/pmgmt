@@ -18,6 +18,7 @@ public class UserDAO extends BaseDAO<User> {
 
     public UserDAO(EntityManager entityManager) {
         super(User.class);
+        this.entityManager = entityManager;
     }
 
     public User findByUsername(String userName) throws NoResultException{

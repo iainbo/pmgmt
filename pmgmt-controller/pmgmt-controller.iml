@@ -30,6 +30,7 @@
     <orderEntry type="library" name="Maven: org.mapstruct:mapstruct-jdk8:1.0.0.Beta3" level="project" />
     <orderEntry type="module" module-name="pmgmt-dto" />
     <orderEntry type="module" module-name="pmgmt-view" />
+    <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.1.11" level="project" />
     <orderEntry type="library" name="Maven: javax:javaee-api:7.0" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.1" level="project" />

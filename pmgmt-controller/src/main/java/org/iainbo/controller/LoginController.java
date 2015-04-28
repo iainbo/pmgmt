@@ -3,10 +3,9 @@ package org.iainbo.controller;
 
 import org.iainbo.dto.UserDTO;
 import org.iainbo.pmgmt.service.AuthenticationService;
-import org.iainbo.pmgmt.view.User.UserView;
+import org.iainbo.pmgmt.view.user.UserView;
 
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
