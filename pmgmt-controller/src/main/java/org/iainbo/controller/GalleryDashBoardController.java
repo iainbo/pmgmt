@@ -1,5 +1,8 @@
-package org.iainbo.pmgmt.view.gallery;
+package org.iainbo.controller;
 
+import org.iainbo.dto.GalleryDTO;
+import org.iainbo.entities.gallery.Gallery;
+import org.iainbo.pmgmt.service.gallery.GalleryService;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.DashboardReorderEvent;
 import org.primefaces.event.ToggleEvent;
@@ -13,20 +16,28 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean
 @ViewScoped
-public class GalleryDashBoardView implements Serializable{
+public class GalleryDashBoardController implements Serializable{
+
+    @Inject
+    GalleryService galleryService;
 
     private DashboardModel model;
 
     @PostConstruct
     public void init(){
         model = new DefaultDashboardModel();
+
         DashboardColumn column1 = new DefaultDashboardColumn();
         DashboardColumn column2 = new DefaultDashboardColumn();
         DashboardColumn column3 = new DefaultDashboardColumn();
+        DashboardColumn column4 = new DefaultDashboardColumn();
 
         column1.addWidget("sports");
         column1.addWidget("finance");
@@ -39,6 +50,15 @@ public class GalleryDashBoardView implements Serializable{
         model.addColumn(column1);
         model.addColumn(column2);
         model.addColumn(column3);
+
+        List<GalleryDTO> galleryDTOs = getGalleries();
+        if(!galleryDTOs.isEmpty()){
+            for(int i=0; i<galleryDTOs.size(); i++){
+                String name = "Gallery" + i;
+                column4.addWidget(name);
+            }
+        }
+        model.addColumn(column4);
     }
 
     public void handleReorder(DashboardReorderEvent event) {
@@ -68,6 +88,11 @@ public class GalleryDashBoardView implements Serializable{
 
     public DashboardModel getModel() {
         return model;
+    }
+
+    public List<GalleryDTO> getGalleries(){
+        List<GalleryDTO> allAvailableGalleries = galleryService.getAllAvailableGalleries();
+        return  allAvailableGalleries;
     }
 
 }

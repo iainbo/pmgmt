@@ -40,6 +40,9 @@ public class Gallery extends BaseEntity {
     @Transient
     private List<Image> images;
 
+    @Column(name = "THUMBNAIL", columnDefinition = "mediumblob")
+    private byte[] thumbnail;
+
     @Override
     public Long getId() {
         return id;
@@ -88,5 +91,13 @@ public class Gallery extends BaseEntity {
 
     public void setImages(List<Image> images) {
         this.images = images;
+    }
+
+    public byte[] getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(byte[] thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

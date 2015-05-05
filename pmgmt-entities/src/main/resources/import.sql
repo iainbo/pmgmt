@@ -12,6 +12,11 @@ INSERT INTO USER_ROLES(ROLE_ID, USER_ID) VALUES ((SELECT ID FROM ROLES WHERE ROL
 
 INSERT INTO USER_ROLES(ROLE_ID, USER_ID) VALUES ((SELECT ID FROM ROLES WHERE ROLE = 'USER'), (SELECT ID FROM USERS WHERE USER_NAME = 'test'));
 
-INSERT INTO GALLERY(date_created, name, user_id) values (sysdate(), 'Test Gallery', (SELECT ID FROM USERS WHERE USER_NAME = 'ADMIN'));
+INSERT INTO GALLERY(date_created, name, user_id, thumbnail) values (sysdate(), 'Test Gallery 1', (SELECT ID FROM USERS WHERE USER_NAME = 'ADMIN'), LOAD_FILE('/Users/iainb/Public/thumbnail_example.jpg'));
 
-INSERT INTO GALLERY_METADATA(name, value, gallery_id) values ('Description', 'Test Gallery for testing', (SELECT ID FROM GALLERY WHERE NAME = 'Test Gallery'));
+INSERT INTO GALLERY_METADATA(name, value, gallery_id) values ('Description', 'Test Gallery 1 for testing', (SELECT ID FROM GALLERY WHERE NAME = 'Test Gallery 1'));
+
+INSERT INTO GALLERY(date_created, name, user_id) values (sysdate(), 'Test Gallery 2', (SELECT ID FROM USERS WHERE USER_NAME = 'ADMIN'));
+
+INSERT INTO GALLERY_METADATA(name, value, gallery_id) values ('Description', 'Test Gallery 2 for testing', (SELECT ID FROM GALLERY WHERE NAME = 'Test Gallery 2'));
+

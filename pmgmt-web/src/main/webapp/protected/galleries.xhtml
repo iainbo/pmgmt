@@ -10,28 +10,26 @@
     <h:form>
         <p:growl id="msgs" showDetail="true" />
 
-        <p:dashboard id="board" model="#{galleryDashBoardView.model}">
-            <p:ajax event="reorder" listener="#{galleryDashBoardView.handleReorder}" update="msgs" />
+        <p:dashboard id="board" model="#{galleryDashBoardController.model}">
+            <p:ajax event="reorder" listener="#{galleryDashBoardController.handleReorder}" update="msgs" />
 
             <p:panel id="sports" header="Sports">
                 <h:outputText value="Sports Content" />
             </p:panel>
 
-            <p:panel id="finance" header="Finance">
-                <h:outputText value="Finance Content" />
+            <p:panel id="Gallery0" header="#{galleryDashBoardController.galleries.get(0).galleryName}">
+                <h:outputText value="Gallery Thumbnail Goes here!"/>
+                <!--<h:graphicImage value="#{galleryDashBoardController.galleries.get(0).thumbnail}"/>-->
             </p:panel>
 
-            <p:panel id="lifestyle" header="Lifestyle">
-                <h:outputText value="Lifestyle Content"  />
+            <p:panel id="Gallery1" header="#{galleryDashBoardController.galleries.get(1).galleryName}">
+                <h:outputText value="Test 2"/>
             </p:panel>
 
-            <p:panel id="weather" header="Weather">
-                <h:outputText value="Weather Content" />
+            <p:panel id="Gallery2" header="#{galleryDashBoardController.galleries.get(2).galleryName}">
+                <h:outputText value="Test"/>
             </p:panel>
 
-            <p:panel id="politics" header="Politics">
-                <h:outputText value="Politics Content" />
-            </p:panel>
         </p:dashboard>
 
         <div style="clear:both" />

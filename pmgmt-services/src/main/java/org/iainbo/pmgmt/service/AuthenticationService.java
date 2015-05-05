@@ -35,8 +35,7 @@ public class AuthenticationService {
 
     public UserDTO getUser(String userName){
         User user = userDAO.findByUsername(userName);
-        UserDTO userDTO = new UserDTO();
-        userDTO = userMapper.userToUserDTO(user);
+        UserDTO userDTO = userMapper.userToUserDTO(user);
         return userDTO;
     }
 }
