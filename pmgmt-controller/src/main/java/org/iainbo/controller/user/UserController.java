@@ -2,10 +2,12 @@ package org.iainbo.controller.user;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
+import java.io.Serializable;
 
-@ManagedBean(name = "userController")
+@Named
 @SessionScoped
-public class UserController {
+public class UserController implements Serializable{
 
 
 }
