@@ -15,5 +15,6 @@
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.1" level="project" />
+    <orderEntry type="module" module-name="pmgmt-dto" />
   </component>
 </module>
