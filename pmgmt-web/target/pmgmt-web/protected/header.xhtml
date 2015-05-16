@@ -3,56 +3,61 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 
-<h:form>
-    <p:growl id="messages"/>
+    <div>
+        #{loginController.getCurrentlyLoggedInUser()}
+        <p>Hello #{userView.fullName}</p>
+    </div>
 
-    <p:menubar>
-        <p:menuitem value="Home" icon="ui-icon-home"/>
+    <h:form>
+        <p:growl id="messages"/>
 
-        <p:submenu label="Gallery" icon="ui-icon-document">
-            <p:submenu label="New" icon="ui-icon-contact">
-                <p:menuitem value="Project" url="#" />
-                <p:menuitem value="Other" url="#" />
-            </p:submenu>
-            <p:menuitem value="Open" url="#" />
-            <p:separator />
-            <p:menuitem value="Quit" url="#" />
-        </p:submenu>
+        <p:menubar>
+            <p:menuitem value="Home" icon="ui-icon-home" action="#{galleryDashBoardController.home}"/>
 
-        <p:submenu label="Account" icon="ui-icon-pencil">
-            <p:menuitem value="Create Account" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-            <p:menuitem value="Manage Account" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-        </p:submenu>
-
-        <p:submenu label="Administration" icon="ui-icon-help">
-            <p:menuitem value="Contents" url="#" />
-            <p:submenu label="Search" icon="ui-icon-search">
-                <p:submenu label="Text">
-                    <p:menuitem value="Workspace" url="#" />
+            <p:submenu label="Gallery" icon="ui-icon-document">
+                <p:submenu label="New" icon="ui-icon-contact">
+                    <p:menuitem value="Project" url="#" />
+                    <p:menuitem value="Other" url="#" />
                 </p:submenu>
-                <p:menuitem value="File" url="#" />
+                <p:menuitem value="Open" url="#" />
+                <p:separator />
+                <p:menuitem value="Quit" url="#" />
             </p:submenu>
-        </p:submenu>
 
-        <p:submenu label="Actions" icon="ui-icon-gear">
-            <p:submenu label="Ajax" icon="ui-icon-refresh">
-                <p:menuitem value="Save" actionListener="#{menuViewController.save}" icon="ui-icon-disk" update="messages"/>
-                <p:menuitem value="Update" actionListener="#{menuViewController.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+            <p:submenu label="Account" icon="ui-icon-pencil">
+                <p:menuitem value="Create Account" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                <p:menuitem value="Manage Account" url="#" icon="ui-icon-arrowreturnthick-1-e" />
             </p:submenu>
-            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-                <p:menuitem value="Delete" actionListener="#{menuViewController.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+
+            <p:submenu label="Administration" icon="ui-icon-help">
+                <p:menuitem value="Contents" url="#" />
+                <p:submenu label="Search" icon="ui-icon-search">
+                    <p:submenu label="Text">
+                        <p:menuitem value="Workspace" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="File" url="#" />
+                </p:submenu>
             </p:submenu>
-        </p:submenu>
 
-        <p:submenu label="Shopping Basket">
-            <p:menuitem value="View Basket" icon="fa fa-shopping-cart"/>
-        </p:submenu>
+            <p:submenu label="Actions" icon="ui-icon-gear">
+                <p:submenu label="Ajax" icon="ui-icon-refresh">
+                    <p:menuitem value="Save" actionListener="#{menuViewController.save}" icon="ui-icon-disk" update="messages"/>
+                    <p:menuitem value="Update" actionListener="#{menuViewController.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+                </p:submenu>
+                <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
+                    <p:menuitem value="Delete" actionListener="#{menuViewController.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
+                </p:submenu>
+            </p:submenu>
 
-        <p:menuitem value="Logout" action="#{menuViewController.logout}"
-                    icon="ui-icon-close" />
+            <p:submenu label="Shopping Basket">
+                <p:menuitem value="View Basket" icon="fa fa-shopping-cart"/>
+            </p:submenu>
 
-    </p:menubar>
+            <p:menuitem value="Logout" action="#{menuViewController.logout}"
+                        icon="ui-icon-close" />
 
-</h:form>
+        </p:menubar>
+
+    </h:form>
 
 </ui:composition>

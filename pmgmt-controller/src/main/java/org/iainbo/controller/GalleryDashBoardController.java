@@ -3,26 +3,18 @@ package org.iainbo.controller;
 import org.iainbo.dto.GalleryDTO;
 import org.iainbo.pmgmt.service.gallery.GalleryService;
 import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;
-import org.iainbo.pmgmt.view.gallery.GalleryView;
-import org.primefaces.event.CloseEvent;
-import org.primefaces.event.DashboardReorderEvent;
-import org.primefaces.event.ToggleEvent;
-import org.primefaces.model.*;
-import sun.misc.BASE64Encoder;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @ManagedBean
 @ViewScoped
@@ -74,7 +66,12 @@ public class GalleryDashBoardController implements Serializable{
 
     public String editGallery(String galleryName){
         System.out.println("Attempting to navigate to: " + galleryName);
+        galleryService.galleryDTOByName(galleryName);
         return "galleryView";
+    }
+
+    public String home(){
+        return "adminHome";
     }
 
 }

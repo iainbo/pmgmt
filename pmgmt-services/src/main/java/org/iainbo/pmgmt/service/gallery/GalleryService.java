@@ -4,7 +4,6 @@ import org.iainbo.dao.gallery.GalleryDAO;
 import org.iainbo.dto.GalleryDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.pmgmt.service.mapper.GalleryMapper;
-import sun.misc.BASE64Encoder;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -29,6 +28,12 @@ public class GalleryService {
             availableGalleriesDTO.add(galleryDTO);
         }
         return availableGalleriesDTO;
+    }
+
+    public GalleryDTO galleryDTOByName(String galleryName){
+        Gallery gallery = galleryDAO.findByGalleryName(galleryName);
+        GalleryDTO galleryDTO = galleryMapper.galleryToGalleryDTO(gallery);
+        return galleryDTO;
     }
 
 }
