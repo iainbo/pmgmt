@@ -44,7 +44,7 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>/protected/successfulLogin.xhtml</welcome-file>
+        <welcome-file>/protected/adminHome.xhtml</welcome-file>
     </welcome-file-list>
 
     <login-config>
