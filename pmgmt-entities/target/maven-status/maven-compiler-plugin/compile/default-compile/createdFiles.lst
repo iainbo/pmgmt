@@ -1,0 +1,10 @@
+org/iainbo/entities/image/Image.class
+org/iainbo/entities/user/UserRole.class
+org/iainbo/entities/user/Role.class
+org/iainbo/entities/gallery/Gallery.class
+org/iainbo/entities/image/File.class
+org/iainbo/entities/image/ImageMetadata.class
+org/iainbo/entities/common/BaseEntity.class
+org/iainbo/entities/gallery/GalleryMetadata.class
+org/iainbo/entities/image/ImageRevision.class
+org/iainbo/entities/user/User.class

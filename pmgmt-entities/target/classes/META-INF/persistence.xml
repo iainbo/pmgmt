@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0"
+   xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+   <persistence-unit name="pmgmt-persistenceUnit" transaction-type="JTA">
+
+       <!--The datasource is to be used by Hibernate-->
+       <jta-data-source>java:jboss/datasource/pmgmt</jta-data-source>
+
+       <!--The classes to be persisted as database tables-->
+       <class>org.iainbo.entities.user.User</class>
+       <class>org.iainbo.entities.user.Role</class>
+       <class>org.iainbo.entities.user.UserRole</class>
+       <class>org.iainbo.entities.gallery.Gallery</class>
+       <class>org.iainbo.entities.gallery.GalleryMetadata</class>
+       <class>org.iainbo.entities.image.Image</class>
+
+
+      <properties>
+         <!-- Properties for Hibernate -->
+          <!-- Creates new database tables based on the classes above on each deployment -->
+         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+          <!-- Whether or not sql statements are shown in WildFly, used for troubleshooting -->
+          <property name="hibernate.show_sql" value="false" />
+          <!-- The database driver -->
+         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+          <!-- The SQL dialect used in the database -->
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      </properties>
+   </persistence-unit>
+</persistence>

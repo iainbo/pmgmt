@@ -7,10 +7,7 @@ import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.primefaces.event.CloseEvent;
 import org.primefaces.event.DashboardReorderEvent;
 import org.primefaces.event.ToggleEvent;
-import org.primefaces.model.DashboardColumn;
-import org.primefaces.model.DashboardModel;
-import org.primefaces.model.DefaultDashboardColumn;
-import org.primefaces.model.DefaultDashboardModel;
+import org.primefaces.model.*;
 import sun.misc.BASE64Encoder;
 
 import javax.annotation.PostConstruct;
@@ -19,6 +16,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,20 +58,23 @@ public class GalleryDashBoardController implements Serializable{
             GalleryDashboardView galleryDashboardView = new GalleryDashboardView();
             galleryDashboardView.setGalleryName(g.getGalleryName());
             if(g.getThumbnail() != null){
-                String converted = createImage(g.getThumbnail());
+                StreamedContent converted = createImage(g.getThumbnail());
                 galleryDashboardView.setThumbnail(converted);
             }
             galleryDashboardViews.add(galleryDashboardView);
         }
     }
 
-    public String createImage(byte[] image){
-        BASE64Encoder base64Encoder = new BASE64Encoder();
-        StringBuilder imageString = new StringBuilder();
-        imageString.append("data:image/png;base64,");
-        imageString.append(base64Encoder.encode(image));
-        String convertedToString = imageString.toString();
-        return convertedToString;
+    public StreamedContent createImage(byte[] image) {
+        InputStream input = new ByteArrayInputStream(image);
+        StreamedContent stream = new DefaultStreamedContent(input,
+                "image/jpeg");
+        return stream;
+    }
+
+    public String editGallery(String galleryName){
+        System.out.println("Attempting to navigate to: " + galleryName);
+        return "galleryView";
     }
 
 }

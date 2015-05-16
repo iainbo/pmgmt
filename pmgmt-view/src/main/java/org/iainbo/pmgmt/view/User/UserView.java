@@ -1,8 +1,6 @@
-package org.iainbo.pmgmt.view.User;
+package org.iainbo.pmgmt.view.user;
 
 import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 
