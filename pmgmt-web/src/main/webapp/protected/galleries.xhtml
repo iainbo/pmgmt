@@ -4,7 +4,10 @@
       xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
 
     <h:form id="galleriesForm">
-        <p:commandButton title="Create Gallery" value="Create Gallery"  update=":galleriesForm:galleryDetail" oncomplete="PF('createGallery').show()"/>
+        <p:growl id="growl"/>
+        <p:commandButton title="Create Gallery" value="Create Gallery"
+                         update=":galleriesForm:galleryDetail"
+                         oncomplete="PF('createGallery').show()"/>
 
         <p:dataGrid var="gallery" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
                     rows="12" paginator="true" id="galleries"
@@ -31,9 +34,15 @@
                 <p:panelGrid  columns="2">
 
                     <h:outputText value="Enter Gallery Name:" />
-                    <p:inputText title="galleryName"/>
+                    <p:inputText title="galleryName" value="#{galleryController.galleryName}"/>
 
-                    <p:commandButton value="Create"/>
+                    <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
+                            action="#{galleryController.addGallery}"
+                                     oncomplete="PF('createGallery').hide()"
+                            update="growl"/>
+
+                    <p:commandButton id="cancelCreateGallery" value="Cancel" widgetVar="cancelGalleryCreation"
+                                     onclick="PF('createGallery').close()"/>
 
                 </p:panelGrid>
             </p:outputPanel>

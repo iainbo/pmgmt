@@ -1,4 +1,5 @@
+org/iainbo/controller/gallery/GalleryDashBoardController.class
 org/iainbo/controller/user/UserController.class
 org/iainbo/controller/MenuViewController.class
-org/iainbo/controller/GalleryDashBoardController.class
 org/iainbo/controller/LoginController.class
+org/iainbo/controller/gallery/GalleryController.class

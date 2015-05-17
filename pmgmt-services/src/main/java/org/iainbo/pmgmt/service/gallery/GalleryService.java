@@ -31,9 +31,22 @@ public class GalleryService {
     }
 
     public GalleryDTO galleryDTOByName(String galleryName){
-        Gallery gallery = galleryDAO.findByGalleryName(galleryName);
-        GalleryDTO galleryDTO = galleryMapper.galleryToGalleryDTO(gallery);
+        GalleryDTO galleryDTO = new GalleryDTO();
+        List<Gallery> results = galleryDAO.findByGalleryName(galleryName);
+        for(Gallery gallery :results){
+            galleryDTO = galleryMapper.galleryToGalleryDTO(gallery);
+        }
         return galleryDTO;
+    }
+
+    public boolean galleryExists(String galleryName) {
+        List<Gallery> results = galleryDAO.findByGalleryName(galleryName);
+        if(results.isEmpty()){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 
 }

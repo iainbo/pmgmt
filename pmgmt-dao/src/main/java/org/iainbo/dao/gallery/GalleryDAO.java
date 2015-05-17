@@ -6,6 +6,7 @@ import org.iainbo.entities.gallery.Gallery;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.List;
 
 @Stateless
 public class GalleryDAO extends BaseDAO<Gallery> {
@@ -25,10 +26,11 @@ public class GalleryDAO extends BaseDAO<Gallery> {
         this.entityManager = entityManager;
     }
 
-    public Gallery findByGalleryName(String galleryName){
+    public List<Gallery> findByGalleryName(String galleryName){
         Query query = entityManager.createQuery(FIND_BY_GALLERY_NAME);
         query.setParameter("galleryName", galleryName);
-        return(Gallery) query.getSingleResult();
+        List<Gallery> resultList =  query.getResultList();
+        return resultList;
     }
 
 }
