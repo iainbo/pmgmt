@@ -16,7 +16,6 @@ public class Gallery extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "ID")
-    @NotNull
     private Long id;
 
     @NotNull
@@ -42,6 +41,16 @@ public class Gallery extends BaseEntity {
 
     @Column(name = "THUMBNAIL", columnDefinition = "mediumblob")
     private byte[] thumbnail;
+
+    public Gallery(){
+
+    }
+
+    public Gallery(String galleryName, Date date, User user){
+        this.galleryName = galleryName;
+        this.dateCreated = date;
+        this.owner = user;
+    }
 
     @Override
     public Long getId() {

@@ -33,4 +33,9 @@ public class GalleryDAO extends BaseDAO<Gallery> {
         return resultList;
     }
 
+    public Gallery create(final Gallery entity){
+        entityManager.persist(entity);
+        return entity;
+    }
+
 }

@@ -6,7 +6,6 @@ import org.iainbo.entities.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Base64;
 import java.util.Date;
 
 @Entity
@@ -16,7 +15,6 @@ public class Image extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "ID")
-    @NotNull
     private Long id;
 
 

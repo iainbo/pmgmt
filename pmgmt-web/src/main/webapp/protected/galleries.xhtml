@@ -9,10 +9,10 @@
                          update=":galleriesForm:galleryDetail"
                          oncomplete="PF('createGallery').show()"/>
 
-        <p:dataGrid var="gallery" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
+        <p:dataGrid var="galleryGrid" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
                     rows="12" paginator="true" id="galleries"
                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                    rowsPerPageTemplate="6,12,16">
+                    rowsPerPageTemplate="6,12,16" widgetVar="galleryGrid">
 
             <f:facet name="header">
                 Galleries
@@ -39,7 +39,7 @@
                     <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
                             action="#{galleryController.addGallery}"
                                      oncomplete="PF('createGallery').hide()"
-                            update="growl"/>
+                            update="growl, :galleriesForm:galleries"/>
 
                     <p:commandButton id="cancelCreateGallery" value="Cancel" widgetVar="cancelGalleryCreation"
                                      onclick="PF('createGallery').close()"/>

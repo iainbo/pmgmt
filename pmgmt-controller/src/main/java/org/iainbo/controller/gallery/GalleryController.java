@@ -1,6 +1,8 @@
 package org.iainbo.controller.gallery;
 
+import org.iainbo.controller.LoginController;
 import org.iainbo.pmgmt.service.gallery.GalleryService;
+import org.iainbo.pmgmt.view.user.UserView;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -19,6 +21,15 @@ public class GalleryController implements Serializable{
     @Inject
     GalleryService galleryService;
 
+    @Inject
+    LoginController loginController;
+
+    @Inject
+    UserView userView;
+
+    @Inject
+    GalleryDashBoardController galleryDashBoardController;
+
 
     public String getGalleryName() {
         return galleryName;
@@ -33,8 +44,10 @@ public class GalleryController implements Serializable{
             addMessage(FacesMessage.SEVERITY_ERROR, "Gallery already exists!");
         }
         else{
-            System.out.println(getGalleryName());
-            addMessage(FacesMessage.SEVERITY_INFO, "Create Gallery!");
+            String userName = userView.getUserName();
+            if(galleryService.createGallery(getGalleryName(), userName)){
+                addMessage(FacesMessage.SEVERITY_INFO, "Gallery Created!");
+            }
         }
     }
 

@@ -28,7 +28,7 @@
           <!-- The database driver -->
          <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
           <!-- The SQL dialect used in the database -->
-         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
       </properties>
    </persistence-unit>
 </persistence>

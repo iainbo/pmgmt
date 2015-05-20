@@ -1,14 +1,17 @@
 package org.iainbo.pmgmt.service.gallery;
 
 import org.iainbo.dao.gallery.GalleryDAO;
+import org.iainbo.dao.user.UserDAO;
 import org.iainbo.dto.GalleryDTO;
 import org.iainbo.entities.gallery.Gallery;
+import org.iainbo.entities.user.User;
 import org.iainbo.pmgmt.service.mapper.GalleryMapper;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Stateless
@@ -19,6 +22,9 @@ public class GalleryService {
 
     @Inject
     GalleryMapper galleryMapper;
+
+    @Inject
+    UserDAO userDAO;
 
     public List<GalleryDTO> getAllAvailableGalleries(){
         List<Gallery> availableGalleries = galleryDAO.findAll();
@@ -47,6 +53,13 @@ public class GalleryService {
         else{
             return true;
         }
+    }
+
+    public boolean createGallery(String galleryName, String userName){
+        User user = userDAO.findByUsername(userName);
+        Gallery newGallery = new Gallery(galleryName, new Date(), user);
+        galleryDAO.create(newGallery);
+        return true;
     }
 
 }

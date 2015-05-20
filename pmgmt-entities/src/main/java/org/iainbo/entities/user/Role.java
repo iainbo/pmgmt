@@ -14,7 +14,6 @@ public class Role extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "ID")
-    @NotNull
     private Long id;
 
     @Column(unique = true, name = "ROLE")

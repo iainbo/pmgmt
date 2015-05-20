@@ -3,7 +3,6 @@ package org.iainbo.entities.user;
 import org.iainbo.entities.common.BaseEntity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "USER_ROLES", uniqueConstraints = @UniqueConstraint(columnNames = {"USER_ID", "ROLE_ID"}))
@@ -12,7 +11,6 @@ public class UserRole extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "ID")
-    @NotNull
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
