@@ -6,13 +6,13 @@
     <h:form id="galleriesForm">
         <p:growl id="growl"/>
         <p:commandButton title="Create Gallery" value="Create Gallery"
-                         update=":galleriesForm:galleryDetail"
+                         update=":createGalleryForm:galleryDetail"
                          oncomplete="PF('createGallery').show()"/>
 
-        <p:dataGrid var="galleryGrid" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
+        <p:dataGrid var="gallery" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
                     rows="12" paginator="true" id="galleries"
                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                    rowsPerPageTemplate="6,12,16" widgetVar="galleryGrid">
+                    rowsPerPageTemplate="6,12,16" widgetVar="galleryGridForm">
 
             <f:facet name="header">
                 Galleries
@@ -29,17 +29,21 @@
 
         </p:dataGrid>
 
+    </h:form>
+
+    <h:form id="createGalleryForm">
         <p:dialog header="Create a new gallery" widgetVar="createGallery" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:outputPanel id="galleryDetail" style="text-align:center;">
                 <p:panelGrid  columns="2">
 
                     <h:outputText value="Enter Gallery Name:" />
-                    <p:inputText title="galleryName" value="#{galleryController.galleryName}"/>
+                    <p:inputText title="galleryName" value="#{galleryController.newGalleryName}"/>
 
                     <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
-                            action="#{galleryController.addGallery}"
+                                     type="submit"
+                                     action="#{galleryController.addGallery}"
                                      oncomplete="PF('createGallery').hide()"
-                            update="growl, :galleriesForm:galleries"/>
+                                     update=":galleriesForm:galleries, :galleriesForm:growl"/>
 
                     <p:commandButton id="cancelCreateGallery" value="Cancel" widgetVar="cancelGalleryCreation"
                                      onclick="PF('createGallery').close()"/>
@@ -47,7 +51,6 @@
                 </p:panelGrid>
             </p:outputPanel>
         </p:dialog>
-
     </h:form>
 
 </ui:composition>

@@ -6,7 +6,7 @@ import org.primefaces.model.StreamedContent;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Map;
+import java.util.List;
 
 @Named
 @SessionScoped
@@ -14,6 +14,7 @@ public class GalleryDashboardView implements Serializable{
 
     private String galleryName;
     private StreamedContent thumbnail;
+    private List<GalleryDTO> galleryDTOs;
 
     public String getGalleryName() {
         return galleryName;
@@ -29,5 +30,13 @@ public class GalleryDashboardView implements Serializable{
 
     public void setThumbnail(StreamedContent thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public List<GalleryDTO> getGalleryDTOs() {
+        return galleryDTOs;
+    }
+
+    public void setGalleryDTOs(List<GalleryDTO> galleryDTOs) {
+        this.galleryDTOs = galleryDTOs;
     }
 }

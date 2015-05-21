@@ -7,8 +7,11 @@ import org.iainbo.pmgmt.view.user.UserView;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.io.Serializable;
 
 @ManagedBean
@@ -25,28 +28,35 @@ public class GalleryController implements Serializable{
     LoginController loginController;
 
     @Inject
-    UserView userView;
-
-    @Inject
     GalleryDashBoardController galleryDashBoardController;
 
+    @Inject
+    UserView userView;
 
-    public String getGalleryName() {
+
+    public String getNewGalleryName() {
         return galleryName;
     }
 
-    public void setGalleryName(String galleryName) {
+    public void setNewGalleryName(String galleryName) {
         this.galleryName = galleryName;
     }
 
     public void addGallery(){
-        if(galleryService.galleryExists(getGalleryName())){
+        if(galleryService.galleryExists(getNewGalleryName())){
             addMessage(FacesMessage.SEVERITY_ERROR, "Gallery already exists!");
         }
         else{
             String userName = userView.getUserName();
-            if(galleryService.createGallery(getGalleryName(), userName)){
+            if(galleryService.createGallery(getNewGalleryName(), userName)){
+                //galleryDashBoardController.addNewGallery(getNewGalleryName());
                 addMessage(FacesMessage.SEVERITY_INFO, "Gallery Created!");
+                ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+                try {
+                    ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

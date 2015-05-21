@@ -74,4 +74,9 @@ public class GalleryDashBoardController implements Serializable{
         return "adminHome";
     }
 
+    public void addNewGallery(String galleryName){
+        galleryDashboardViews = null;
+        getGalleries();
+    }
+
 }
