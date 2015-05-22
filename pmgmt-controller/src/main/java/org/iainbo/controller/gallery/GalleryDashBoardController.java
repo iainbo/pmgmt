@@ -3,6 +3,7 @@ package org.iainbo.controller.gallery;
 import org.iainbo.dto.GalleryDTO;
 import org.iainbo.pmgmt.service.gallery.GalleryService;
 import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;
+import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 
@@ -22,6 +23,10 @@ public class GalleryDashBoardController implements Serializable{
 
     @Inject
     GalleryService galleryService;
+
+    @Inject
+    GalleryView galleryView;
+
     private List<GalleryDashboardView> galleryDashboardViews;
 
     @PostConstruct
@@ -36,6 +41,14 @@ public class GalleryDashBoardController implements Serializable{
 
     public void setGalleryDashboardViews(List<GalleryDashboardView> galleryDashboardViews) {
         this.galleryDashboardViews = galleryDashboardViews;
+    }
+
+    public GalleryView getGalleryView() {
+        return galleryView;
+    }
+
+    public void setGalleryView(GalleryView galleryView) {
+        this.galleryView = galleryView;
     }
 
     public List<GalleryDTO> getGalleries(){
@@ -66,7 +79,8 @@ public class GalleryDashBoardController implements Serializable{
 
     public String editGallery(String galleryName){
         System.out.println("Attempting to navigate to: " + galleryName);
-        galleryService.galleryDTOByName(galleryName);
+        GalleryDTO galleryDTO = galleryService.galleryDTOByName(galleryName);
+        createGalleryView(galleryDTO);
         return "galleryView";
     }
 
@@ -74,9 +88,13 @@ public class GalleryDashBoardController implements Serializable{
         return "adminHome";
     }
 
-    public void addNewGallery(String galleryName){
-        galleryDashboardViews = null;
-        getGalleries();
+    public GalleryView createGalleryView(GalleryDTO galleryDTO){
+        String galleryOwner = galleryDTO.getOwner().getFirstName()
+                + " " + galleryDTO.getOwner().getSurname();
+        galleryView.setGalleryName(galleryDTO.getGalleryName());
+        galleryView.setOwner(galleryOwner);
+        System.out.println("Name is " + galleryView.getGalleryName());
+        return galleryView;
     }
 
 }

@@ -7,5 +7,23 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class GalleryView implements Serializable{
-    //I think this view should be of the gallery containing the images (not the thumbnail).
+
+    private String galleryName;
+    private String owner;
+
+    public String getGalleryName() {
+        return galleryName;
+    }
+
+    public void setGalleryName(String galleryName) {
+        this.galleryName = galleryName;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 }

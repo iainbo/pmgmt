@@ -49,7 +49,6 @@ public class GalleryController implements Serializable{
         else{
             String userName = userView.getUserName();
             if(galleryService.createGallery(getNewGalleryName(), userName)){
-                //galleryDashBoardController.addNewGallery(getNewGalleryName());
                 addMessage(FacesMessage.SEVERITY_INFO, "Gallery Created!");
                 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
                 try {
