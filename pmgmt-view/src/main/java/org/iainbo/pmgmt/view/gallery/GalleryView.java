@@ -15,6 +15,7 @@ public class GalleryView implements Serializable{
     private String owner;
     private boolean containsImages;
     private List<ImageDTO> images;
+    private String numberOfImages;
 
     public String getGalleryName() {
         return galleryName;
@@ -46,5 +47,13 @@ public class GalleryView implements Serializable{
 
     public void setImages(List<ImageDTO> images) {
         this.images = images;
+    }
+
+    public String getNumberOfImages() {
+        return numberOfImages;
+    }
+
+    public void setNumberOfImages(String numberOfImages) {
+        this.numberOfImages = numberOfImages;
     }
 }

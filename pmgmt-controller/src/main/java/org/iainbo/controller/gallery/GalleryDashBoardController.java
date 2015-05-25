@@ -43,13 +43,6 @@ public class GalleryDashBoardController implements Serializable{
         this.galleryDashboardViews = galleryDashboardViews;
     }
 
-    public GalleryView getGalleryView() {
-        return galleryView;
-    }
-
-    public void setGalleryView(GalleryView galleryView) {
-        this.galleryView = galleryView;
-    }
 
     public List<GalleryDTO> getGalleries(){
         List<GalleryDTO> allAvailableGalleries = galleryService.getAllAvailableGalleries();
@@ -86,7 +79,7 @@ public class GalleryDashBoardController implements Serializable{
     }
 
     public String home(){
-        galleryView = null;
+        galleryView = new GalleryView();
         return "adminHome";
     }
 
@@ -98,6 +91,7 @@ public class GalleryDashBoardController implements Serializable{
         galleryView.setContainsImages(galleryDTO.getImageDTOList().isEmpty());
         if(!galleryDTO.getImageDTOList().isEmpty()){
             galleryView.setImages(galleryDTO.getImageDTOList());
+            galleryView.setNumberOfImages(Integer.toString(galleryDTO.getImageDTOList().size()));
         }
         return galleryView;
     }
