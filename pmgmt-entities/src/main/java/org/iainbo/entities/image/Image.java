@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "IMAGE")
+@Table(name = "IMAGES")
 public class Image extends BaseEntity{
 
     @Id
@@ -23,7 +23,7 @@ public class Image extends BaseEntity{
     private String title;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GALLERY_ID")
     private Gallery gallery;
 
@@ -33,12 +33,17 @@ public class Image extends BaseEntity{
     private User uploadedBy;
 
     @NotNull
-    @Column(name = "DATE_TAKEN")
-    private Date dateTaken;
-
-    @NotNull
     @Column(name = "DATE_UPLOADED")
     private Date dateUploaded;
+
+    @NotNull
+    @Column(name = "FILENAME")
+    private String filename;
+
+    @NotNull
+    @Column(name = "FILEDATA")
+    @Lob
+    private byte[] file;
 
     @Override
     public Long getId() {
@@ -74,19 +79,27 @@ public class Image extends BaseEntity{
         this.uploadedBy = uploadedBy;
     }
 
-    public Date getDateTaken() {
-        return dateTaken;
-    }
-
-    public void setDateTaken(Date dateTaken) {
-        this.dateTaken = dateTaken;
-    }
-
     public Date getDateUploaded() {
         return dateUploaded;
     }
 
     public void setDateUploaded(Date dateUploaded) {
         this.dateUploaded = dateUploaded;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public byte[] getFile() {
+        return file;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "GALLERY")
+@Table(name = "GALLERIES")
 public class Gallery extends BaseEntity {
 
     @Id
@@ -35,7 +35,7 @@ public class Gallery extends BaseEntity {
     @Transient
     private List<GalleryMetadata> metadataList;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "gallery", cascade = CascadeType.ALL)
     @Transient
     private List<Image> images;
 

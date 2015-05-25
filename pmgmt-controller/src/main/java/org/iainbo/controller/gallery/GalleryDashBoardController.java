@@ -78,13 +78,15 @@ public class GalleryDashBoardController implements Serializable{
     }
 
     public String editGallery(String galleryName){
-        System.out.println("Attempting to navigate to: " + galleryName);
         GalleryDTO galleryDTO = galleryService.galleryDTOByName(galleryName);
+        System.out.println("Creating View: " + galleryDTO.getGalleryName());
+        System.out.println("Contains images: " /*+ galleryDTO.getImageDTOList().size()*/);
         createGalleryView(galleryDTO);
         return "galleryView";
     }
 
     public String home(){
+        galleryView = null;
         return "adminHome";
     }
 
@@ -93,7 +95,10 @@ public class GalleryDashBoardController implements Serializable{
                 + " " + galleryDTO.getOwner().getSurname();
         galleryView.setGalleryName(galleryDTO.getGalleryName());
         galleryView.setOwner(galleryOwner);
-        System.out.println("Name is " + galleryView.getGalleryName());
+        galleryView.setContainsImages(galleryDTO.getImageDTOList().isEmpty());
+        if(!galleryDTO.getImageDTOList().isEmpty()){
+            galleryView.setImages(galleryDTO.getImageDTOList());
+        }
         return galleryView;
     }
 

@@ -3,6 +3,7 @@ package org.iainbo.controller.gallery;
 import org.iainbo.controller.LoginController;
 import org.iainbo.pmgmt.service.gallery.GalleryService;
 import org.iainbo.pmgmt.view.user.UserView;
+import org.primefaces.event.FileUploadEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -62,6 +63,11 @@ public class GalleryController implements Serializable{
 
     public void addMessage(FacesMessage.Severity severity, String detail) {
         FacesMessage message = new FacesMessage(severity, detail, null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+
+    public void handleFileUpload(FileUploadEvent event) {
+        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }
