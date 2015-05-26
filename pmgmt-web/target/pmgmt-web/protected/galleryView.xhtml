@@ -19,7 +19,7 @@
             <p/>
             <p:outputLabel id="gallerySize" value="There is #{galleryView.numberOfImages} image(s) in this Gallery!"
                            rendered="#{!galleryView.containsImages}"/>
-                <p:outputLabel id="gallerySizeEmpty" value="There are 0 image(s) in this Gallery!"
+                <p:outputLabel id="gallerySizeEmpty" value="There are 0 images in this Gallery!"
                                rendered="#{galleryView.containsImages}"/>
             <!--Temporary code to display the size of the image List-->
                 <p:fileUpload fileUploadListener="#{galleryController.handleFileUpload}" mode="advanced"

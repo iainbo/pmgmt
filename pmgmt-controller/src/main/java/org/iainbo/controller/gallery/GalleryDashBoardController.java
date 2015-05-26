@@ -72,14 +72,11 @@ public class GalleryDashBoardController implements Serializable{
 
     public String editGallery(String galleryName){
         GalleryDTO galleryDTO = galleryService.galleryDTOByName(galleryName);
-        System.out.println("Creating View: " + galleryDTO.getGalleryName());
-        System.out.println("Contains images: " /*+ galleryDTO.getImageDTOList().size()*/);
         createGalleryView(galleryDTO);
         return "galleryView";
     }
 
     public String home(){
-        galleryView = new GalleryView();
         return "adminHome";
     }
 
