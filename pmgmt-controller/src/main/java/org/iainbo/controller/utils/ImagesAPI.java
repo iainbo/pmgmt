@@ -28,7 +28,6 @@ public class ImagesAPI{
     public Response viewImage(@Context HttpHeaders headers,
                               @PathParam("id") String imageId) throws ServletException, IOException{
         Long image = Long.valueOf(imageId);
-        System.out.println("Calling the API with id:" + image);
 
         byte[] imageBytes = imageService.getBytesForImage(image);
         if(imageBytes == null || imageBytes.length == 0){

@@ -29,7 +29,7 @@
                         rendered="#{galleryView.containsImages}"/>
                 <p:growl id="messages" showDetail="true" />
 
-                <p:graphicImage id="test" value="/api/image/view/#{galleryView.images.get(0).id}"/>
+                <p:graphicImage id="test" value="/api/image/view/#{galleryView.images.get(0).id}" rendered="#{!galleryView.containsImages}"/>
 
             </h:form>
         </div>

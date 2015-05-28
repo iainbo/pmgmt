@@ -1,6 +1,6 @@
 package org.iainbo.pmgmt.service;
 
-import org.iainbo.dao.user.UserDAO;
+import org.iainbo.dao.factory.DAOFactory;
 import org.iainbo.dto.UserDTO;
 import org.iainbo.entities.user.User;
 import org.iainbo.pmgmt.service.mapper.UserMapper;
@@ -15,7 +15,7 @@ import javax.persistence.NoResultException;
 public class AuthenticationService {
 
     @Inject
-    UserDAO userDAO;
+    DAOFactory daoFactory;
 
     @Inject
     UserMapper userMapper;
@@ -23,7 +23,7 @@ public class AuthenticationService {
     public boolean verifyUserExisits(String userName){
         boolean userExists = false;
         try{
-            if(userDAO.findByUsername(userName) != null){
+            if(daoFactory.userDAO().findByUsername(userName) != null){
                 userExists = true;
             }
         }catch(NoResultException e){
@@ -34,7 +34,7 @@ public class AuthenticationService {
     }
 
     public UserDTO getUser(String userName){
-        User user = userDAO.findByUsername(userName);
+        User user = daoFactory.userDAO().findByUsername(userName);
         UserDTO userDTO = userMapper.userToUserDTO(user);
         return userDTO;
     }
