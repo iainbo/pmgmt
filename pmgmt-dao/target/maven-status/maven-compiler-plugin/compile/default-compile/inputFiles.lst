@@ -2,3 +2,4 @@
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-dao/src/main/java/org/iainbo/dao/user/UserDAO.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-dao/src/main/java/org/iainbo/dao/image/ImageDAO.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-dao/src/main/java/org/iainbo/dao/factory/DAOFactory.java

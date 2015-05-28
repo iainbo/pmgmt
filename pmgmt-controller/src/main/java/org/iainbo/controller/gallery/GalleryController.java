@@ -1,7 +1,7 @@
 package org.iainbo.controller.gallery;
 
 import org.iainbo.controller.LoginController;
-import org.iainbo.pmgmt.service.gallery.GalleryService;
+import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.view.user.UserView;
 import org.primefaces.event.FileUploadEvent;
 

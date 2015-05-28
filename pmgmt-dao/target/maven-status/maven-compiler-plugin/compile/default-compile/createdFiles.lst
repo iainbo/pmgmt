@@ -1,4 +1,5 @@
 org/iainbo/dao/user/UserDAO.class
 org/iainbo/dao/gallery/GalleryDAO.class
+org/iainbo/dao/factory/DAOFactory.class
 org/iainbo/dao/image/ImageDAO.class
 org/iainbo/dao/BaseDAO.class

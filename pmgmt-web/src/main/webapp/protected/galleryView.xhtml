@@ -22,11 +22,14 @@
                 <p:outputLabel id="gallerySizeEmpty" value="There are 0 images in this Gallery!"
                                rendered="#{galleryView.containsImages}"/>
             <!--Temporary code to display the size of the image List-->
+
+            <!--Upload dialog to allow users to upload a new image to the Gallery -->
                 <p:fileUpload fileUploadListener="#{galleryController.handleFileUpload}" mode="advanced"
                               update="messages" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
                         rendered="#{galleryView.containsImages}"/>
-
                 <p:growl id="messages" showDetail="true" />
+
+                <p:graphicImage id="test" value="/api/image/view/#{galleryView.images.get(0).id}"/>
 
             </h:form>
         </div>
