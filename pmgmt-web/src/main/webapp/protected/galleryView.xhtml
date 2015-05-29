@@ -2,6 +2,7 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
         >
 
     <h:head/>
@@ -17,8 +18,6 @@
             <p:outputLabel id="gallerName" value="#{galleryView.galleryName}"/>
             <!--Temporary code to display the size of the image List-->
             <p/>
-            <p:outputLabel id="gallerySize" value="There is #{galleryView.numberOfImages} image(s) in this Gallery!"
-                           rendered="#{!galleryView.containsImages}"/>
                 <p:outputLabel id="gallerySizeEmpty" value="There are 0 images in this Gallery!"
                                rendered="#{galleryView.containsImages}"/>
             <!--Temporary code to display the size of the image List-->
@@ -29,7 +28,24 @@
                         rendered="#{galleryView.containsImages}"/>
                 <p:growl id="messages" showDetail="true" />
 
-                <p:graphicImage id="test" value="/api/image/view/#{galleryView.images.get(0).id}" rendered="#{!galleryView.containsImages}"/>
+                <p:dataGrid var="gallery" value="#{galleryView.images}" columns="3" layout="grid"
+                            rows="12" paginator="true" id="gallery"
+                            paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                            rowsPerPageTemplate="6,12,16" widgetVar="galleryGridForm"
+                            rendered="#{!galleryView.containsImages}">
+
+                    <f:facet name="header">
+                        #{galleryView.galleryName}
+                    </f:facet>
+
+                    <p:panel header="#{gallery.title}" style="text-align:center">
+                        <h:panelGrid columns="1" style="width:100%">
+                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{gallery.id}" height="200" width="200"/>
+
+                        </h:panelGrid>
+                    </p:panel>
+
+                </p:dataGrid>
 
             </h:form>
         </div>
