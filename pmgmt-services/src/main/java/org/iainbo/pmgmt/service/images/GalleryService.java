@@ -10,6 +10,7 @@ import org.iainbo.pmgmt.service.mapper.GalleryMapper;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.NoResultException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -70,6 +71,16 @@ public class GalleryService {
         return imagesForGallery;
     }
 
-
+    public byte[] getThumbnailForGallery(Long galleryId){
+        Gallery gallery;
+        byte[] thumb = new byte[0];
+        try{
+            gallery = daoFactory.galleryDAO().find(galleryId);
+            thumb = gallery.getThumbnail();
+        }catch(NoResultException e){
+            System.out.println(e + "No results for: " + galleryId);
+        }
+        return thumb;
+    }
 
 }

@@ -1,5 +1,6 @@
 package org.iainbo.controller.utils;
 
+import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 
 import javax.ejb.Stateless;
@@ -23,6 +24,9 @@ public class ImagesAPI{
     @Inject
     ImageService imageService;
 
+    @Inject
+    GalleryService galleryService;
+
     @GET
     @Path("/view/{id}")
     public Response viewImage(@Context HttpHeaders headers,
@@ -31,9 +35,25 @@ public class ImagesAPI{
 
         byte[] imageBytes = imageService.getBytesForImage(image);
         if(imageBytes == null || imageBytes.length == 0){
+            //TODO: create no image available image.
             System.out.println("No Image Available for this ID: " + imageId);
         }
         Response.ResponseBuilder imageResponseBuilder = Response.ok(new ByteArrayInputStream(imageBytes), "image/jpeg");
+        imageResponseBuilder.header("Content-Disposition", "attachment;filename=\"image.jpeg\"");
+        return imageResponseBuilder.build();
+    }
+
+    @GET
+    @Path("/thumb/{id}")
+    public Response viewThumb(@Context HttpHeaders headers,
+                              @PathParam("id") String galleryId) throws ServletException, IOException{
+        Long gallery = Long.valueOf(galleryId);
+        byte[] thumbBytes = galleryService.getThumbnailForGallery(gallery);
+        if(thumbBytes == null || thumbBytes.length == 0){
+            //TODO: create no image available image.
+            System.out.println("No thumbnail available for: " + galleryId);
+        }
+        Response.ResponseBuilder imageResponseBuilder = Response.ok(new ByteArrayInputStream(thumbBytes), "image/jpeg");
         imageResponseBuilder.header("Content-Disposition", "attachment;filename=\"image.jpeg\"");
         return imageResponseBuilder.build();
     }

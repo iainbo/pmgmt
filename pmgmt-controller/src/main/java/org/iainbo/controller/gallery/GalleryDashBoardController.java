@@ -4,15 +4,11 @@ import org.iainbo.dto.GalleryDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
-import org.primefaces.model.DefaultStreamedContent;
-import org.primefaces.model.StreamedContent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,20 +50,10 @@ public class GalleryDashBoardController implements Serializable{
         galleryDashboardViews = new ArrayList<>();
         for(GalleryDTO g : galleries){
             GalleryDashboardView galleryDashboardView = new GalleryDashboardView();
+            galleryDashboardView.setId(g.getId());
             galleryDashboardView.setGalleryName(g.getGalleryName());
-            if(g.getThumbnail() != null){
-                StreamedContent converted = createImage(g.getThumbnail());
-                galleryDashboardView.setThumbnail(converted);
-            }
             galleryDashboardViews.add(galleryDashboardView);
         }
-    }
-
-    public StreamedContent createImage(byte[] image) {
-        InputStream input = new ByteArrayInputStream(image);
-        StreamedContent stream = new DefaultStreamedContent(input,
-                "image/jpeg");
-        return stream;
     }
 
     public String editGallery(String galleryName){
