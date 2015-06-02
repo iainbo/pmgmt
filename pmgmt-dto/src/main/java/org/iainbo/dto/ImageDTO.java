@@ -8,8 +8,9 @@ public class ImageDTO {
     private String title;
     private GalleryDTO galleryDTO;
     private UserDTO uploadedBy;
-    private Date dateTaken;
     private Date dateUploaded;
+    private String filename;
+    private byte[] fileData;
 
     public Long getId() {
         return id;
@@ -43,19 +44,27 @@ public class ImageDTO {
         this.uploadedBy = uploadedBy;
     }
 
-    public Date getDateTaken() {
-        return dateTaken;
-    }
-
-    public void setDateTaken(Date dateTaken) {
-        this.dateTaken = dateTaken;
-    }
-
     public Date getDateUploaded() {
         return dateUploaded;
     }
 
     public void setDateUploaded(Date dateUploaded) {
         this.dateUploaded = dateUploaded;
+    }
+
+    public byte[] getFileData() {
+        return fileData;
+    }
+
+    public void setFileData(byte[] fileData) {
+        this.fileData = fileData;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }

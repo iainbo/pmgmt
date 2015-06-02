@@ -21,8 +21,13 @@ public class LoginController implements Serializable{
     @Inject
     AuthenticationService authenticationService;
 
-    public void getCurrentlyLoggedInUser(){
-        String userName = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+    public String getCurrentUserName(){
+        return FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+    }
+
+    //Method which is called from the header to display the username at the top of the page
+    public void getCurrentlyLoggedInUserForPageHeader(){
+        String userName = getCurrentUserName();
         if (authenticationService.verifyUserExisits(userName)){
             UserDTO userDTO = new UserDTO();
             userDTO = authenticationService.getUser(userName);
@@ -31,6 +36,12 @@ public class LoginController implements Serializable{
             userView.setSurname(userDTO.getSurname());
             userView.setFullName(userDTO.getFirstName() + " " + userDTO.getSurname());
         }
+    }
+
+    public UserDTO getUserDTOForLoggedInUser(){
+        UserDTO userDTO = new UserDTO();
+        userDTO = authenticationService.getUser(getCurrentUserName());
+        return userDTO;
     }
 
 }

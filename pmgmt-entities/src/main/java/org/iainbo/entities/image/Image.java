@@ -17,7 +17,6 @@ public class Image extends BaseEntity{
     @Column(unique = true, name = "ID")
     private Long id;
 
-
     @NotNull
     @Column(name = "TITLE")
     private String title;
@@ -44,6 +43,19 @@ public class Image extends BaseEntity{
     @Column(name = "FILEDATA")
     @Lob
     private byte[] file;
+
+    public Image(){
+
+    }
+
+    public Image(String title, User user, Gallery gallery, byte[] image, String filename, Date dateUploaded){
+        this.title = title;
+        this.uploadedBy = user;
+        this.gallery = gallery;
+        this.filename = filename;
+        this.file = image;
+        this.dateUploaded = dateUploaded;
+    }
 
     @Override
     public Long getId() {

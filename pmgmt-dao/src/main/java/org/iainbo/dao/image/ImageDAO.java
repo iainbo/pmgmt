@@ -44,4 +44,9 @@ public class ImageDAO extends BaseDAO {
         Image result = (Image) query.getSingleResult();
         return result;
     }
+
+    public Image create(final Image entity){
+        entityManager.persist(entity);
+        return entity;
+    }
 }

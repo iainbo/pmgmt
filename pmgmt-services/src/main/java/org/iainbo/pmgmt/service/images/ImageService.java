@@ -1,6 +1,10 @@
 package org.iainbo.pmgmt.service.images;
 
 import org.iainbo.dao.factory.DAOFactory;
+import org.iainbo.dto.ImageDTO;
+import org.iainbo.entities.gallery.Gallery;
+import org.iainbo.entities.image.Image;
+import org.iainbo.entities.user.User;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -22,5 +26,13 @@ public class ImageService {
             System.out.println("More than one image has been found for this ID: " + imageId + ":" + e);
         }
         return imageData;
+    }
+
+    public boolean persistImage(ImageDTO imageDTO){
+        User user = daoFactory.userDAO().find(imageDTO.getUploadedBy().getId());
+        Gallery gallery = daoFactory.galleryDAO().find(imageDTO.getGalleryDTO().getId());
+        Image newImage = new Image(imageDTO.getTitle(), user, gallery, imageDTO.getFileData(), imageDTO.getFilename(), imageDTO.getDateUploaded());
+        daoFactory.imageDAO().create(newImage);
+        return true;
     }
 }

@@ -15,7 +15,7 @@ import org.iainbo.entities.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2015-05-29T20:06:34+0100"
+    date = "2015-06-02T19:58:12+0100"
 )
 @ApplicationScoped
 public class GalleryMapperImpl implements GalleryMapper {
@@ -88,6 +88,7 @@ public class GalleryMapperImpl implements GalleryMapper {
 
         ImageDTO imageDTO = new ImageDTO();
 
+        imageDTO.setFilename( image.getFilename() );
         imageDTO.setDateUploaded( image.getDateUploaded() );
         imageDTO.setId( image.getId() );
         imageDTO.setTitle( image.getTitle() );
