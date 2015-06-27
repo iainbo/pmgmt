@@ -1,22 +1,14 @@
 package org.iainbo.controller.images;
 
-import org.iainbo.controller.LoginController;
-import org.iainbo.dto.ImageDTO;
-import org.iainbo.pmgmt.service.images.GalleryService;
-import org.iainbo.pmgmt.service.images.ImageService;
-import org.primefaces.model.UploadedFile;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Inject;
 import java.io.Serializable;
-import java.util.Date;
 
 @ManagedBean
 @ViewScoped
 public class ImageController implements Serializable{
-
-    @Inject
+//Class not used at present!!
+    /*@Inject
     ImageService imageService;
 
     @Inject
@@ -42,5 +34,5 @@ public class ImageController implements Serializable{
             imagePersisted = true;
         }
         return imagePersisted;
-    }
+    }*/
 }

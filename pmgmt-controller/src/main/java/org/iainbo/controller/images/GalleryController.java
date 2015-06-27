@@ -94,7 +94,6 @@ public class GalleryController implements Serializable{
         boolean imagePersisted = false;
         if(bytes == null || bytes.length == 0){
             imagePersisted = false;
-            System.out.println("The file size is: " + bytes.length);
         }else{
             ImageDTO imageDTO = new ImageDTO();
             imageDTO.setTitle("Temporary Title");
