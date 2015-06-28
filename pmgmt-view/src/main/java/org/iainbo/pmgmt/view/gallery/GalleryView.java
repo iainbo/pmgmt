@@ -1,7 +1,5 @@
 package org.iainbo.pmgmt.view.gallery;
 
-import org.iainbo.dto.ImageDTO;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -14,7 +12,7 @@ public class GalleryView implements Serializable{
     private String galleryName;
     private String owner;
     private boolean containsImages;
-    private List<ImageDTO> images;
+    private List<ImageView> images;
     private String numberOfImages;
 
     public String getGalleryName() {
@@ -41,11 +39,11 @@ public class GalleryView implements Serializable{
         this.containsImages = containsImages;
     }
 
-    public List<ImageDTO> getImages() {
+    public List<ImageView> getImages() {
         return images;
     }
 
-    public void setImages(List<ImageDTO> images) {
+    public void setImages(List<ImageView> images) {
         this.images = images;
     }
 

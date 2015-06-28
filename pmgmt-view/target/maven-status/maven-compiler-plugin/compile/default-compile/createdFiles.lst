@@ -1,3 +1,4 @@
-org/iainbo/pmgmt/view/user/UserView.class
 org/iainbo/pmgmt/view/gallery/GalleryView.class
+org/iainbo/pmgmt/view/gallery/ImageView.class
 org/iainbo/pmgmt/view/gallery/GalleryDashboardView.class
+org/iainbo/pmgmt/view/user/UserView.class

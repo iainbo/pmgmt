@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="making getGalleries() a void method as it does not need to return anything.">
+    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="renaming editGallery method to viewGallery and changing createGalleryView to be void">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-view/target/classes/org/iainbo/pmgmt/view/gallery/GalleryView.class" afterPath="$PROJECT_DIR$/pmgmt-view/target/classes/org/iainbo/pmgmt/view/gallery/GalleryView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" />
@@ -20,9 +22,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryDashBoardController.java" afterPath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryDashBoardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java" afterPath="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleries.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleries.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-view/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/pmgmt-view/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-view/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/pmgmt-view/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dto/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dto/target/maven-archiver/pom.properties" />
@@ -94,62 +99,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="import.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-entities/src/main/resources/import.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="88" selection-start-line="22" selection-start-column="88" selection-end-line="22" selection-end-column="88" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Gallery.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/gallery/Gallery.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="galleries.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="32" column="114" selection-start-line="32" selection-start-column="114" selection-end-line="32" selection-end-column="114" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GalleryDashBoardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryDashBoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.4840764">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.58598727">
+              <caret line="88" column="46" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
               <folding>
-                <element signature="e#824#825#0" expanded="true" />
-                <element signature="e#854#855#0" expanded="true" />
-                <element signature="e#923#924#0" expanded="true" />
-                <element signature="e#967#968#0" expanded="true" />
-                <element signature="e#1980#1981#0" expanded="true" />
-                <element signature="e#2014#2015#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GalleryDashboardView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryDashboardView.java">
+      <file leaf-file-name="galleryView.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.625">
+              <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GalleryView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
+              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+              <folding>
+                <element signature="e#474#475#0" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#600#601#0" expanded="true" />
+                <element signature="e#632#633#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#872#873#0" expanded="true" />
+                <element signature="e#918#919#0" expanded="true" />
+                <element signature="e#955#956#0" expanded="true" />
+                <element signature="e#988#989#0" expanded="true" />
+                <element signature="e#1040#1041#0" expanded="true" />
+                <element signature="e#1084#1085#0" expanded="true" />
+                <element signature="e#1121#1122#0" expanded="true" />
+                <element signature="e#1156#1157#0" expanded="true" />
+                <element signature="e#1210#1211#0" expanded="true" />
+                <element signature="e#1258#1259#0" expanded="true" />
+                <element signature="e#1293#1294#0" expanded="true" />
+                <element signature="e#1324#1325#0" expanded="true" />
+                <element signature="e#1372#1373#0" expanded="true" />
+                <element signature="e#1412#1413#0" expanded="true" />
+                <element signature="e#1447#1448#0" expanded="true" />
+                <element signature="e#1478#1479#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#1566#1567#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pmgmt-dto/src/main/java/org/iainbo/dto/ImageDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="28" />
+              <folding>
+                <element signature="e#1230#1231#0" expanded="true" />
+                <element signature="e#1261#1262#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -194,7 +226,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java" />
         <option value="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/user/UserDAO.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c27c63ce-df3c-487f-aa71-368fdeaf828b/console.sql" />
         <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryDashBoardView.java" />
@@ -219,7 +250,6 @@
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/File.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/gallery/Gallery.java" />
         <option value="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/gallery/GalleryService.java" />
-        <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java" />
         <option value="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/factory/DAOFactory.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/resources/import.sql" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/utils/JaxRsActivator.java" />
@@ -230,7 +260,6 @@
         <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryDashboardView.java" />
         <option value="$PROJECT_DIR$/pmgmt-controller/pom.xml" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/utils/ImagesAPI.java" />
-        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/pmgmt-dto/src/main/java/org/iainbo/dto/ImageDTO.java" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/gallery/GalleryController.java" />
@@ -244,6 +273,9 @@
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java" />
         <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/adminHome.xhtml" />
         <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" />
+        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
+        <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java" />
+        <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryDashBoardController.java" />
       </list>
     </option>
@@ -391,7 +423,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-web" />
+              <option name="myItemId" value="pmgmt-view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -405,7 +437,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-web" />
+              <option name="myItemId" value="pmgmt-view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -423,63 +455,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protected" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-web" />
+              <option name="myItemId" value="pmgmt-view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -501,61 +477,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-entities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-entities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-entities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-entities" />
+              <option name="myItemId" value="pmgmt-view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -571,7 +493,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entities" />
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -585,7 +507,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pmgmt-entities" />
+              <option name="myItemId" value="pmgmt-view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -601,7 +523,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entities" />
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -612,8 +534,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1144,13 +1066,7 @@
       <workItem from="1435085181043" duration="1119000" />
       <workItem from="1435173067895" duration="849000" />
       <workItem from="1435410544335" duration="4425000" />
-      <workItem from="1435492351017" duration="1563000" />
-    </task>
-    <task id="LOCAL-00001" summary="Attempting to persist data in mySQL database">
-      <created>1426363176840</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1426363176840</updated>
+      <workItem from="1435492351017" duration="3709000" />
     </task>
     <task id="LOCAL-00002" summary="Data from the database can be displayed in the WildFly start page.">
       <created>1426454764554</created>
@@ -1440,40 +1356,47 @@
       <option name="project" value="LOCAL" />
       <updated>1435419894053</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="renaming editGallery method to viewGallery and changing createGalleryView to be void">
+      <created>1435496420751</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1435496420752</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264279000" />
+    <option name="totallyTimeSpent" value="266425000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20597738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31643835" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22940226" sideWeight="0.5109589" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22940226" sideWeight="0.4890411" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31643835" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22940226" sideWeight="0.5109589" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22940226" sideWeight="0.4890411" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1481,7 +1404,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="JPA Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1542,7 +1464,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Removed User class from BaseDAO" />
     <MESSAGE value="Gallery Entities and DAO added.&#10;Dashboard added to succesfulLogin page" />
     <MESSAGE value="Dashboard configured to populate with galleries from the database.&#10;Some work is required to ensure the columns are created dynamically.&#10;import.sql updated to load example thumbnail into database" />
     <MESSAGE value="Inline with Pro JSF, Ive removed references to @ManagedBean where possible.&#10;The menuviewcontroller appears to need them for Primefaces?" />
@@ -1567,7 +1488,8 @@
     <MESSAGE value="Image can be saved to the database" />
     <MESSAGE value="comments added to galleries.xhtml" />
     <MESSAGE value="making getGalleries() a void method as it does not need to return anything." />
-    <option name="LAST_COMMIT_MESSAGE" value="making getGalleries() a void method as it does not need to return anything." />
+    <MESSAGE value="renaming editGallery method to viewGallery and changing createGalleryView to be void" />
+    <option name="LAST_COMMIT_MESSAGE" value="renaming editGallery method to viewGallery and changing createGalleryView to be void" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1589,13 +1511,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/primefaces/primefaces/5.1/primefaces-5.1-sources.jar!/org/primefaces/model/DashboardColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31960228">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33860046">
@@ -1702,13 +1617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.01910828">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/utils/JaxRsActivator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22292994">
@@ -1773,13 +1681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-dto/src/main/java/org/iainbo/dto/ImageDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="33" selection-start-line="62" selection-start-column="33" selection-end-line="62" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20044543">
@@ -1837,6 +1738,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6659619">
           <caret line="106" column="20" selection-start-line="96" selection-start-column="7" selection-end-line="106" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1851,13 +1753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="89" selection-start-line="32" selection-start-column="89" selection-end-line="32" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1894,6 +1789,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1919,7 +1815,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1322#1323#0" expanded="false" />
+            <element signature="e#1347#1348#0" expanded="false" />
+            <element signature="e#1395#1396#0" expanded="false" />
+            <element signature="e#1423#1424#0" expanded="false" />
+            <element signature="e#1461#1462#0" expanded="false" />
+            <element signature="e#1495#1496#0" expanded="false" />
+            <element signature="e#1542#1543#0" expanded="false" />
+            <element signature="e#1581#1582#0" expanded="false" />
+            <element signature="e#1617#1618#0" expanded="false" />
+            <element signature="e#1651#1652#0" expanded="false" />
+            <element signature="e#1703#1704#0" expanded="false" />
+            <element signature="e#1749#1750#0" expanded="false" />
+            <element signature="e#1779#1780#0" expanded="false" />
+            <element signature="e#1807#1808#0" expanded="false" />
+            <element signature="e#1847#1848#0" expanded="false" />
+            <element signature="e#1881#1882#0" expanded="false" />
+            <element signature="e#1935#1936#0" expanded="false" />
+            <element signature="e#1970#1971#0" expanded="false" />
+            <element signature="e#2041#2042#0" expanded="false" />
+            <element signature="e#2089#2090#0" expanded="false" />
+            <element signature="e#2127#2128#0" expanded="false" />
+            <element signature="e#2156#2157#0" expanded="false" />
+            <element signature="e#2205#2206#0" expanded="false" />
+            <element signature="e#2241#2242#0" expanded="false" />
+            <element signature="e#2277#2278#0" expanded="false" />
+            <element signature="e#2309#2310#0" expanded="false" />
+            <element signature="e#2359#2360#0" expanded="false" />
+            <element signature="e#2401#2402#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1927,6 +1853,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.125">
+          <caret line="32" column="114" selection-start-line="32" selection-start-column="114" selection-end-line="32" selection-end-column="114" />
           <folding />
         </state>
       </provider>
@@ -1941,31 +1875,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryDashboardView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.12820514">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
+    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="32" column="114" selection-start-line="32" selection-start-column="114" selection-end-line="32" selection-end-column="114" />
+        <state vertical-scroll-proportion="-10.625">
+          <caret line="17" column="70" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-dto/src/main/java/org/iainbo/dto/ImageDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="28" />
+          <folding>
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#600#601#0" expanded="true" />
+            <element signature="e#632#633#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#955#956#0" expanded="true" />
+            <element signature="e#988#989#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1412#1413#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+          <folding>
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryDashBoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4840764">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.58598727">
+          <caret line="88" column="46" selection-start-line="88" selection-start-column="46" selection-end-line="88" selection-end-column="46" />
           <folding>
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#923#924#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-            <element signature="e#1980#1981#0" expanded="true" />
-            <element signature="e#2014#2015#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -27,6 +27,7 @@
                         rendered="#{galleryView.containsImages}"/>
                 <p:growl id="messages" showDetail="true" />
 
+                <!-- Datagrid to display images stored in the gallery -->
                 <p:dataGrid var="gallery" value="#{galleryView.images}" columns="3" layout="grid"
                             rows="12" paginator="true" id="gallery"
                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"

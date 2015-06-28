@@ -1,9 +1,11 @@
 package org.iainbo.controller.images;
 
 import org.iainbo.dto.GalleryDTO;
+import org.iainbo.dto.ImageDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
+import org.iainbo.pmgmt.view.gallery.ImageView;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -73,9 +75,27 @@ public class GalleryDashBoardController implements Serializable{
         galleryView.setOwner(galleryOwner);
         galleryView.setContainsImages(galleryDTO.getImageDTOList().isEmpty());
         if(!galleryDTO.getImageDTOList().isEmpty()){
-            galleryView.setImages(galleryDTO.getImageDTOList());
+            List<ImageDTO> imageDTOs = galleryDTO.getImageDTOList();
+            List<ImageView> imageViews = createImageViewList(imageDTOs, galleryView, galleryOwner);
+            galleryView.setImages(imageViews);
             galleryView.setNumberOfImages(Integer.toString(galleryDTO.getImageDTOList().size()));
         }
+    }
+
+    public List<ImageView> createImageViewList(List<ImageDTO> imageDTOs, GalleryView galleryView, String galleryOwner){
+        List<ImageView> imageViews = new ArrayList<>();
+        for(ImageDTO imageDTO : imageDTOs){
+            ImageView imageView = new ImageView();
+            imageView.setId(imageDTO.getId());
+            imageView.setTitle(imageDTO.getTitle());
+            imageView.setFileData(imageDTO.getFileData());
+            imageView.setFilename(imageDTO.getFilename());
+            imageView.setDateUploaded(imageDTO.getDateUploaded());
+            imageView.setGalleryView(galleryView);
+            imageView.setUploadedBy(galleryOwner);
+            imageViews.add(imageView);
+        }
+        return  imageViews;
     }
 
 }
