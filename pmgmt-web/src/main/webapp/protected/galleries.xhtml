@@ -30,7 +30,7 @@
                     <p:graphicImage id="galleryThumb" value="/api/image/thumb/#{gallery.id}" height="200" width="200"/>
 
 
-                    <p:commandButton value="View Gallery" ajax="false" action="#{galleryDashBoardController.editGallery(gallery.galleryName)}"
+                    <p:commandButton value="View Gallery" ajax="false" action="#{galleryDashBoardController.viewGallery(gallery.galleryName)}"
                             widgetVar="editGalleryButton"/>
                 </h:panelGrid>
             </p:panel>
