@@ -21,3 +21,5 @@ INSERT INTO GALLERIES(date_created, name, user_id) VALUES (sysdate(), 'Test Gall
 INSERT INTO GALLERY_METADATA(name, value, gallery_id) VALUES ('Description', 'Test Gallery 2 for testing', (SELECT ID FROM GALLERIES WHERE NAME = 'Test Gallery 2'));
 
 INSERT INTO IMAGES (DATE_UPLOADED, FILEDATA, FILENAME, TITLE, GALLERY_ID, USER_ID) VALUES (sysdate(), LOAD_FILE('/Users/iainb/Public/example_image.jpg'), 'example_image.jpg', 'TEST IMAGE', (SELECT ID FROM GALLERIES WHERE NAME = 'Test Gallery 1'), (SELECT ID FROM USERS WHERE USER_NAME = 'admin'));
+
+INSERT INTO IMAGES (DATE_UPLOADED, FILEDATA, FILENAME, TITLE, GALLERY_ID, USER_ID) VALUES (sysdate(), LOAD_FILE('/Users/iainb/Public/example_image2.jpeg'), 'example_image2.jpeg', 'TEST IMAGE', (SELECT ID FROM GALLERIES WHERE NAME = 'Test Gallery 1'), (SELECT ID FROM USERS WHERE USER_NAME = 'admin'));
