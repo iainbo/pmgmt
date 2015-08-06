@@ -17,7 +17,6 @@ public class Revision extends BaseEntity {
     @Column(unique = true, name = "ID")
     private Long id;
 
-    @NotNull
     @Column(name = "CHECKED_OUT")
     @Pattern(regexp = "[YN]{1}")
     private String checkedOut;
@@ -39,7 +38,7 @@ public class Revision extends BaseEntity {
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "FILE_ID")
+    @Transient
     private File file;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -7,6 +7,7 @@ import org.iainbo.entities.user.User;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "IMAGES")
@@ -25,6 +26,12 @@ public class Image extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GALLERY_ID")
     private Gallery gallery;
+
+    @Transient
+    private Revision revision;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "image", cascade = CascadeType.ALL)
+    private Set<Revision> revisions;
 
     //Annotations commented out to allow refactoring to new model.
     //@NotNull
@@ -114,5 +121,26 @@ public class Image extends BaseEntity{
 
     public void setFile(byte[] file) {
         this.file = file;
+    }
+
+    public Revision getRevision() {
+        for(Revision headRevision : getRevisions()){
+            if(headRevision.getHeadRevision().equalsIgnoreCase("Y")){
+                revision = headRevision;
+            }
+        }
+        return revision;
+    }
+
+    public void setRevision(Revision revision) {
+        this.revision = revision;
+    }
+
+    public Set<Revision> getRevisions() {
+        return revisions;
+    }
+
+    public void setRevisions(Set<Revision> revisions) {
+        this.revisions = revisions;
     }
 }

@@ -11,11 +11,10 @@
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="FILEDATA" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
       <column name="FILENAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="REVISION" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="REVISION_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="FK_idux98hal4c1xiqt1arb6ngcx" columns="REVISION" ref-table="REVISIONS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_j6e5remu2pn8j012ca4wa3i1k" table="REVISIONS" schema="" catalog="pmgmt" columns="FILE_ID"/>
-      <index name="FK_idux98hal4c1xiqt1arb6ngcx" unique="false" columns="REVISION"/>
+      <foreign-key name="FK_ghwsouq4g1yslgg0fegtg332p" columns="REVISION_ID" ref-table="REVISIONS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_ghwsouq4g1yslgg0fegtg332p" unique="false" columns="REVISION_ID"/>
     </table>
     <table name="GALLERIES" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -41,12 +40,12 @@
     </table>
     <table name="IMAGES" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="DATE_UPLOADED" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="FILEDATA" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="false" jdbcType="-4"/>
-      <column name="FILENAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DATE_UPLOADED" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="FILEDATA" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <column name="FILENAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="TITLE" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="GALLERY_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-      <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="FK_e2pllnwc445v7ajgxttj3pvt0" columns="USER_ID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_ou7k4bkdnpfjrqx8e59v0ni6e" columns="GALLERY_ID" ref-table="GALLERIES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
@@ -56,19 +55,16 @@
     </table>
     <table name="REVISIONS" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="CHECKED_OUT" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CHECKED_OUT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="DATE_UPLOADED" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="HEAD_REVISION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="FILE_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="IMAGE_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="FK_7w8w8cmc4pw1bnma2xeaktpi4" columns="USER_ID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_j6e5remu2pn8j012ca4wa3i1k" columns="FILE_ID" ref-table="FILES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_mhyhhqep9gxiv2bgm33xy80gk" columns="IMAGE_ID" ref-table="IMAGES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_idux98hal4c1xiqt1arb6ngcx" table="FILES" schema="" catalog="pmgmt" columns="REVISION"/>
+      <exported-key name="FK_ghwsouq4g1yslgg0fegtg332p" table="FILES" schema="" catalog="pmgmt" columns="REVISION_ID"/>
       <index name="FK_7w8w8cmc4pw1bnma2xeaktpi4" unique="false" columns="USER_ID"/>
-      <index name="FK_j6e5remu2pn8j012ca4wa3i1k" unique="false" columns="FILE_ID"/>
       <index name="FK_mhyhhqep9gxiv2bgm33xy80gk" unique="false" columns="IMAGE_ID"/>
     </table>
     <table name="ROLES" schema="" catalog="pmgmt" type="TABLE">

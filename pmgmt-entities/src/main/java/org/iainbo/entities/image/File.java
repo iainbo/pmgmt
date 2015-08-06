@@ -15,7 +15,7 @@ public class File extends BaseEntity {
     private Long id;
 
     @NotNull
-    @JoinColumn(name = "REVISION")
+    @JoinColumn(name = "REVISION_ID")
     @OneToOne
     private Revision revision;
 
