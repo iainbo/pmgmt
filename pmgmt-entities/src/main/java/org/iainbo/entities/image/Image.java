@@ -26,20 +26,21 @@ public class Image extends BaseEntity{
     @JoinColumn(name = "GALLERY_ID")
     private Gallery gallery;
 
-    @NotNull
+    //Annotations commented out to allow refactoring to new model.
+    //@NotNull
     @OneToOne
     @JoinColumn(name = "USER_ID")
     private User uploadedBy;
 
-    @NotNull
+    //@NotNull
     @Column(name = "DATE_UPLOADED")
     private Date dateUploaded;
 
-    @NotNull
+    //@NotNull
     @Column(name = "FILENAME")
     private String filename;
 
-    @NotNull
+    //@NotNull
     @Column(name = "FILEDATA")
     @Lob
     private byte[] file;

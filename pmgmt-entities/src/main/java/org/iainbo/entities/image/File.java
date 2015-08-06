@@ -1,20 +1,32 @@
 package org.iainbo.entities.image;
 
-public class File /*extends BaseEntity*/{
+import org.iainbo.entities.common.BaseEntity;
 
-    /*@Id
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "FILES")
+public class File extends BaseEntity {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, name = "ID")
     private Long id;
 
     @NotNull
-    @Column
+    @JoinColumn(name = "REVISION")
+    @OneToOne
+    private Revision revision;
+
+    @NotNull
+    @Column(name = "FILENAME")
     private String filename;
 
     @NotNull
-    @Column(name = "FILE_DATA")
+    @Column(name = "FILEDATA")
     @Lob
-    private byte[] fileData;
+    private byte[] file;
 
     public File(){
 
@@ -38,11 +50,19 @@ public class File /*extends BaseEntity*/{
         this.filename = filename;
     }
 
-    public byte[] getFileData() {
-        return fileData;
+    public Revision getRevision() {
+        return revision;
     }
 
-    public void setFileData(byte[] fileData) {
-        this.fileData = fileData;
-    }*/
+    public void setRevision(Revision revision) {
+        this.revision = revision;
+    }
+
+    public byte[] getFile() {
+        return file;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
+    }
 }
