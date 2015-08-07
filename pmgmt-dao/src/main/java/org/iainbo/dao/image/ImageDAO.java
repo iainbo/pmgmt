@@ -13,9 +13,9 @@ import java.util.List;
 @Stateless
 public class ImageDAO extends BaseDAO {
 
-    public static final String FIND_BY_IMAGE_TITLE = "select i from Image i where i.title =:imageTitle";
-    public static final String FIND_BY_IMAGES_FOR_GALLERY = "select i from Image i where i.gallery =:gallery";
-    public static final String FIND_IMAGE_BY_ID = "select i from Image i where i.id =:imageId";
+    private static final String FIND_BY_IMAGE_TITLE = "select i from Image i where i.title =:imageTitle";
+    private static final String FIND_BY_IMAGES_FOR_GALLERY = "select i from Image i where i.gallery =:gallery";
+    private static final String FIND_IMAGE_BY_ID = "select i from Image i where i.id =:imageId";
 
     public ImageDAO(){super(Image.class);}
 
