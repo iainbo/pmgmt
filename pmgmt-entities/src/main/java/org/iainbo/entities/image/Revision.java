@@ -49,9 +49,11 @@ public class Revision extends BaseEntity {
         this.headRevision = "Y";
     }
 
-    public Revision(User uploadedBy, Date dateUploaded){
+    public Revision(User uploadedBy, Date dateUploaded, String headRevision, File file){
         this.uploadedBy = uploadedBy;
         this.dateUploaded = dateUploaded;
+        this.headRevision = headRevision;
+        this.file = file;
     }
 
 

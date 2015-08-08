@@ -65,6 +65,19 @@ public class Image extends BaseEntity{
         this.dateUploaded = dateUploaded;
     }
 
+    public Image(String title, Gallery gallery, Revision revision){
+        this.title = title;
+        this.gallery = gallery;
+        this.revision = revision;
+    }
+
+    public Image(String title, Gallery gallery, Revision revision, Set<Revision> revisions){
+        this.title = title;
+        this.gallery = gallery;
+        this.revision = revision;
+        this.revisions = revisions;
+    }
+
     @Override
     public Long getId() {
         return id;

@@ -32,6 +32,12 @@ public class File extends BaseEntity {
 
     }
 
+    public File(Revision revision, String filename, byte[] file){
+        this.revision = revision;
+        this.filename = filename;
+        this.file = file;
+    }
+
     @Override
     public Long getId() {
         return id;
