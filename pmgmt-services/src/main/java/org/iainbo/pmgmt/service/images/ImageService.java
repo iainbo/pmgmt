@@ -19,9 +19,6 @@ public class ImageService {
     @Inject
     DAOFactory daoFactory;
 
-    //result returns more than one elements
-
-
     public byte[] getBytesForImage(Long imageId){
         Revision revision = daoFactory.revisionDAO().findHeadRevision(imageId);
         byte[] imageData = new byte[0];
