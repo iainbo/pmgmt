@@ -2,11 +2,9 @@ package org.iainbo.entities.image;
 
 import org.iainbo.entities.common.BaseEntity;
 import org.iainbo.entities.gallery.Gallery;
-import org.iainbo.entities.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -33,36 +31,8 @@ public class Image extends BaseEntity{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "image", cascade = CascadeType.ALL)
     private Set<Revision> revisions;
 
-    //Annotations commented out to allow refactoring to new model.
-    //@NotNull
-    @OneToOne
-    @JoinColumn(name = "USER_ID")
-    private User uploadedBy;
-
-    //@NotNull
-    @Column(name = "DATE_UPLOADED")
-    private Date dateUploaded;
-
-    //@NotNull
-    @Column(name = "FILENAME")
-    private String filename;
-
-    //@NotNull
-    @Column(name = "FILEDATA")
-    @Lob
-    private byte[] file;
-
     public Image(){
 
-    }
-
-    public Image(String title, User user, Gallery gallery, byte[] image, String filename, Date dateUploaded){
-        this.title = title;
-        this.uploadedBy = user;
-        this.gallery = gallery;
-        this.filename = filename;
-        this.file = image;
-        this.dateUploaded = dateUploaded;
     }
 
     public Image(String title, Gallery gallery, Revision revision){
@@ -102,38 +72,6 @@ public class Image extends BaseEntity{
 
     public void setGallery(Gallery gallery) {
         this.gallery = gallery;
-    }
-
-    public User getUploadedBy() {
-        return uploadedBy;
-    }
-
-    public void setUploadedBy(User uploadedBy) {
-        this.uploadedBy = uploadedBy;
-    }
-
-    public Date getDateUploaded() {
-        return dateUploaded;
-    }
-
-    public void setDateUploaded(Date dateUploaded) {
-        this.dateUploaded = dateUploaded;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public byte[] getFile() {
-        return file;
-    }
-
-    public void setFile(byte[] file) {
-        this.file = file;
     }
 
     public Revision getRevision() {

@@ -1,16 +1,11 @@
 package org.iainbo.dto;
 
-import java.util.Date;
-
 public class ImageDTO {
 
     private Long id;
     private String title;
     private GalleryDTO galleryDTO;
-    private UserDTO uploadedBy;
-    private Date dateUploaded;
-    private String filename;
-    private byte[] fileData;
+    private RevisionDTO revisionDTO;
 
     public Long getId() {
         return id;
@@ -36,35 +31,11 @@ public class ImageDTO {
         this.galleryDTO = galleryDTO;
     }
 
-    public UserDTO getUploadedBy() {
-        return uploadedBy;
+    public RevisionDTO getRevisionDTO() {
+        return revisionDTO;
     }
 
-    public void setUploadedBy(UserDTO uploadedBy) {
-        this.uploadedBy = uploadedBy;
-    }
-
-    public Date getDateUploaded() {
-        return dateUploaded;
-    }
-
-    public void setDateUploaded(Date dateUploaded) {
-        this.dateUploaded = dateUploaded;
-    }
-
-    public byte[] getFileData() {
-        return fileData;
-    }
-
-    public void setFileData(byte[] fileData) {
-        this.fileData = fileData;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setRevisionDTO(RevisionDTO revisionDTO) {
+        this.revisionDTO = revisionDTO;
     }
 }
