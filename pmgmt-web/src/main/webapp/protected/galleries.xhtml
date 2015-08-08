@@ -9,11 +9,6 @@
         <!-- message detailing if the gallery has been succesfully created or not-->
         <p:growl id="growl"/>
 
-        <!-- Button to allow user to create a gallery -->
-        <p:commandButton title="Create Gallery" value="Create Gallery"
-                         update=":createGalleryForm:galleryDetail"
-                         oncomplete="PF('createGallery').show()"/>
-
         <!-- PrimeFaces dataGrid which displays list of Galleries -->
         <p:dataGrid var="gallery" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
                     rows="12" paginator="true" id="galleries"
@@ -37,29 +32,6 @@
 
         </p:dataGrid>
 
-    </h:form>
-
-    <!-- Popup form which alows user to enter details of a new gallery to be created -->
-    <h:form id="createGalleryForm">
-        <p:dialog header="Create a new gallery" widgetVar="createGallery" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-            <p:outputPanel id="galleryDetail" style="text-align:center;">
-                <p:panelGrid  columns="2">
-
-                    <h:outputText value="Enter Gallery Name:" />
-                    <p:inputText title="galleryName" value="#{galleryController.newGalleryName}"/>
-
-                    <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
-                                     type="submit"
-                                     action="#{galleryController.addGallery}"
-                                     oncomplete="PF('createGallery').hide()"
-                                     update=":galleriesForm:galleries, :galleriesForm:growl"/>
-
-                    <p:commandButton id="cancelCreateGallery" value="Cancel" widgetVar="cancelGalleryCreation"
-                                     onclick="PF('createGallery').close()"/>
-
-                </p:panelGrid>
-            </p:outputPanel>
-        </p:dialog>
     </h:form>
 
 </ui:composition>

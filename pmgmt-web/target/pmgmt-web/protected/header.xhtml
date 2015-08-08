@@ -16,12 +16,10 @@
 
             <p:submenu label="Gallery" icon="ui-icon-document">
                 <p:submenu label="New" icon="ui-icon-contact">
-                    <p:menuitem value="Project" url="#" />
+                    <p:menuitem value="Gallery"
+                                oncomplete="PF('createGallery').show()"/>
                     <p:menuitem value="Other" url="#" />
                 </p:submenu>
-                <p:menuitem value="Open" url="#" />
-                <p:separator />
-                <p:menuitem value="Quit" url="#" />
             </p:submenu>
 
             <p:submenu label="Account" icon="ui-icon-pencil">
@@ -58,6 +56,28 @@
 
         </p:menubar>
 
+    </h:form>
+
+    <!-- Popup form which alows user to enter details of a new gallery to be created -->
+    <h:form id="createGalleryPopupForm">
+        <p:dialog header="Create a new gallery" widgetVar="createGallery" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="galleryDetail" style="text-align:center;">
+                <p:panelGrid  columns="2">
+
+                    <h:outputText value="Enter Gallery Name:" />
+                    <p:inputText title="galleryName" value="#{galleryController.newGalleryName}"/>
+
+                    <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
+                                     type="submit"
+                                     action="#{galleryController.addGallery}"
+                                     oncomplete="PF('createGallery').hide()"/>
+
+                    <p:commandButton id="cancelCreateGallery" value="Cancel" widgetVar="cancelGalleryCreation"
+                                     onclick="PF('createGallery').close()"/>
+
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
     </h:form>
 
 </ui:composition>
