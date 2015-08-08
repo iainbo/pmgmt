@@ -25,7 +25,7 @@
       <properties>
          <!-- Properties for Hibernate -->
           <!-- Creates new database tables based on the classes above on each deployment -->
-         <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+         <property name="hibernate.hbm2ddl.auto" value="create" />
           <!-- Whether or not sql statements are shown in WildFly, used for troubleshooting -->
           <property name="hibernate.show_sql" value="false" />
           <!-- The database driver -->

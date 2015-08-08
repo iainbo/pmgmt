@@ -8,7 +8,7 @@ import javax.persistence.Query;
 
 public class FileDAO extends BaseDAO {
 
-    private static final String FIND_FILE_FOR_REVISION = "select f from File f where f.revision =: revId";
+    private static final String FIND_FILE_FOR_REVISION = "select f from File f where f.revision.id =:revId";
 
     public FileDAO(){super(File.class);}
 
@@ -17,7 +17,7 @@ public class FileDAO extends BaseDAO {
         this.entityManager = entityManager;
     }
 
-    public File findHeadRevision(Long revId){
+    public File findFileForRevision(Long revId){
         Query query = entityManager.createQuery(FIND_FILE_FOR_REVISION);
         query.setParameter("revId", revId);
         File result = (File) query.getSingleResult();

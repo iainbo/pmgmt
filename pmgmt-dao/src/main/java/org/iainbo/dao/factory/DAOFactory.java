@@ -1,7 +1,9 @@
 package org.iainbo.dao.factory;
 
 import org.iainbo.dao.gallery.GalleryDAO;
+import org.iainbo.dao.image.FileDAO;
 import org.iainbo.dao.image.ImageDAO;
+import org.iainbo.dao.image.RevisionDAO;
 import org.iainbo.dao.user.UserDAO;
 
 import javax.ejb.Lock;
@@ -35,5 +37,13 @@ public class DAOFactory implements Serializable {
 
     public ImageDAO imageDAO(){
         return new ImageDAO(entityManager);
+    }
+
+    public RevisionDAO revisionDAO(){
+        return new RevisionDAO(entityManager);
+    }
+
+    public FileDAO fileDAO(){
+        return new FileDAO(entityManager);
     }
 }
