@@ -91,18 +91,22 @@
                 <p:fileUpload fileUploadListener="#{imageController.handleFileUpload}" mode="advanced"
                               label="Select Image"
                               auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-                <h:outputText value="Enter Image Title: "/>
-                <p:inputText title="imageTitle"/>
 
                 <p:outputLabel for="galleries" value="Select Gallery: " />
-                <p:selectOneMenu id="galleries" value="#{galleryDashBoardController.galleryNames}" effect="fold" editable="false" style="width: 195px">
-                    <f:selectItem itemLabel="Select One" itemValue="" />
-                    <f:selectItems value="#{galleryDashBoardController.galleryNames}" />
+                <p:selectOneMenu id="galleries" effect="fold" value="#{imageController.galleryToBeLoadedTo}" editable="false" style="width: 195px">
+                    <f:selectItem itemLabel="Select a Gallery..." itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{galleryController.availableGalleriesNames}"/>
                 </p:selectOneMenu>
+
+                <h:outputText value="Enter Image Title: "/>
+                <p:inputText title="imageTitle" value="#{imageController.newImageTitle}"/>
+
+                <h:outputText value="Enter Description: "/>
+                <p:inputText title="imageDescription" value="#{imageController.newImageDescription}"/>
 
                 <p:commandButton id="uploadImage" value="Upload" widgetVar="uploadNewImage"
                                  type="submit"
-                                 oncomplete="PF('createGallery').hide()"/>
+                                 oncomplete="PF('addImage').hide()"/>
 
                 <p:commandButton id="cancelUploadImage" value="Cancel" widgetVar="cancelImageUpload"
                                  onclick="PF('addImage').close()"/>

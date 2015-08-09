@@ -12,6 +12,10 @@ import java.io.Serializable;
 public class ImageController implements Serializable{
 
     private UploadedFile newFile;
+    private String newFileName;
+    private String newImageTitle;
+    private String newImageDescription;
+    private String galleryToBeLoadedTo;
 
     public UploadedFile getNewFile() {
         return newFile;
@@ -21,8 +25,41 @@ public class ImageController implements Serializable{
         this.newFile = newFile;
     }
 
+    public String getNewFileName() {
+        return newFileName;
+    }
+
+    public void setNewFileName(String newFileName) {
+        this.newFileName = newFileName;
+    }
+
+    public String getNewImageTitle() {
+        return newImageTitle;
+    }
+
+    public void setNewImageTitle(String newImageTitle) {
+        this.newImageTitle = newImageTitle;
+    }
+
+    public String getNewImageDescription() {
+        return newImageDescription;
+    }
+
+    public void setNewImageDescription(String newImageDescription) {
+        this.newImageDescription = newImageDescription;
+    }
+
+    public String getGalleryToBeLoadedTo() {
+        return galleryToBeLoadedTo;
+    }
+
+    public void setGalleryToBeLoadedTo(String galleryToBeLoadedTo) {
+        this.galleryToBeLoadedTo = galleryToBeLoadedTo;
+    }
+
     public void handleFileUpload(FileUploadEvent event) {
         newFile = event.getFile();
+        newFileName = newFile.getFileName();
 
     }
 }

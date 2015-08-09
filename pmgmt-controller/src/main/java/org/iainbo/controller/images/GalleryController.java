@@ -2,6 +2,7 @@ package org.iainbo.controller.images;
 
 import org.iainbo.controller.LoginController;
 import org.iainbo.dto.FileDTO;
+import org.iainbo.dto.GalleryDTO;
 import org.iainbo.dto.ImageDTO;
 import org.iainbo.dto.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
@@ -11,6 +12,7 @@ import org.iainbo.pmgmt.view.user.UserView;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -20,7 +22,9 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @ManagedBean
 @ViewScoped
@@ -28,6 +32,7 @@ public class GalleryController implements Serializable{
 
 
     private String galleryName;
+    private List<String> availableGalleriesNames;
 
     @Inject
     GalleryService galleryService;
@@ -47,6 +52,10 @@ public class GalleryController implements Serializable{
     @Inject
     GalleryView galleryView;
 
+    @PostConstruct
+    public void init(){
+        getGalleryNames();
+    }
 
     public String getNewGalleryName() {
         return galleryName;
@@ -54,6 +63,14 @@ public class GalleryController implements Serializable{
 
     public void setNewGalleryName(String galleryName) {
         this.galleryName = galleryName;
+    }
+
+    public List<String> getAvailableGalleriesNames() {
+        return availableGalleriesNames;
+    }
+
+    public void setAvailableGalleriesNames(List<String> availableGalleriesNames) {
+        this.availableGalleriesNames = availableGalleriesNames;
     }
 
     public void addGallery(){
@@ -118,5 +135,13 @@ public class GalleryController implements Serializable{
             }
         }
         return imagePersisted;
+    }
+
+    public void getGalleryNames(){
+        List<GalleryDTO> allAvailableGalleries = galleryService.getAllAvailableGalleries();
+        availableGalleriesNames = new ArrayList<>();
+        for(GalleryDTO g : allAvailableGalleries){
+            availableGalleriesNames.add(g.getGalleryName());
+        }
     }
 }
