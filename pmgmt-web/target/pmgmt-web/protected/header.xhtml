@@ -105,7 +105,7 @@
                 <p:inputText title="imageDescription" value="#{imageController.newImageDescription}"/>
 
                 <p:commandButton id="uploadImage" value="Upload" widgetVar="uploadNewImage"
-                                 type="submit"
+                                 type="submit" actionListener="#{imageController.uploadImage}"
                                  oncomplete="PF('addImage').hide()"/>
 
                 <p:commandButton id="cancelUploadImage" value="Cancel" widgetVar="cancelImageUpload"

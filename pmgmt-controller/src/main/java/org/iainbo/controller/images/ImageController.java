@@ -62,4 +62,10 @@ public class ImageController implements Serializable{
         newFileName = newFile.getFileName();
 
     }
+
+    public void uploadImage(){
+        System.out.println("The title is: " + getNewImageTitle());
+        System.out.println("The Description is: " + getNewImageDescription());
+        System.out.println("The Gallery is: " + getGalleryToBeLoadedTo());
+    }
 }
