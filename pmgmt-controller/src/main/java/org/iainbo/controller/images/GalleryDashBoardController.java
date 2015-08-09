@@ -26,16 +26,34 @@ public class GalleryDashBoardController implements Serializable{
     GalleryView galleryView;
 
     private List<GalleryDashboardView> galleryDashboardViews;
+    private List<String> galleryNames;
 
     @PostConstruct
     //Method which is used to initialise the object after it has been injected.
     public void init(){
         getGalleries();
+        getListOfgalleryNames();
     }
 
 
     public List<GalleryDashboardView> getGalleryDashboardViews() {
         return galleryDashboardViews;
+    }
+
+    public List<String> getGalleryNames() {
+        return galleryNames;
+    }
+
+    public void setGalleryNames(List<String> galleryNames) {
+        this.galleryNames = galleryNames;
+    }
+
+    public List<String> getListOfgalleryNames(){
+        galleryNames = new ArrayList<>();
+        for(GalleryDashboardView g : galleryDashboardViews){
+            galleryNames.add(g.getGalleryName());
+        }
+        return galleryNames;
     }
 
     public void setGalleryDashboardViews(List<GalleryDashboardView> galleryDashboardViews) {

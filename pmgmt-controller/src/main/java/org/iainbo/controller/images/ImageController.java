@@ -1,5 +1,8 @@
 package org.iainbo.controller.images;
 
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
@@ -7,32 +10,19 @@ import java.io.Serializable;
 @ManagedBean
 @ViewScoped
 public class ImageController implements Serializable{
-//Class not used at present!!
-    /*@Inject
-    ImageService imageService;
 
-    @Inject
-    LoginController loginController;
+    private UploadedFile newFile;
 
-    @Inject
-    GalleryService galleryService;
+    public UploadedFile getNewFile() {
+        return newFile;
+    }
 
-    @Inject
-    GalleryController galleryController;
+    public void setNewFile(UploadedFile newFile) {
+        this.newFile = newFile;
+    }
 
-    public boolean saveNewImage(UploadedFile file){
-        boolean imagePersisted = false;
-        System.out.println("In Image Controller!");
-        ImageDTO imageDTO = new ImageDTO();
-        imageDTO.setTitle("Temporary Title");
-        imageDTO.setDateUploaded(new Date());
-        imageDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
-        imageDTO.setFileData(file.getContents());
-        imageDTO.setFilename(file.getFileName());
-        imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryController.getNewGalleryName()));
-        if(imageService.persistImage(imageDTO)){
-            imagePersisted = true;
-        }
-        return imagePersisted;
-    }*/
+    public void handleFileUpload(FileUploadEvent event) {
+        newFile = event.getFile();
+
+    }
 }
