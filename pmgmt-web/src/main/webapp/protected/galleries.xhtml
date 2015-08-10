@@ -22,7 +22,10 @@
             <!-- PrimeFaces panel used to display gallery name, thumbnail and view button -->
             <p:panel header="#{gallery.galleryName}" style="text-align:center">
                 <h:panelGrid columns="1" style="width:100%">
-                    <p:graphicImage id="galleryThumb" value="/api/image/thumb/#{gallery.id}" height="200" width="200"/>
+
+                    <p:commandLink action="#{galleryDashBoardController.viewGallery(gallery.galleryName)}">
+                        <p:graphicImage id="galleryThumb" value="/api/image/thumb/#{gallery.id}" height="200" width="200"/>
+                    </p:commandLink>
 
 
                     <p:commandButton value="View Gallery" ajax="false" action="#{galleryDashBoardController.viewGallery(gallery.galleryName)}"
