@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="An image can be uploaded from the header.">
+    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="A gallery thumbnail can be clicked on to navigate to the respective gallery.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" />
@@ -20,8 +20,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleries.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleries.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dto/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dto/target/maven-archiver/pom.properties" />
@@ -93,11 +93,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="galleryView.xhtml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="galleryView.xhtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.63616073">
+              <caret line="36" column="86" selection-start-line="36" selection-start-column="86" selection-end-line="36" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -133,10 +133,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="galleries.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="galleries.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5223214">
+            <state vertical-scroll-proportion="-15.0">
               <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
@@ -222,8 +222,8 @@
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java" />
         <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" />
-        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
         <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" />
+        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
       </list>
     </option>
   </component>
@@ -1017,13 +1017,7 @@
       <workItem from="1439115806344" duration="11427000" />
       <workItem from="1439187370936" duration="32000" />
       <workItem from="1439187622569" duration="1495000" />
-      <workItem from="1439229933674" duration="3775000" />
-    </task>
-    <task id="LOCAL-00017" summary="Added fetch types and created BaseEntity">
-      <created>1427483761253</created>
-      <option name="number" value="00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1427483761253</updated>
+      <workItem from="1439229933674" duration="4226000" />
     </task>
     <task id="LOCAL-00018" summary="IntelliJ Datasource synchronized">
       <created>1427483987830</created>
@@ -1313,11 +1307,17 @@
       <option name="project" value="LOCAL" />
       <updated>1439234267366</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="A gallery thumbnail can be clicked on to navigate to the respective gallery.">
+      <created>1439234856337</created>
+      <option name="number" value="00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1439234856337</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313560000" />
+    <option name="totallyTimeSpent" value="314011000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1415,7 +1415,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Tidied up GalleryView relating to navigating between different galleries." />
     <MESSAGE value="Image can be displayed in browser using API call" />
     <MESSAGE value="Moved dao's to DAOFactory" />
     <MESSAGE value="Images within a gallery are displayed in a datagrid" />
@@ -1440,7 +1439,8 @@
     <MESSAGE value="Pressing upload image, now outputs the title, description and the selected gallery to wildfly." />
     <MESSAGE value="Once a file has been selected for upload, the filename is displayed in the dialog box." />
     <MESSAGE value="An image can be uploaded from the header." />
-    <option name="LAST_COMMIT_MESSAGE" value="An image can be uploaded from the header." />
+    <MESSAGE value="A gallery thumbnail can be clicked on to navigate to the respective gallery." />
+    <option name="LAST_COMMIT_MESSAGE" value="A gallery thumbnail can be clicked on to navigate to the respective gallery." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1814,18 +1814,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
+    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="19" column="90" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
+    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5223214">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.63616073">
+          <caret line="36" column="86" selection-start-line="36" selection-start-column="86" selection-end-line="36" selection-end-column="86" />
           <folding />
         </state>
       </provider>
