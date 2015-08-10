@@ -37,4 +37,9 @@ public class RevisionDAO extends BaseDAO {
         return results;
     }
 
+    public Revision create(final Revision entity){
+        entityManager.persist(entity);
+        return entity;
+    }
+
 }

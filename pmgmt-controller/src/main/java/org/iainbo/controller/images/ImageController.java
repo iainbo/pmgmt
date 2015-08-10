@@ -1,21 +1,39 @@
 package org.iainbo.controller.images;
 
+import org.iainbo.controller.LoginController;
+import org.iainbo.dto.FileDTO;
+import org.iainbo.dto.ImageDTO;
+import org.iainbo.dto.RevisionDTO;
+import org.iainbo.pmgmt.service.images.GalleryService;
+import org.iainbo.pmgmt.service.images.ImageService;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.Date;
 
 @ManagedBean
 @ViewScoped
 public class ImageController implements Serializable{
 
     private UploadedFile newFile;
+    private byte[] fileBytes;
     private String newFileName;
     private String newImageTitle;
     private String newImageDescription;
     private String galleryToBeLoadedTo;
+
+    @Inject
+    GalleryService galleryService;
+
+    @Inject
+    LoginController loginController;
+
+    @Inject
+    ImageService imageService;
 
     public UploadedFile getNewFile() {
         return newFile;
@@ -59,13 +77,40 @@ public class ImageController implements Serializable{
 
     public void handleFileUpload(FileUploadEvent event) {
         newFile = event.getFile();
+        fileBytes = newFile.getContents();
         newFileName = newFile.getFileName();
 
     }
 
     public void uploadImage(){
-        System.out.println("The title is: " + getNewImageTitle());
-        System.out.println("The Description is: " + getNewImageDescription());
-        System.out.println("The Gallery is: " + getGalleryToBeLoadedTo());
+
+        if(fileBytes == null || fileBytes.length == 0){
+            System.out.println("The File is empty.");
+        }else{
+            ImageDTO imageDTO = new ImageDTO();
+            RevisionDTO revisionDTO = new RevisionDTO();
+            FileDTO fileDTO = new FileDTO();
+
+            imageDTO.setTitle(newImageTitle);
+            imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryToBeLoadedTo));
+
+            revisionDTO.setHeadRevision("Y");
+            revisionDTO.setDateUploaded(new Date());
+            revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
+
+            fileDTO.setFilename(newFileName);
+            fileDTO.setFileData(fileBytes);
+            fileDTO.setRevisionDTO(revisionDTO);
+
+            revisionDTO.setFileDTO(fileDTO);
+            revisionDTO.setImageDTO(imageDTO);
+
+            imageDTO.setRevisionDTO(revisionDTO);
+
+            if(imageService.persistImage(imageDTO)){
+                System.out.println("The image has been saved.");
+            }
+        }
+
     }
 }

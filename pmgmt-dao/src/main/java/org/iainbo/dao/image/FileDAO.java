@@ -23,4 +23,9 @@ public class FileDAO extends BaseDAO {
         File result = (File) query.getSingleResult();
         return result;
     }
+
+    public File create(final File entity){
+        entityManager.persist(entity);
+        return entity;
+    }
 }
