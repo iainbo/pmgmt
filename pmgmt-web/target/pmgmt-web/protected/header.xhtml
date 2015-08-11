@@ -84,7 +84,7 @@
 
     <!--Popup for adding a new image -->
     <h:form id="addNewImageForm">
-        <p:dialog header="Upload Image" widgetVar="addImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:dialog id="addNewImageDialog" header="Upload Image" widgetVar="addImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:panelGrid id="imageDetails" columns="2">
 
                 <h:outputText value="Select Image to be uploaded:"/>
@@ -112,7 +112,7 @@
                                  type="submit" actionListener="#{imageController.uploadImage}"
                                  oncomplete="PF('addImage').hide()"/>
 
-                <p:commandButton id="cancelUploadImage" value="Cancel" widgetVar="cancelImageUpload"
+                <p:commandButton id="cancelUploadImageButton" value="Cancel" widgetVar="cancelImageUpload"
                                  onclick="PF('addImage').close()"/>
             </p:panelGrid>
         </p:dialog>

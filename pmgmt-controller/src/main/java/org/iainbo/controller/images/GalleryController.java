@@ -144,4 +144,9 @@ public class GalleryController implements Serializable{
             availableGalleriesNames.add(g.getGalleryName());
         }
     }
+
+    public void updateGallery(){
+        System.out.println("The new name is: " + galleryView.getGalleryName());
+        System.out.println("The new description is: " + galleryView.getGalleryDescription());
+    }
 }
