@@ -52,8 +52,7 @@
 
     <h:form id="editGalleryForm">
         <p:dialog id="editGalleryDialog" header="editGallery" widgetVar="editGallery" modal="true" showEffect="fade" hideEffect="fade" resizable="true">
-            <p:commandButton id="deleteGalleryButton" type="submit" value="Delete Gallery" style="color: red"
-                             actionListener="#{galleryController.deleteGallery}" oncomplete="PF('editGallery').hide()"/>
+
             <p:panelGrid id="galleryDetails" columns="2">
                 <h:outputText value="Gallery Name"/>
                 <p:inputText id="galleryName" value="#{galleryView.galleryName}"/>

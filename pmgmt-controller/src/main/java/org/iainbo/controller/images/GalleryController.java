@@ -151,7 +151,4 @@ public class GalleryController implements Serializable{
         System.out.println("The new description is: " + galleryView.getGalleryDescription());
     }
 
-    public void deleteGallery(){
-
-    }
 }
