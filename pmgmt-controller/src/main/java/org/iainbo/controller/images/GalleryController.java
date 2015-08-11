@@ -146,7 +146,12 @@ public class GalleryController implements Serializable{
     }
 
     public void updateGallery(){
-        System.out.println("The new name is: " + galleryView.getGalleryName());
+        galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName());
+
         System.out.println("The new description is: " + galleryView.getGalleryDescription());
+    }
+
+    public void deleteGallery(){
+
     }
 }

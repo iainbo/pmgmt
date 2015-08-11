@@ -9,12 +9,21 @@ import java.util.List;
 @SessionScoped
 public class GalleryView implements Serializable{
 
+    private Long id;
     private String galleryName;
     private String owner;
     private boolean containsImages;
     private List<ImageView> images;
     private String numberOfImages;
     private String galleryDescription;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getGalleryName() {
         return galleryName;

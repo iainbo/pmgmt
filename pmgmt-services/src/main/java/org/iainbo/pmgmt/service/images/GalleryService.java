@@ -83,4 +83,10 @@ public class GalleryService {
         return thumb;
     }
 
+    public void updateExistingGallery(Long galleryId, String newGalleryName){
+        Gallery gallery = daoFactory.galleryDAO().find(galleryId);
+        gallery.setGalleryName(newGalleryName);
+        daoFactory.galleryDAO().update(gallery);
+    }
+
 }

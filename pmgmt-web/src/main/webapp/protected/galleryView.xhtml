@@ -8,13 +8,13 @@
     <h:head/>
     <h:body>
 
+        <div id="header">
+            <ui:include src="/protected/header.xhtml"/>
+        </div>
+
         <div id="galleryView">
 
-            <div id="header">
-                <ui:include src="/protected/header.xhtml"/>
-            </div>
-
-            <h:form title="galleryForm">
+            <h:form id="galleryForm">
 
             <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
                                rendered="#{galleryView.containsImages}" style="border: 5px"/>
@@ -34,7 +34,7 @@
 
                     <f:facet name="header">
                         #{galleryView.galleryName}
-                        <p:commandButton id="editGalleryButton" value="Edit Gallery" oncomplete="PF('editGallery').show()"/>
+                        <p:commandButton id="editGalleryButton" value="Edit Gallery" onclick="PF('editGallery').show()"/>
                     </f:facet>
 
                     <p:panel header="#{gallery.title}" style="text-align:center">
@@ -52,6 +52,8 @@
 
     <h:form id="editGalleryForm">
         <p:dialog id="editGalleryDialog" header="editGallery" widgetVar="editGallery" modal="true" showEffect="fade" hideEffect="fade" resizable="true">
+            <p:commandButton id="deleteGalleryButton" type="submit" value="Delete Gallery" style="color: red"
+                             actionListener="#{galleryController.deleteGallery}" oncomplete="PF('editGallery').hide()"/>
             <p:panelGrid id="galleryDetails" columns="2">
                 <h:outputText value="Gallery Name"/>
                 <p:inputText id="galleryName" value="#{galleryView.galleryName}"/>
@@ -60,7 +62,7 @@
                 <p:inputText id="galleryDescription" value="#{galleryView.galleryDescription}"/>
 
                 <p:commandButton id="updateGallery" value="Update" actionListener="#{galleryController.updateGallery}"
-                                 type="submit" oncomplete="PF('editGallery').hide()"/>
+                                 type="submit" oncomplete="PF('editGallery').hide()" update=":galleryForm"/>
                 <p:commandButton id="cancelEditGalleryButton" value="Cancel" widgetVar="cancelEditGallery"
                                  onclick="PF('editGallery').close()"/>
             </p:panelGrid>
