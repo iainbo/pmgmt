@@ -16,10 +16,16 @@
 
             <h:form id="galleryForm">
 
-            <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
+                <p:contextMenu for="gallery">
+                    <p:menuitem value="View Description"/>
+                    <p:menuitem value="Checkout"/>
+                    <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()"/>
+                </p:contextMenu>
+
+                <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
                                rendered="#{galleryView.containsImages}" style="border: 5px"/>
 
-            <!--Upload dialog to allow users to upload a new image to the Gallery -->
+                <!--Upload dialog to allow users to upload a new image to the Gallery -->
                 <p:fileUpload fileUploadListener="#{galleryController.handleFileUpload}" mode="advanced"
                               update="messages" auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
                               rendered="#{galleryView.containsImages}"/>
@@ -65,6 +71,19 @@
                 <p:commandButton id="cancelEditGalleryButton" value="Cancel" widgetVar="cancelEditGallery"
                                  onclick="PF('editGallery').close()"/>
             </p:panelGrid>
+        </p:dialog>
+    </h:form>
+
+    <h:form id="deleteImageForm">
+        <p:dialog header="Delete Image" widgetVar="deleteImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="deleteImagePanel">
+                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                    <p:commandButton id="deleteImageButton" value="Delete" type="submit"
+                                     oncomplete="PF('deleteImage').close()"/>
+                    <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
+                                     onclick="PF('deleteImage').close()"/>
+                </p:panelGrid>
+            </p:outputPanel>
         </p:dialog>
     </h:form>
 
