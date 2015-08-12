@@ -16,7 +16,7 @@ public class File extends BaseEntity {
 
     @NotNull
     @JoinColumn(name = "REVISION_ID")
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Revision revision;
 
     @NotNull

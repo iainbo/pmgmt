@@ -37,8 +37,7 @@ public class Revision extends BaseEntity {
     private Date dateUploaded;
 
     @NotNull
-    @OneToOne
-    @Transient
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "revision",cascade = CascadeType.ALL)
     private File file;
 
     @ManyToOne(fetch = FetchType.LAZY)

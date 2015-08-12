@@ -46,4 +46,8 @@ public class ImageService {
         daoFactory.fileDAO().create(newFile);
         return true;
     }
+
+    public void deleteImage(Long imageId){
+        daoFactory.imageDAO().delete(imageId);
+    }
 }

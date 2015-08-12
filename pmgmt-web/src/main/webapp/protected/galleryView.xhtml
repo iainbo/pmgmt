@@ -46,6 +46,7 @@
                     <p:panel header="#{image.title}" style="text-align:center">
                         <h:panelGrid columns="1" style="width:100%">
                             <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.id}" height="200" width="200"/>
+                            <p:ajax event="mouseover" listener="#{imageController.setSelectedImage(image.id)}"/>
                         </h:panelGrid>
                     </p:panel>
 
@@ -77,8 +78,8 @@
         <p:dialog header="Delete Image" widgetVar="deleteImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:outputPanel id="deleteImagePanel">
                 <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
-                    <p:commandButton id="deleteImageButton" value="Delete" type="submit"
-                                     oncomplete="PF('deleteImage').close()"/>
+                    <p:commandButton id="deleteImageButton" value="Delete" actionListener="#{imageController.deleteImage}"
+                                     type="submit" oncomplete="PF('deleteImage').hide()"/>
                     <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
                                      onclick="PF('deleteImage').close()"/>
                 </p:panelGrid>
