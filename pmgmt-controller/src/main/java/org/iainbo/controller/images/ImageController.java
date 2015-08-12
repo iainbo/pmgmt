@@ -25,6 +25,7 @@ public class ImageController implements Serializable{
     private String newImageTitle;
     private String newImageDescription;
     private String galleryToBeLoadedTo;
+    private String selectedImage;
 
     @Inject
     GalleryService galleryService;
@@ -73,6 +74,22 @@ public class ImageController implements Serializable{
 
     public void setGalleryToBeLoadedTo(String galleryToBeLoadedTo) {
         this.galleryToBeLoadedTo = galleryToBeLoadedTo;
+    }
+
+    public byte[] getFileBytes() {
+        return fileBytes;
+    }
+
+    public void setFileBytes(byte[] fileBytes) {
+        this.fileBytes = fileBytes;
+    }
+
+    public String getSelectedImage() {
+        return selectedImage;
+    }
+
+    public void setSelectedImage(String selectedImage) {
+        this.selectedImage = selectedImage;
     }
 
     public void handleFileUpload(FileUploadEvent event) {

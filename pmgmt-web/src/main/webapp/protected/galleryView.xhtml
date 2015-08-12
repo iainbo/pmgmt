@@ -32,7 +32,7 @@
                 <p:growl id="messages" showDetail="true" />
 
                 <!-- Datagrid to display images stored in the gallery -->
-                <p:dataGrid var="gallery" value="#{galleryView.images}" columns="3" layout="grid"
+                <p:dataGrid var="image" value="#{galleryView.images}" columns="3" layout="grid"
                             rows="12" paginator="true" id="gallery"
                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                             rowsPerPageTemplate="6,12,16" widgetVar="galleryGridForm"
@@ -43,10 +43,9 @@
                         <p:commandButton id="editGalleryButton" value="Edit Gallery" onclick="PF('editGallery').show()"/>
                     </f:facet>
 
-                    <p:panel header="#{gallery.title}" style="text-align:center">
+                    <p:panel header="#{image.title}" style="text-align:center">
                         <h:panelGrid columns="1" style="width:100%">
-                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{gallery.id}" height="200" width="200"/>
-
+                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.id}" height="200" width="200"/>
                         </h:panelGrid>
                     </p:panel>
 
