@@ -11,6 +11,7 @@ public class ImageView implements Serializable{
 
     private Long id;
     private String title;
+    private String Description;
     private GalleryView galleryView;
     private String uploadedBy;
     private Date dateUploaded;
@@ -32,6 +33,14 @@ public class ImageView implements Serializable{
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String description) {
+        Description = description;
     }
 
     public GalleryView getGalleryView() {

@@ -20,6 +20,9 @@ public class Image extends BaseEntity{
     @Column(name = "TITLE")
     private String title;
 
+    @Column(name = "DESCRIPTION")
+    private String description;
+
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GALLERY_ID")
@@ -93,5 +96,13 @@ public class Image extends BaseEntity{
 
     public void setRevisions(Set<Revision> revisions) {
         this.revisions = revisions;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -16,12 +16,6 @@
 
             <h:form id="galleryForm">
 
-                <p:contextMenu for="gallery">
-                    <p:menuitem value="View Description"/>
-                    <p:menuitem value="Checkout"/>
-                    <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()"/>
-                </p:contextMenu>
-
                 <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
                                rendered="#{galleryView.containsImages}" style="border: 5px"/>
 
@@ -46,7 +40,13 @@
                     <p:panel header="#{image.title}" style="text-align:center">
                         <h:panelGrid columns="1" style="width:100%">
                             <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.id}" height="200" width="200"/>
-                            <p:ajax event="mouseover" listener="#{imageController.setSelectedImage(image.id)}"/>
+
+                            <h:panelGrid columns="3">
+                                <p:commandButton id="viewInfo" value="View Info" onclick="PF('imageInfo').show()"/>
+                                <p:commandButton id="checkOut" value="Check Out"/>
+                                <p:commandButton id="delete" value="Delete" onclick="PF('deleteImage').show()"
+                                                 actionListener="#{imageController.setImageToBeDeleted(image.id)}"/>
+                            </h:panelGrid>
                         </h:panelGrid>
                     </p:panel>
 
@@ -82,6 +82,17 @@
                                      type="submit" oncomplete="PF('deleteImage').hide()"/>
                     <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
                                      onclick="PF('deleteImage').close()"/>
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+
+    <h:form id="imageInfoForm">
+        <p:dialog header="Image Information" widgetVar="imageInfo" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <p:outputPanel id="imageInfoPanel">
+                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                    <p:outputLabel id="title" value="Title"/>
+                    <h:outputText id="imageTitle" value="Still to do!"/>
                 </p:panelGrid>
             </p:outputPanel>
         </p:dialog>

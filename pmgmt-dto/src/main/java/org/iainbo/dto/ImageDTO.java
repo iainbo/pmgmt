@@ -4,6 +4,7 @@ public class ImageDTO {
 
     private Long id;
     private String title;
+    private String description;
     private GalleryDTO galleryDTO;
     private RevisionDTO revisionDTO;
 
@@ -21,6 +22,14 @@ public class ImageDTO {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public GalleryDTO getGalleryDTO() {

@@ -6,6 +6,7 @@ import org.iainbo.dto.ImageDTO;
 import org.iainbo.dto.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
+import org.iainbo.pmgmt.view.gallery.ImageView;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
@@ -25,7 +26,10 @@ public class ImageController implements Serializable{
     private String newImageTitle;
     private String newImageDescription;
     private String galleryToBeLoadedTo;
-    private Long selectedImageId;
+    private String imageToBeDeleted;
+
+    @Inject
+    private ImageView imageView;
 
     @Inject
     GalleryService galleryService;
@@ -84,12 +88,20 @@ public class ImageController implements Serializable{
         this.fileBytes = fileBytes;
     }
 
-    public Long getSelectedImageId() {
-        return selectedImageId;
+    public ImageView getImageView() {
+        return imageView;
     }
 
-    public void setSelectedImageId(Long selectedImageId) {
-        this.selectedImageId = selectedImageId;
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
+    public String getImageToBeDeleted() {
+        return imageToBeDeleted;
+    }
+
+    public void setImageToBeDeleted(String imageToBeDeleted) {
+        this.imageToBeDeleted = imageToBeDeleted;
     }
 
     public void handleFileUpload(FileUploadEvent event) {
@@ -131,11 +143,18 @@ public class ImageController implements Serializable{
 
     }
 
-    public void setSelectedImage(String imageId){
-        setSelectedImageId(Long.valueOf(imageId));
+    public void deleteImage(){
+        imageService.deleteImage(Long.valueOf(getImageToBeDeleted()));
     }
 
-    public void deleteImage(){
-        imageService.deleteImage(getSelectedImageId());
+    public void retrieveSelectedImage(Long imageId){
+        ImageDTO imageDTO = imageService.findImageById(imageId);
+        imageView.setTitle(imageDTO.getTitle());
+
+        //imageView.setDescription(imageDTO.getDescription());
+        //System.out.println("Setting user");
+        //imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
+        //System.out.println("The user is: " + imageView.getUploadedBy());
+        //imageView.setDateUploaded(imageDTO.getRevisionDTO().getDateUploaded());
     }
 }

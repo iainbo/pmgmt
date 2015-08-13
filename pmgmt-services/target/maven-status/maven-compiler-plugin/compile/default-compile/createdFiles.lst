@@ -1,8 +1,10 @@
 org/iainbo/pmgmt/service/images/ImageService.class
+org/iainbo/pmgmt/service/mapper/ImageMapper.class
 org/iainbo/pmgmt/service/mapper/UserMapperImpl.class
 org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.class
 org/iainbo/pmgmt/service/mapper/GalleryMapper.class
 org/iainbo/pmgmt/service/user/UserService.class
 org/iainbo/pmgmt/service/AuthenticationService.class
+org/iainbo/pmgmt/service/mapper/ImageMapperImpl.class
 org/iainbo/pmgmt/service/mapper/UserMapper.class
 org/iainbo/pmgmt/service/images/GalleryService.class

@@ -7,6 +7,7 @@ import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.image.Revision;
 import org.iainbo.entities.user.User;
+import org.iainbo.pmgmt.service.mapper.ImageMapper;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,6 +20,9 @@ public class ImageService {
 
     @Inject
     DAOFactory daoFactory;
+
+    @Inject
+    ImageMapper imageMapper;
 
     public byte[] getBytesForImage(Long imageId){
         Revision revision = daoFactory.revisionDAO().findHeadRevision(imageId);
@@ -49,5 +53,11 @@ public class ImageService {
 
     public void deleteImage(Long imageId){
         daoFactory.imageDAO().delete(imageId);
+    }
+
+    public ImageDTO findImageById(Long imageId){
+        Image image = daoFactory.imageDAO().findImageByID(imageId);
+        ImageDTO imageDTO = imageMapper.imageToImageDTO(image);
+        return imageDTO;
     }
 }
