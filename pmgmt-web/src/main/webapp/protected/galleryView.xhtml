@@ -37,15 +37,19 @@
                         <p:commandButton id="editGalleryButton" value="Edit Gallery" onclick="PF('editGallery').show()"/>
                     </f:facet>
 
-                    <p:panel header="#{image.title}" style="text-align:center">
-                        <h:panelGrid columns="1" style="width:100%">
-                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.id}" height="200" width="200"/>
+                    <p:panel header="#{image.title}" style="text-align:center;">
+                        <h:panelGrid columns="1" style="width:100%; align-items: center">
+                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.id}" height="300" width="300"/>
 
-                            <h:panelGrid columns="3">
-                                <p:commandButton id="viewInfo" value="View Info" onclick="PF('imageInfo').show()"/>
-                                <p:commandButton id="checkOut" value="Check Out"/>
+                            <h:panelGrid columns="3" style="font-size: small; padding-left: 22px">
+                                <p:commandButton id="viewInfo" value="View Info" onclick="PF('imageInfo').show()"
+                                                 actionListener="#{imageController.setSelectedImageId(image.id)}"
+                                                 style="width: 100px; height:30px; text-align: center"/>
+                                <p:commandButton id="checkOut" value="Check Out"
+                                                 style="width: 100px; height:30px; text-align: center"/>
                                 <p:commandButton id="delete" value="Delete" onclick="PF('deleteImage').show()"
-                                                 actionListener="#{imageController.setImageToBeDeleted(image.id)}"/>
+                                                 actionListener="#{imageController.setSelectedImageId(image.id)}"
+                                                 style="width: 100px; height:30px; text-align: center"/>
                             </h:panelGrid>
                         </h:panelGrid>
                     </p:panel>

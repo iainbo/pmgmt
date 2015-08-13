@@ -26,7 +26,7 @@ public class ImageController implements Serializable{
     private String newImageTitle;
     private String newImageDescription;
     private String galleryToBeLoadedTo;
-    private String imageToBeDeleted;
+    private String selectedImageId;
 
     @Inject
     private ImageView imageView;
@@ -96,12 +96,12 @@ public class ImageController implements Serializable{
         this.imageView = imageView;
     }
 
-    public String getImageToBeDeleted() {
-        return imageToBeDeleted;
+    public String getSelectedImageId() {
+        return selectedImageId;
     }
 
-    public void setImageToBeDeleted(String imageToBeDeleted) {
-        this.imageToBeDeleted = imageToBeDeleted;
+    public void setSelectedImageId(String selectedImageId) {
+        this.selectedImageId = selectedImageId;
     }
 
     public void handleFileUpload(FileUploadEvent event) {
@@ -144,7 +144,7 @@ public class ImageController implements Serializable{
     }
 
     public void deleteImage(){
-        imageService.deleteImage(Long.valueOf(getImageToBeDeleted()));
+        imageService.deleteImage(Long.valueOf(getSelectedImageId()));
     }
 
     public void retrieveSelectedImage(Long imageId){
