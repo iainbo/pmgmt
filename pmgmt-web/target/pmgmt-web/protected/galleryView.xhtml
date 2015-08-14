@@ -16,6 +16,12 @@
 
             <h:form id="galleryForm">
 
+                <p:contextMenu for="gallery">
+                    <p:menuitem value="View Information" onclick="PF('imageInfo').show()" update=":imageInfoForm"/>
+                    <p:menuitem value="Checkout" />
+                    <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()"/>
+                </p:contextMenu>
+
                 <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
                                rendered="#{galleryView.containsImages}" style="border: 5px"/>
 
@@ -40,17 +46,7 @@
                     <p:panel header="#{image.title}" style="text-align:center;">
                         <h:panelGrid columns="1" style="width:100%; align-items: center">
                             <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.id}" height="300" width="300"/>
-
-                            <h:panelGrid columns="3" style="font-size: small; padding-left: 22px">
-                                <p:commandButton id="viewInfo" value="View Info" onclick="PF('imageInfo').show()"
-                                                 actionListener="#{imageController.setSelectedImageId(image.id)}"
-                                                 style="width: 100px; height:30px; text-align: center"/>
-                                <p:commandButton id="checkOut" value="Check Out"
-                                                 style="width: 100px; height:30px; text-align: center"/>
-                                <p:commandButton id="delete" value="Delete" onclick="PF('deleteImage').show()"
-                                                 actionListener="#{imageController.setSelectedImageId(image.id)}"
-                                                 style="width: 100px; height:30px; text-align: center"/>
-                            </h:panelGrid>
+                            <p:ajax event="mouseover" listener="#{imageController.setSelectedImageId(image.id)}"/>
                         </h:panelGrid>
                     </p:panel>
 
@@ -60,46 +56,50 @@
         </div>
     </h:body>
 
-    <h:form id="editGalleryForm">
+
         <p:dialog id="editGalleryDialog" header="editGallery" widgetVar="editGallery" modal="true" showEffect="fade" hideEffect="fade" resizable="true">
+            <h:form id="editGalleryForm">
+                <p:panelGrid id="galleryDetails" columns="2">
+                    <h:outputText value="Gallery Name"/>
+                    <p:inputText id="galleryName" value="#{galleryView.galleryName}"/>
 
-            <p:panelGrid id="galleryDetails" columns="2">
-                <h:outputText value="Gallery Name"/>
-                <p:inputText id="galleryName" value="#{galleryView.galleryName}"/>
+                    <h:outputText value="Gallery Description"/>
+                    <p:inputText id="galleryDescription" value="#{galleryView.galleryDescription}"/>
 
-                <h:outputText value="Gallery Description"/>
-                <p:inputText id="galleryDescription" value="#{galleryView.galleryDescription}"/>
-
-                <p:commandButton id="updateGallery" value="Update" actionListener="#{galleryController.updateGallery}"
-                                 type="submit" oncomplete="PF('editGallery').hide()" update=":galleryForm"/>
-                <p:commandButton id="cancelEditGalleryButton" value="Cancel" widgetVar="cancelEditGallery"
-                                 onclick="PF('editGallery').close()"/>
-            </p:panelGrid>
+                    <p:commandButton id="updateGallery" value="Update" actionListener="#{galleryController.updateGallery}"
+                                    type="submit" oncomplete="PF('editGallery').hide()" update=":galleryForm"/>
+                    <p:commandButton id="cancelEditGalleryButton" value="Cancel" widgetVar="cancelEditGallery"
+                                    onclick="PF('editGallery').close()"/>
+                </p:panelGrid>
+            </h:form>
         </p:dialog>
-    </h:form>
 
-    <h:form id="deleteImageForm">
+
+
         <p:dialog header="Delete Image" widgetVar="deleteImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:outputPanel id="deleteImagePanel">
-                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
-                    <p:commandButton id="deleteImageButton" value="Delete" actionListener="#{imageController.deleteImage}"
-                                     type="submit" oncomplete="PF('deleteImage').hide()"/>
-                    <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
-                                     onclick="PF('deleteImage').close()"/>
-                </p:panelGrid>
+                <h:form id="deleteImageForm">
+                    <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                        <p:commandButton id="deleteImageButton" value="Delete" actionListener="#{imageController.deleteImage}"
+                                        type="submit" oncomplete="PF('deleteImage').hide()"/>
+                        <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
+                                        onclick="PF('deleteImage').close()"/>
+                    </p:panelGrid>
+                </h:form>
             </p:outputPanel>
         </p:dialog>
-    </h:form>
 
-    <h:form id="imageInfoForm">
-        <p:dialog header="Image Information" widgetVar="imageInfo" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <p:dialog header="Image Information" widgetVar="imageInfo" resizable="false">
             <p:outputPanel id="imageInfoPanel">
-                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
-                    <p:outputLabel id="title" value="Title"/>
-                    <h:outputText id="imageTitle" value="Still to do!"/>
-                </p:panelGrid>
+                <h:form id="imageInfoForm">
+                    <p:remoteCommand actionListener="#{imageController.retrieveSelectedImageInfo()}"/>
+                    <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                        <h:outputText id="title" value="Title"/>
+                        <p:outputLabel id="imageTitleValue" value="#{imageView.title}"/>
+                    </p:panelGrid>
+                </h:form>
             </p:outputPanel>
         </p:dialog>
-    </h:form>
+
 
 </ui:composition>

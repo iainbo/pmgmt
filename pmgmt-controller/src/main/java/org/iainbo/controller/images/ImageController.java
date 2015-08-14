@@ -27,8 +27,6 @@ public class ImageController implements Serializable{
     private String newImageDescription;
     private String galleryToBeLoadedTo;
     private String selectedImageId;
-
-    @Inject
     private ImageView imageView;
 
     @Inject
@@ -147,10 +145,11 @@ public class ImageController implements Serializable{
         imageService.deleteImage(Long.valueOf(getSelectedImageId()));
     }
 
-    public void retrieveSelectedImage(Long imageId){
-        ImageDTO imageDTO = imageService.findImageById(imageId);
+    public void retrieveSelectedImageInfo(){
+        ImageDTO imageDTO = imageService.findImageById(Long.valueOf(getSelectedImageId()));
+        imageView = new ImageView();
         imageView.setTitle(imageDTO.getTitle());
-
+        System.out.println("ImageView Title: " + imageView.getTitle());
         //imageView.setDescription(imageDTO.getDescription());
         //System.out.println("Setting user");
         //imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
