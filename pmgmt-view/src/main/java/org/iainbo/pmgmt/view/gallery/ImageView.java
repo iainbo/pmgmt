@@ -3,7 +3,6 @@ package org.iainbo.pmgmt.view.gallery;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Date;
 
 @Named
 @SessionScoped
@@ -14,7 +13,7 @@ public class ImageView implements Serializable{
     private String Description;
     private GalleryView galleryView;
     private String uploadedBy;
-    private Date dateUploaded;
+    private String dateUploaded;
     private String filename;
     private byte[] fileData;
 
@@ -59,11 +58,11 @@ public class ImageView implements Serializable{
         this.uploadedBy = uploadedBy;
     }
 
-    public Date getDateUploaded() {
+    public String getDateUploaded() {
         return dateUploaded;
     }
 
-    public void setDateUploaded(Date dateUploaded) {
+    public void setDateUploaded(String dateUploaded) {
         this.dateUploaded = dateUploaded;
     }
 

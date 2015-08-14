@@ -95,6 +95,12 @@
                     <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
                         <h:outputText id="title" value="Title"/>
                         <p:outputLabel id="imageTitleValue" value="#{imageController.selectedImageView.title}"/>
+
+                        <h:outputText id="date" value="Date Uploaded"/>
+                        <p:outputLabel id="dateUploaded" value="#{imageController.selectedImageView.dateUploaded}"/>
+
+                        <h:outputText id="photographer" value="Photographer"/>
+                        <p:outputLabel id="photographerName" value="#{imageController.selectedImageView.uploadedBy}"/>
                     </p:panelGrid>
                 </h:form>
             </p:outputPanel>
