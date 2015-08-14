@@ -17,7 +17,7 @@
             <h:form id="galleryForm">
 
                 <p:contextMenu for="gallery">
-                    <p:menuitem value="View Information" onclick="PF('imageInfo').show()" update=":imageInfoForm"/>
+                    <p:menuitem value="View Information" onclick="PF('imageInfo').show()" actionListener="#{imageController.retrieveSelectedImageInfo()}" update=":imageInfoForm"/>
                     <p:menuitem value="Checkout" />
                     <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()"/>
                 </p:contextMenu>
@@ -92,10 +92,9 @@
         <p:dialog header="Image Information" widgetVar="imageInfo" resizable="false">
             <p:outputPanel id="imageInfoPanel">
                 <h:form id="imageInfoForm">
-                    <p:remoteCommand actionListener="#{imageController.retrieveSelectedImageInfo()}"/>
                     <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
                         <h:outputText id="title" value="Title"/>
-                        <p:outputLabel id="imageTitleValue" value="#{imageView.title}"/>
+                        <p:outputLabel id="imageTitleValue" value="#{imageController.selectedImageId}"/>
                     </p:panelGrid>
                 </h:form>
             </p:outputPanel>

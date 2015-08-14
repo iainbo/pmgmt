@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="aligned buttons beneath images.&#10;Renamed variable to selectedImageId.">
+    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="Right clicking on the image now works to populate the description field with data.&#10;At the moment, it only populates using the id. To be refctored to display the correct information.&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" />
@@ -19,10 +19,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-ear/target/pmgmt-ear/pmgmt-web-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/pmgmt-ear/target/pmgmt-ear/pmgmt-web-1.0-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/GalleryService.java" afterPath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/GalleryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java" afterPath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java" afterPath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java" afterPath="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" />
@@ -100,8 +96,8 @@
       <file leaf-file-name="galleryView.xhtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57236844">
-              <caret line="97" column="100" selection-start-line="97" selection-start-column="85" selection-end-line="97" selection-end-column="100" />
+            <state vertical-scroll-proportion="0.47368422">
+              <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -111,12 +107,12 @@
         <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="153" column="69" selection-start-line="153" selection-start-column="69" selection-end-line="153" selection-end-column="69" />
+              <caret line="151" column="69" selection-start-line="151" selection-start-column="69" selection-end-line="151" selection-end-column="69" />
               <folding>
-                <element signature="e#2478#2479#0" expanded="true" />
-                <element signature="e#2516#2517#0" expanded="true" />
-                <element signature="e#2578#2579#0" expanded="true" />
-                <element signature="e#2632#2633#0" expanded="true" />
+                <element signature="e#2404#2405#0" expanded="true" />
+                <element signature="e#2442#2443#0" expanded="true" />
+                <element signature="e#2504#2505#0" expanded="true" />
+                <element signature="e#2558#2559#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,8 +122,10 @@
         <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/GalleryService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,8 +134,10 @@
         <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1287,13 +1287,7 @@
       <workItem from="1439460927574" duration="1643000" />
       <workItem from="1439466009367" duration="3325000" />
       <workItem from="1439485171069" duration="9670000" />
-      <workItem from="1439532716608" duration="2746000" />
-    </task>
-    <task id="LOCAL-00028" summary="Gallery Entities and DAO added.&#10;Dashboard added to succesfulLogin page">
-      <created>1430249143812</created>
-      <option name="number" value="00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1430249143812</updated>
+      <workItem from="1439532716608" duration="3173000" />
     </task>
     <task id="LOCAL-00029" summary="Dashboard configured to populate with galleries from the database.&#10;Some work is required to ensure the columns are created dynamically.&#10;import.sql updated to load example thumbnail into database">
       <created>1430854379144</created>
@@ -1583,20 +1577,26 @@
       <option name="project" value="LOCAL" />
       <updated>1439492042907</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Right clicking on the image now works to populate the description field with data.&#10;At the moment, it only populates using the id. To be refctored to display the correct information.&#10;">
+      <created>1439535599566</created>
+      <option name="number" value="00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1439535599569</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="352835000" />
+    <option name="totallyTimeSpent" value="353262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20597738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20597738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1686,7 +1686,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Create Revision and File entities which create the relevant tables in the database.&#10;The next step is to refactor variables within image to live in revision and files." />
     <MESSAGE value="An image can now be stored in the database with a revision and a file.&#10;However, the image is not displayed on the front end." />
     <MESSAGE value="Basic RevisionDAO and FileDAO added" />
     <MESSAGE value="Images are now displayed using the new revision model.&#10;Uploading of images still to be refactored to use the new model.&#10;Filename, FileData still to be removed from the image entity." />
@@ -1711,7 +1710,8 @@
     <MESSAGE value="An image can be deleted from a gallery by right clicking on it. The page has to be manually refresed to see the change though.&#10;Primefaces update seems to update the page before the deletion from the database has been completed." />
     <MESSAGE value="Viewing an image details from the context menu did not work.&#10;I believe this was caused by the mouseover event resetting the id to null which meant there was nothing to display.&#10;I have moved the functionality to 3 buttons below the image.&#10;Only delete has been implemented so far. The look also needs improved." />
     <MESSAGE value="aligned buttons beneath images.&#10;Renamed variable to selectedImageId." />
-    <option name="LAST_COMMIT_MESSAGE" value="aligned buttons beneath images.&#10;Renamed variable to selectedImageId." />
+    <MESSAGE value="Right clicking on the image now works to populate the description field with data.&#10;At the moment, it only populates using the id. To be refctored to display the correct information.&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Right clicking on the image now works to populate the description field with data.&#10;At the moment, it only populates using the id. To be refctored to display the correct information.&#10;" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1719,7 +1719,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java</url>
-          <line>152</line>
+          <line>150</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
@@ -2077,8 +2077,8 @@
         <state vertical-scroll-proportion="0.1565762">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
-            <element signature="e#797#798#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="false" />
+            <element signature="e#795#796#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2086,36 +2086,40 @@
     <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/GalleryService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="153" column="69" selection-start-line="153" selection-start-column="69" selection-end-line="153" selection-end-column="69" />
+          <caret line="151" column="69" selection-start-line="151" selection-start-column="69" selection-end-line="151" selection-end-column="69" />
           <folding>
-            <element signature="e#2478#2479#0" expanded="true" />
-            <element signature="e#2516#2517#0" expanded="true" />
-            <element signature="e#2578#2579#0" expanded="true" />
-            <element signature="e#2632#2633#0" expanded="true" />
+            <element signature="e#2404#2405#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="e#2504#2505#0" expanded="true" />
+            <element signature="e#2558#2559#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57236844">
-          <caret line="97" column="100" selection-start-line="97" selection-start-column="85" selection-end-line="97" selection-end-column="100" />
+        <state vertical-scroll-proportion="0.47368422">
+          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
           <folding />
         </state>
       </provider>
