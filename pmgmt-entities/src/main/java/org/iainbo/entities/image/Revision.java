@@ -17,6 +17,10 @@ public class Revision extends BaseEntity {
     @Column(unique = true, name = "ID")
     private Long id;
 
+    @NotNull
+    @Column(name = "REVISION_NUMBER")
+    private String revisionNumber;
+
     @Column(name = "CHECKED_OUT")
     @Pattern(regexp = "[YN]{1}")
     private String checkedOut;
@@ -116,5 +120,13 @@ public class Revision extends BaseEntity {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    public String getRevisionNumber() {
+        return revisionNumber;
+    }
+
+    public void setRevisionNumber(String revisionNumber) {
+        this.revisionNumber = revisionNumber;
     }
 }
