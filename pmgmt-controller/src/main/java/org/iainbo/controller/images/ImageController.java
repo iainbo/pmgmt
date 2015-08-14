@@ -27,7 +27,7 @@ public class ImageController implements Serializable{
     private String newImageDescription;
     private String galleryToBeLoadedTo;
     private String selectedImageId;
-    private ImageView imageView;
+    private ImageView selectedImageView;
 
     @Inject
     GalleryService galleryService;
@@ -86,12 +86,15 @@ public class ImageController implements Serializable{
         this.fileBytes = fileBytes;
     }
 
-    public ImageView getImageView() {
-        return imageView;
+    public ImageView getSelectedImageView() {
+        return selectedImageView;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public void setSelectedImageView(String imageId) {
+        ImageDTO imageDTO = imageService.findImageById(Long.valueOf(imageId));
+        selectedImageView = new ImageView();
+        selectedImageView.setId(imageDTO.getId());
+        selectedImageView.setTitle(imageDTO.getTitle());
     }
 
     public String getSelectedImageId() {
@@ -142,18 +145,6 @@ public class ImageController implements Serializable{
     }
 
     public void deleteImage(){
-        imageService.deleteImage(Long.valueOf(getSelectedImageId()));
-    }
-
-    public void retrieveSelectedImageInfo(){
-        ImageDTO imageDTO = imageService.findImageById(Long.valueOf(getSelectedImageId()));
-        imageView = new ImageView();
-        imageView.setTitle(imageDTO.getTitle());
-        System.out.println("ImageView Title: " + imageView.getTitle());
-        //imageView.setDescription(imageDTO.getDescription());
-        //System.out.println("Setting user");
-        //imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
-        //System.out.println("The user is: " + imageView.getUploadedBy());
-        //imageView.setDateUploaded(imageDTO.getRevisionDTO().getDateUploaded());
+        imageService.deleteImage(selectedImageView.getId());
     }
 }
