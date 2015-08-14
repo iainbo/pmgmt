@@ -28,6 +28,7 @@ public class ImageController implements Serializable{
     private String galleryToBeLoadedTo;
     private String selectedImageId;
     private ImageView selectedImageView;
+    private String newRevisionNumber;
 
     @Inject
     GalleryService galleryService;
@@ -108,6 +109,14 @@ public class ImageController implements Serializable{
 
     public void setSelectedImageId(String selectedImageId) {
         this.selectedImageId = selectedImageId;
+    }
+
+    public String getNewRevisionNumber() {
+        return newRevisionNumber;
+    }
+
+    public void setNewRevisionNumber(String newRevisionNumber) {
+        this.newRevisionNumber = newRevisionNumber;
     }
 
     public void handleFileUpload(FileUploadEvent event) {

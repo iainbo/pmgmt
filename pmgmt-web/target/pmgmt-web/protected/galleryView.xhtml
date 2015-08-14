@@ -18,8 +18,8 @@
 
                 <p:contextMenu for="gallery">
                     <p:menuitem value="View Information" onclick="PF('imageInfo').show()" update=":imageInfoForm"/>
-                    <p:menuitem value="Checkout" />
-                    <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()"/>
+                    <p:menuitem value="Checkout" onclick="PF('checkOut').show()" update=":checkOutForm"/>
+                    <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()" update=":deleteImageForm"/>
                 </p:contextMenu>
 
                 <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
@@ -80,6 +80,8 @@
             <p:outputPanel id="deleteImagePanel">
                 <h:form id="deleteImageForm">
                     <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                        <h:outputText id="confirmation" value="Are you sure you wish to delete:"/>
+                        <p:outputLabel id="confirmationValue" value="#{imageController.selectedImageView.title}"/>
                         <p:commandButton id="deleteImageButton" value="Delete" actionListener="#{imageController.deleteImage}"
                                         type="submit" oncomplete="PF('deleteImage').hide()"/>
                         <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
@@ -108,6 +110,27 @@
                 </h:form>
             </p:outputPanel>
         </p:dialog>
+
+    <p:dialog header="Check Out Image" widgetVar="checkOut" resizable="false">
+        <p:outputPanel id="checkOutPanel">
+            <h:form id="checkOutForm">
+                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                    <h:outputText id="checkOutTitle" value="Image to be checked out:"/>
+                    <p:outputLabel id="checkOutValue" value="#{imageController.selectedImageView.title}"/>
+
+                    <h:outputText id="currentRevNo" value="Current Revsion No:"/>
+                    <p:outputLabel id="currentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
+
+                    <h:outputText id="newRevNo" value="New Revision Number:"/>
+                    <p:inputText id="newRevNoValue" value="#{imageController.newRevisionNumber}"/>
+
+                    <p:commandButton id="checkOutButton" value="Check Out"/>
+                    <p:commandButton id="cancelCheckOut" value="Cancel" widgetVar="cancelCheckOut"
+                                     onclick="PF('checkOut').close()"/>
+                </p:panelGrid>
+            </h:form>
+        </p:outputPanel>
+    </p:dialog>
 
 
 </ui:composition>
