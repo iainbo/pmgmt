@@ -10,8 +10,10 @@ import org.iainbo.pmgmt.view.gallery.ImageView;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.Date;
@@ -119,35 +121,14 @@ public class ImageController implements Serializable{
     }
 
     public void uploadImage(){
-
-        if(fileBytes == null || fileBytes.length == 0){
-            System.out.println("The File is empty.");
+        if(saveNewImage(newFile, galleryToBeLoadedTo)){
+            FacesMessage message = new FacesMessage("Succesful", newFileName + " has been uploaded to " + galleryToBeLoadedTo + ".");
+            FacesContext.getCurrentInstance().addMessage(null, message);
         }else{
-            ImageDTO imageDTO = new ImageDTO();
-            RevisionDTO revisionDTO = new RevisionDTO();
-            FileDTO fileDTO = new FileDTO();
-
-            imageDTO.setTitle(newImageTitle);
-            imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryToBeLoadedTo));
-
-            revisionDTO.setHeadRevision("Y");
-            revisionDTO.setRevisionNumber("01");
-            revisionDTO.setDateUploaded(new Date());
-            revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
-
-            fileDTO.setFilename(newFileName);
-            fileDTO.setFileData(fileBytes);
-            fileDTO.setRevisionDTO(revisionDTO);
-
-            revisionDTO.setFileDTO(fileDTO);
-            revisionDTO.setImageDTO(imageDTO);
-
-            imageDTO.setRevisionDTO(revisionDTO);
-
-            if(imageService.persistImage(imageDTO)){
-                System.out.println("The image has been saved.");
-            }
+            FacesMessage message = new FacesMessage("Error", newFileName + " has not been uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
         }
+
 
     }
 
@@ -162,7 +143,7 @@ public class ImageController implements Serializable{
             RevisionDTO revisionDTO = new RevisionDTO();
             FileDTO fileDTO = new FileDTO();
 
-            imageDTO.setTitle("Temporary Title");
+            imageDTO.setTitle(newImageTitle);
             imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
             revisionDTO.setHeadRevision("Y");
             revisionDTO.setRevisionNumber("01");

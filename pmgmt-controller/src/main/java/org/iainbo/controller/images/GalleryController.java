@@ -6,7 +6,6 @@ import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.iainbo.pmgmt.view.user.UserView;
-import org.primefaces.event.FileUploadEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -92,17 +91,6 @@ public class GalleryController implements Serializable{
     public void addMessage(FacesMessage.Severity severity, String detail) {
         FacesMessage message = new FacesMessage(severity, detail, null);
         FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-
-    public void handleFileUpload(FileUploadEvent event) {
-
-        if(imageController.saveNewImage(event.getFile(), galleryView.getGalleryName())){
-        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        }else{
-            FacesMessage message = new FacesMessage("Error", event.getFile().getFileName() + " has not been uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
     }
 
     public void getGalleryNames(){

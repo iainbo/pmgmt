@@ -25,12 +25,6 @@
                 <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
                                rendered="#{galleryView.containsImages}" style="border: 5px"/>
 
-                <!--Upload dialog to allow users to upload a new image to the Gallery -->
-                <p:fileUpload fileUploadListener="#{galleryController.handleFileUpload}" mode="advanced"
-                              update="messages" auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
-                              rendered="#{galleryView.containsImages}"/>
-                <p:growl id="messages" showDetail="true" />
-
                 <!-- Datagrid to display images stored in the gallery -->
                 <p:dataGrid var="image" value="#{galleryView.images}" columns="3" layout="grid"
                             rows="12" paginator="true" id="gallery"

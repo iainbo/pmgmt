@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="Check out popup added, backend code still to be done.&#10;Delete popup has confirmation of image title.">
+    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="SaveNewImage has been moved to the ImageController from the GalleryController">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" />
@@ -21,13 +21,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java" afterPath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java" afterPath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java" afterPath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java" afterPath="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/utils/ImagesAPI.java" afterPath="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/utils/ImagesAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/Revision.java" afterPath="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/Revision.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/header.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/header.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dto/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dto/target/maven-archiver/pom.properties" />
@@ -99,11 +97,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="galleryView.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="galleryView.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.627451">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+            <state vertical-scroll-proportion="-16.25">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,21 +110,31 @@
       <file leaf-file-name="header.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.25">
-              <caret line="111" column="86" selection-start-line="111" selection-start-column="86" selection-end-line="111" selection-end-column="86" />
+            <state vertical-scroll-proportion="-6.25">
+              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GalleryController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java">
+      <file leaf-file-name="ImageController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.3519669">
+              <caret line="124" column="130" selection-start-line="124" selection-start-column="130" selection-end-line="124" selection-end-column="130" />
               <folding>
-                <element signature="e#1771#1772#0" expanded="true" />
-                <element signature="e#1817#1818#0" expanded="true" />
+                <element signature="e#2101#2102#0" expanded="true" />
+                <element signature="e#2163#2164#0" expanded="true" />
+                <element signature="e#2199#2200#0" expanded="true" />
+                <element signature="e#2231#2232#0" expanded="true" />
+                <element signature="e#2281#2282#0" expanded="true" />
+                <element signature="e#2323#2324#0" expanded="true" />
+                <element signature="e#2370#2371#0" expanded="true" />
+                <element signature="e#2410#2411#0" expanded="true" />
+                <element signature="e#3156#3157#0" expanded="true" />
+                <element signature="e#3196#3197#0" expanded="true" />
+                <element signature="e#3262#3263#0" expanded="true" />
+                <element signature="e#3320#3321#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,33 +172,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="58" column="45" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="133" column="48" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
-              <folding>
-                <element signature="e#1161#1162#0" expanded="true" />
-                <element signature="e#1191#1192#0" expanded="true" />
-                <element signature="e#2284#2285#0" expanded="true" />
-                <element signature="e#2324#2325#0" expanded="true" />
-                <element signature="e#3070#3071#0" expanded="true" />
-                <element signature="e#3110#3111#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -251,7 +232,6 @@
         <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml" />
         <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/GalleryView.java" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryDashBoardController.java" />
-        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/gallery/GalleryMetadata.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/File.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/Image.java" />
@@ -260,12 +240,13 @@
         <option value="$PROJECT_DIR$/pmgmt-dto/src/main/java/org/iainbo/dto/RevisionDTO.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/resources/import.sql" />
         <option value="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java" />
-        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
-        <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/utils/ImagesAPI.java" />
         <option value="$PROJECT_DIR$/pmgmt-view/src/main/java/org/iainbo/pmgmt/view/gallery/ImageView.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/Revision.java" />
         <option value="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java" />
+        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
+        <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java" />
+        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java" />
       </list>
     </option>
@@ -1410,13 +1391,7 @@
       <workItem from="1439532716608" duration="3275000" />
       <workItem from="1439560100451" duration="689000" />
       <workItem from="1439560994093" duration="8458000" />
-      <workItem from="1439649444256" duration="4766000" />
-    </task>
-    <task id="LOCAL-00034" summary="Clicking on create Gallery checks to see if the gallery already exists in the database. If it does, it displays an error message.&#10;">
-      <created>1431878671905</created>
-      <option name="number" value="00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1431878671905</updated>
+      <workItem from="1439649444256" duration="9295000" />
     </task>
     <task id="LOCAL-00035" summary="Gallery can be created and persisted in the database. Page needs to be manually refreshed before the new gallery is displayed.">
       <created>1432153090466</created>
@@ -1706,11 +1681,17 @@
       <option name="project" value="LOCAL" />
       <updated>1439580207515</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="SaveNewImage has been moved to the ImageController from the GalleryController">
+      <created>1439654814595</created>
+      <option name="number" value="00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1439654814596</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367277000" />
+    <option name="totallyTimeSpent" value="371806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1809,7 +1790,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="Constructors of Image, Revision and File updated" />
     <MESSAGE value="An image can be uploaded using the new Image, Revision, File model." />
     <MESSAGE value="The create gallery button has been removed and a gallery can now be created from the menu bar" />
     <MESSAGE value="Upload image popup created with empty fields.&#10;No data is persisted in the database yet." />
@@ -1834,7 +1814,8 @@
     <MESSAGE value="By right clicking on an image, the photographer and the date uploaded are shown in a popup." />
     <MESSAGE value="Revision Number has been added to Revision and is displayed in the popup." />
     <MESSAGE value="Check out popup added, backend code still to be done.&#10;Delete popup has confirmation of image title." />
-    <option name="LAST_COMMIT_MESSAGE" value="Check out popup added, backend code still to be done.&#10;Delete popup has confirmation of image title." />
+    <MESSAGE value="SaveNewImage has been moved to the ImageController from the GalleryController" />
+    <option name="LAST_COMMIT_MESSAGE" value="SaveNewImage has been moved to the ImageController from the GalleryController" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1842,7 +1823,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="42" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2091,13 +2072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4583335">
-          <caret line="25" column="76" selection-start-line="25" selection-start-column="76" selection-end-line="25" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/GalleryMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58536583">
@@ -2176,14 +2150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/image/Revision.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2192,14 +2158,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java">
+    <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
-          <folding>
-            <element signature="e#1771#1772#0" expanded="true" />
-            <element signature="e#1817#1818#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.5769231">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2218,29 +2181,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.25">
-          <caret line="111" column="86" selection-start-line="111" selection-start-column="86" selection-end-line="111" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="48" selection-start-line="133" selection-start-column="48" selection-end-line="133" selection-end-column="48" />
-          <folding>
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-            <element signature="e#2324#2325#0" expanded="true" />
-            <element signature="e#3070#3071#0" expanded="true" />
-            <element signature="e#3110#3111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2249,11 +2189,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleries.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29411766">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.627451">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        <state vertical-scroll-proportion="-16.25">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/GalleryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3043478">
+          <caret line="94" column="5" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+          <folding>
+            <element signature="e#1506#1507#0" expanded="true" />
+            <element signature="e#1552#1553#0" expanded="true" />
+            <element signature="e#1608#1609#0" expanded="true" />
+            <element signature="e#1654#1655#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.25">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/images/ImageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3519669">
+          <caret line="124" column="130" selection-start-line="124" selection-start-column="130" selection-end-line="124" selection-end-column="130" />
+          <folding>
+            <element signature="e#2101#2102#0" expanded="true" />
+            <element signature="e#2163#2164#0" expanded="true" />
+            <element signature="e#2199#2200#0" expanded="true" />
+            <element signature="e#2231#2232#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="true" />
+            <element signature="e#2323#2324#0" expanded="true" />
+            <element signature="e#2370#2371#0" expanded="true" />
+            <element signature="e#2410#2411#0" expanded="true" />
+            <element signature="e#3156#3157#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="true" />
+            <element signature="e#3262#3263#0" expanded="true" />
+            <element signature="e#3320#3321#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

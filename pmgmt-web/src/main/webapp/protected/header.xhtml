@@ -9,8 +9,8 @@
         <p>Hello #{userView.fullName}</p>
     </div>
 
-    <h:form>
-        <p:growl id="messages"/>
+    <h:form id="headerForm">
+        <p:growl id="messages" showDetail="true"/>
 
         <p:menubar>
             <p:menuitem value="Home" icon="ui-icon-home" action="#{galleryDashBoardController.home}"/>
@@ -110,7 +110,7 @@
 
                 <p:commandButton id="uploadImage" value="Upload" widgetVar="uploadNewImage"
                                  type="submit" actionListener="#{imageController.uploadImage}"
-                                 oncomplete="PF('addImage').hide()"/>
+                                 oncomplete="PF('addImage').hide()" update=":headerForm:messages"/>
 
                 <p:commandButton id="cancelUploadImageButton" value="Cancel" widgetVar="cancelImageUpload"
                                  onclick="PF('addImage').close()"/>
