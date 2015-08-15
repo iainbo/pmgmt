@@ -41,7 +41,7 @@ public class ImageService {
         File newFile = new File();
         newFile.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
         newFile.setFile(imageDTO.getRevisionDTO().getFileDTO().getFileData());
-        Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(),newFile);
+        Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(),newFile, imageDTO.getRevisionDTO().getRevisionNumber());
         newFile.setRevision(newRevision);
         Image newImage = new Image(imageDTO.getTitle(), gallery, newRevision);
         newRevision.setImage(newImage);

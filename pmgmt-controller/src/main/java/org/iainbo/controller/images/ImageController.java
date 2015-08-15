@@ -26,9 +26,9 @@ public class ImageController implements Serializable{
     private String newImageTitle;
     private String newImageDescription;
     private String galleryToBeLoadedTo;
-    private String selectedImageId;
     private ImageView selectedImageView;
     private String newRevisionNumber;
+    private ImageDTO imageDTO;
 
     @Inject
     GalleryService galleryService;
@@ -92,7 +92,7 @@ public class ImageController implements Serializable{
     }
 
     public void setSelectedImageView(String imageId) {
-        ImageDTO imageDTO = imageService.findImageById(Long.valueOf(imageId));
+        imageDTO = imageService.findImageById(Long.valueOf(imageId));
         selectedImageView = new ImageView();
         selectedImageView.setId(imageDTO.getId());
         selectedImageView.setTitle(imageDTO.getTitle());
@@ -101,14 +101,6 @@ public class ImageController implements Serializable{
         selectedImageView.setDateUploaded(date);
         String uploadedBy = imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname();
         selectedImageView.setUploadedBy(uploadedBy);
-    }
-
-    public String getSelectedImageId() {
-        return selectedImageId;
-    }
-
-    public void setSelectedImageId(String selectedImageId) {
-        this.selectedImageId = selectedImageId;
     }
 
     public String getNewRevisionNumber() {
@@ -139,6 +131,7 @@ public class ImageController implements Serializable{
             imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryToBeLoadedTo));
 
             revisionDTO.setHeadRevision("Y");
+            revisionDTO.setRevisionNumber("01");
             revisionDTO.setDateUploaded(new Date());
             revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
 
@@ -158,7 +151,45 @@ public class ImageController implements Serializable{
 
     }
 
+    public boolean saveNewImage(UploadedFile file, String galleryName){
+        byte[] bytes = file.getContents();
+        String filename = file.getFileName();
+        boolean imagePersisted = false;
+        if(bytes == null || bytes.length == 0){
+            imagePersisted = false;
+        }else{
+            ImageDTO imageDTO = new ImageDTO();
+            RevisionDTO revisionDTO = new RevisionDTO();
+            FileDTO fileDTO = new FileDTO();
+
+            imageDTO.setTitle("Temporary Title");
+            imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
+            revisionDTO.setHeadRevision("Y");
+            revisionDTO.setRevisionNumber("01");
+            revisionDTO.setDateUploaded(new Date());
+            revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
+            fileDTO.setFilename(filename);
+            fileDTO.setFileData(bytes);
+            fileDTO.setRevisionDTO(revisionDTO);
+            revisionDTO.setFileDTO(fileDTO);
+            revisionDTO.setImageDTO(imageDTO);
+            imageDTO.setRevisionDTO(revisionDTO);
+
+            if(imageService.persistImage(imageDTO)){
+                imagePersisted = true;
+            }
+        }
+        return imagePersisted;
+    }
+
     public void deleteImage(){
         imageService.deleteImage(selectedImageView.getId());
+    }
+
+    public void checkOut(){
+        //selectedImageView.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
+        //System.out.println("The Filename is:" + selectedImageView.getFilename());
+        System.out.println("Selected Image: " + selectedImageView.getTitle());
+        System.out.println("New Rev Number: " + newRevisionNumber);
     }
 }

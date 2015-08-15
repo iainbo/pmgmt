@@ -1,16 +1,12 @@
 package org.iainbo.controller.images;
 
 import org.iainbo.controller.LoginController;
-import org.iainbo.dto.FileDTO;
 import org.iainbo.dto.GalleryDTO;
-import org.iainbo.dto.ImageDTO;
-import org.iainbo.dto.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.iainbo.pmgmt.view.user.UserView;
 import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -23,7 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @ManagedBean
@@ -51,6 +46,9 @@ public class GalleryController implements Serializable{
 
     @Inject
     GalleryView galleryView;
+
+    @Inject
+    ImageController imageController;
 
     @PostConstruct
     public void init(){
@@ -98,43 +96,13 @@ public class GalleryController implements Serializable{
 
     public void handleFileUpload(FileUploadEvent event) {
 
-        if(saveNewImage(event.getFile())){
+        if(imageController.saveNewImage(event.getFile(), galleryView.getGalleryName())){
         FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, message);
         }else{
             FacesMessage message = new FacesMessage("Error", event.getFile().getFileName() + " has not been uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
-    }
-
-    public boolean saveNewImage(UploadedFile file){
-        byte[] bytes = file.getContents();
-        String filename = file.getFileName();
-        boolean imagePersisted = false;
-        if(bytes == null || bytes.length == 0){
-            imagePersisted = false;
-        }else{
-            ImageDTO imageDTO = new ImageDTO();
-            RevisionDTO revisionDTO = new RevisionDTO();
-            FileDTO fileDTO = new FileDTO();
-
-            imageDTO.setTitle("Temporary Title");
-            imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryView.getGalleryName()));
-            revisionDTO.setHeadRevision("Y");
-            revisionDTO.setDateUploaded(new Date());
-            revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
-            fileDTO.setFilename(filename);
-            fileDTO.setFileData(bytes);
-            fileDTO.setRevisionDTO(revisionDTO);
-            revisionDTO.setFileDTO(fileDTO);
-            revisionDTO.setImageDTO(imageDTO);
-            imageDTO.setRevisionDTO(revisionDTO);
-
-            if(imageService.persistImage(imageDTO)){
-                imagePersisted = true;
-            }
-        }
-        return imagePersisted;
     }
 
     public void getGalleryNames(){
