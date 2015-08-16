@@ -15,6 +15,7 @@ public interface RevisionMapper {
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "revisionNumber", target = "revisionNumber"),
             @Mapping(source = "checkedOut", target = "checkedOut"),
+            @Mapping(source = "checkedOutBy", target = "checkedOutBy"),
             @Mapping(source = "headRevision", target = "headRevision"),
             @Mapping(source = "uploadedBy", target = "uploadedBy")
     })

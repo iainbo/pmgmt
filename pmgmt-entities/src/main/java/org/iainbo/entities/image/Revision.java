@@ -25,6 +25,10 @@ public class Revision extends BaseEntity {
     @Pattern(regexp = "[YN]{1}")
     private String checkedOut;
 
+    @JoinColumn(name = "CHECKED_OUT_BY")
+    @OneToOne
+    private User checkedOutBy;
+
     @Column(name = "HEAD_REVISION")
     @Pattern(regexp = "[YN]{1}")
     @Basic(fetch = FetchType.LAZY)
@@ -77,6 +81,14 @@ public class Revision extends BaseEntity {
 
     public void setCheckedOut(String checkedOut) {
         this.checkedOut = checkedOut;
+    }
+
+    public User getCheckedOutBy() {
+        return checkedOutBy;
+    }
+
+    public void setCheckedOutBy(User checkedOutBy) {
+        this.checkedOutBy = checkedOutBy;
     }
 
     public String getHeadRevision() {

@@ -2019,14 +2019,17 @@
       <column name="DATE_UPLOADED" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="HEAD_REVISION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="REVISION_NUMBER" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CHECKED_OUT_BY" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="IMAGE_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="FK_7w8w8cmc4pw1bnma2xeaktpi4" columns="USER_ID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_mhyhhqep9gxiv2bgm33xy80gk" columns="IMAGE_ID" ref-table="IMAGES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_mqrwwxsroi93a5ppuoxeeb53k" columns="CHECKED_OUT_BY" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK_ghwsouq4g1yslgg0fegtg332p" table="FILES" schema="" catalog="pmgmt" columns="REVISION_ID"/>
       <index name="FK_7w8w8cmc4pw1bnma2xeaktpi4" unique="false" columns="USER_ID"/>
       <index name="FK_mhyhhqep9gxiv2bgm33xy80gk" unique="false" columns="IMAGE_ID"/>
+      <index name="FK_mqrwwxsroi93a5ppuoxeeb53k" unique="false" columns="CHECKED_OUT_BY"/>
     </table>
     <table name="ROLES" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -2048,6 +2051,7 @@
       <primary-key name="PRIMARY" columns="ID"/>
       <exported-key name="FK_o02c5ejrmusuol8tphpfxnugq" table="GALLERIES" schema="" catalog="pmgmt" columns="USER_ID"/>
       <exported-key name="FK_7w8w8cmc4pw1bnma2xeaktpi4" table="REVISIONS" schema="" catalog="pmgmt" columns="USER_ID"/>
+      <exported-key name="FK_mqrwwxsroi93a5ppuoxeeb53k" table="REVISIONS" schema="" catalog="pmgmt" columns="CHECKED_OUT_BY"/>
       <exported-key name="FK_isqniqpjxwcvf0iip6l1qy0r2" table="USER_ROLES" schema="" catalog="pmgmt" columns="USER_ID"/>
       <index name="UK_21q8fvry4wix31petp1awxsx9" unique="true" columns="USER_NAME"/>
     </table>

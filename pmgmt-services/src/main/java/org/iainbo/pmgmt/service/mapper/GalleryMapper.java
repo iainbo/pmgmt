@@ -36,6 +36,7 @@ public abstract class GalleryMapper {
                 RevisionDTO revisionDTO = new RevisionDTO();
 
                 revisionDTO.setCheckedOut( revision.getCheckedOut() );
+                revisionDTO.setCheckedOutBy(userToUserDTO(revision.getCheckedOutBy()));
                 revisionDTO.setId( revision.getId() );
                 revisionDTO.setRevisionNumber( revision.getRevisionNumber() );
                 revisionDTO.setUploadedBy( userToUserDTO( revision.getUploadedBy() ) );

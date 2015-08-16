@@ -84,4 +84,12 @@ public class ImageService {
         ImageDTO imageDTO = imageMapper.imageToImageDTO(image);
         return imageDTO;
     }
+
+    public void checkOutRevision(String userName, Long revisionId){
+        Revision revision = daoFactory.revisionDAO().findById(revisionId);
+        User user = daoFactory.userDAO().findByUsername(userName);
+        revision.setCheckedOut("Y");
+        revision.setCheckedOutBy(user);
+        daoFactory.revisionDAO().update(revision);
+    }
 }

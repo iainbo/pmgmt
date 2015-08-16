@@ -175,6 +175,7 @@ public class ImageController implements Serializable{
     public void checkOut(){
         System.out.println("Selected Image: " + selectedImageView.getTitle());
         System.out.println("New Rev Number: " + newRevisionNumber);
+        imageService.checkOutRevision(loginController.getCurrentUserName(), selectedImageView.getRevisionId());
     }
 
     public StreamedContent getFileForCheckout(){
