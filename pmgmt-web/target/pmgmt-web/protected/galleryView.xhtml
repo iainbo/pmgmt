@@ -113,13 +113,11 @@
                     <h:outputText id="checkOutTitle" value="Image to be checked out:"/>
                     <p:outputLabel id="checkOutValue" value="#{imageController.selectedImageView.title}"/>
 
-                    <h:outputText id="currentRevNo" value="Current Revsion No:"/>
+                    <h:outputText id="currentRevNo" value="Current Revsion Number:"/>
                     <p:outputLabel id="currentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
 
-                    <h:outputText id="newRevNo" value="New Revision Number:"/>
-                    <p:inputText id="newRevNoValue" value="#{imageController.newRevisionNumber}"/>
-
-                    <p:commandButton id="checkOutButton" value="Check Out" actionListener="#{imageController.checkOut}" ajax="false">
+                    <p:commandButton id="checkOutButton" value="Check Out" actionListener="#{imageController.checkOut}" ajax="false"
+                                     onclick="PF('checkOut').hide()">
                         <p:fileDownload value="#{imageController.fileForCheckout}"/>
                     </p:commandButton>
                     <p:commandButton id="cancelCheckOut" value="Cancel" widgetVar="cancelCheckOut"
