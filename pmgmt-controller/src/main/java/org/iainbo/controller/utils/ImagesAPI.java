@@ -1,7 +1,6 @@
 package org.iainbo.controller.utils;
 
 import org.apache.commons.io.IOUtils;
-import org.iainbo.entities.image.File;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 
@@ -49,21 +48,6 @@ public class ImagesAPI{
         Response.ResponseBuilder imageResponseBuilder = Response.ok(new ByteArrayInputStream(imageBytes), "image/jpeg");
         imageResponseBuilder.header("Content-Disposition", "attachment;filename=\"image.jpeg\"");
         return imageResponseBuilder.build();
-    }
-
-    @GET
-    @Path("/download/{id}")
-    public Response downloadViewFile(@Context HttpHeaders headers,
-                                     @PathParam("id") String revisionId) throws ServletException, IOException {
-        Long revision = Long.valueOf(revisionId);
-        File imageFile = imageService.getFile(revisionId);
-
-        ByteArrayInputStream fileStream = new ByteArrayInputStream(imageFile.getFile());
-
-        Response.ResponseBuilder downloadResponseBuilder = Response.ok(fileStream);
-        downloadResponseBuilder.header("Content-Disposition", "attachment;filename=\"file.jpeg\"");
-
-        return downloadResponseBuilder.build();
     }
 
     @GET

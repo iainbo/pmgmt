@@ -15,7 +15,7 @@ import org.iainbo.entities.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2015-08-16T15:31:57+0100"
+    date = "2015-08-16T19:31:33+0100"
 )
 @ApplicationScoped
 public class GalleryMapperImpl extends GalleryMapper {

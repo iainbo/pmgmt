@@ -119,7 +119,9 @@
                     <h:outputText id="newRevNo" value="New Revision Number:"/>
                     <p:inputText id="newRevNoValue" value="#{imageController.newRevisionNumber}"/>
 
-                    <p:commandButton id="checkOutButton" value="Check Out" action="#{imageController.checkOut}"/>
+                    <p:commandButton id="checkOutButton" value="Check Out" actionListener="#{imageController.checkOut}" ajax="false">
+                        <p:fileDownload value="#{imageController.fileForCheckout}"/>
+                    </p:commandButton>
                     <p:commandButton id="cancelCheckOut" value="Cancel" widgetVar="cancelCheckOut"
                                      onclick="PF('checkOut').close()"/>
                 </p:panelGrid>

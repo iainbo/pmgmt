@@ -8,6 +8,8 @@ import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.gallery.ImageView;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
@@ -15,6 +17,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -168,11 +172,15 @@ public class ImageController implements Serializable{
         imageService.deleteImage(selectedImageView.getId());
     }
 
-    public String checkOut(){
-        //selectedImageView.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
-        //System.out.println("The Filename is:" + selectedImageView.getFilename());
+    public void checkOut(){
         System.out.println("Selected Image: " + selectedImageView.getTitle());
         System.out.println("New Rev Number: " + newRevisionNumber);
-        return "/api/image/download/" + selectedImageView.getRevisionId();
+    }
+
+    public StreamedContent getFileForCheckout(){
+        InputStream fileStream = new ByteArrayInputStream(imageService.getFile(selectedImageView.getRevisionId()).getFile());
+        String filename = imageService.getFile(selectedImageView.getRevisionId()).getFilename();
+        StreamedContent file = new DefaultStreamedContent(fileStream, "image/jpg", filename);
+        return file;
     }
 }
