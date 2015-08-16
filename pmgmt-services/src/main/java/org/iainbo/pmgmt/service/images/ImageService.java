@@ -38,6 +38,11 @@ public class ImageService {
         return imageData;
     }
 
+    public File getFile(String revisionId){
+        File file = daoFactory.fileDAO().findFileForRevision(Long.valueOf(revisionId));
+        return file;
+    }
+
     public byte[] getImageForRevision(Revision revision){
         byte[] imageData = new byte[0];
         try{
