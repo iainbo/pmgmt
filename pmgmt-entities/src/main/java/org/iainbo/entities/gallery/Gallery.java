@@ -30,9 +30,7 @@ public class Gallery extends BaseEntity {
     @JoinColumn(name = "USER_ID")
     private User owner;
 
-    @OneToMany
-    @JoinColumn(name = "GALLERY_METADATA_ID")
-    @Transient
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "gallery", cascade = CascadeType.ALL)
     private List<GalleryMetadata> metadataList;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "gallery", cascade = CascadeType.ALL)

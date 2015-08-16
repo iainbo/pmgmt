@@ -168,10 +168,11 @@ public class ImageController implements Serializable{
         imageService.deleteImage(selectedImageView.getId());
     }
 
-    public void checkOut(){
+    public String checkOut(){
         //selectedImageView.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
         //System.out.println("The Filename is:" + selectedImageView.getFilename());
         System.out.println("Selected Image: " + selectedImageView.getTitle());
         System.out.println("New Rev Number: " + newRevisionNumber);
+        return "/api/image/download/" + selectedImageView.getRevisionId();
     }
 }

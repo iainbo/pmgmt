@@ -107,4 +107,9 @@ public class GalleryController implements Serializable{
         System.out.println("The new description is: " + galleryView.getGalleryDescription());
     }
 
+    public String deleteGallery(String galleryId){
+        galleryService.deleteGallery(Long.valueOf(galleryId));
+        return "adminHome";
+    }
+
 }

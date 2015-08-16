@@ -97,4 +97,8 @@ public class GalleryService {
         daoFactory.galleryDAO().update(gallery);
     }
 
+    public void deleteGallery(Long galleryId){
+        daoFactory.galleryDAO().delete(galleryId);
+    }
+
 }

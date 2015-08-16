@@ -14,7 +14,7 @@ public class GalleryMetadata extends BaseEntity {
     @Column(unique = true, name = "ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GALLERY_ID")
     private Gallery gallery;
 
