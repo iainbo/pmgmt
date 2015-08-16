@@ -15,10 +15,10 @@ import org.iainbo.entities.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2015-08-15T19:15:51+0100"
+    date = "2015-08-16T14:04:58+0100"
 )
 @ApplicationScoped
-public class GalleryMapperImpl implements GalleryMapper {
+public class GalleryMapperImpl extends GalleryMapper {
 
     @Override
     public GalleryDTO galleryToGalleryDTO(Gallery gallery)  {
@@ -77,23 +77,6 @@ public class GalleryMapperImpl implements GalleryMapper {
 
 
         return galleryMetadataDTO;
-    }
-
-
-    @Override
-    public ImageDTO imageToImageDTO(Image image)  {
-        if ( image == null ) {
-            return null;
-        }
-
-        ImageDTO imageDTO = new ImageDTO();
-
-        imageDTO.setDescription( image.getDescription() );
-        imageDTO.setId( image.getId() );
-        imageDTO.setTitle( image.getTitle() );
-
-
-        return imageDTO;
     }
 
 

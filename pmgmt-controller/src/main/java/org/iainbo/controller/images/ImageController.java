@@ -99,6 +99,7 @@ public class ImageController implements Serializable{
         selectedImageView.setId(imageDTO.getId());
         selectedImageView.setTitle(imageDTO.getTitle());
         selectedImageView.setRevisionNo(imageDTO.getRevisionDTO().getRevisionNumber());
+        selectedImageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         String date = imageDTO.getRevisionDTO().getDateUploaded().toString();
         selectedImageView.setDateUploaded(date);
         String uploadedBy = imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname();

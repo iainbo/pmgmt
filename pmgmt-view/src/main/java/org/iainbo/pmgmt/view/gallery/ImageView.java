@@ -16,6 +16,7 @@ public class ImageView implements Serializable{
     private String dateUploaded;
     private String filename;
     private String revisionNo;
+    private Long revisionId;
     private byte[] fileData;
 
 
@@ -89,5 +90,13 @@ public class ImageView implements Serializable{
 
     public void setRevisionNo(String revisionNo) {
         this.revisionNo = revisionNo;
+    }
+
+    public Long getRevisionId() {
+        return revisionId;
+    }
+
+    public void setRevisionId(Long revisionId) {
+        this.revisionId = revisionId;
     }
 }

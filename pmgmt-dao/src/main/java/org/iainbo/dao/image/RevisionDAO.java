@@ -14,7 +14,8 @@ import java.util.List;
 public class RevisionDAO extends BaseDAO {
 
     private static final String FIND_HEAD_REVISION_BY_IMAGE = "select r from Revision r where r.headRevision = 'Y' and r.image.id =:imageId";
-    private static final String FIND_ALL_REVISIONS_FOR_IMAGE = "select r from Revision r where r.image =:imageId";
+    private static final String FIND_ALL_REVISIONS_FOR_IMAGE = "select r from Revision r where r.image.id =:imageId";
+    private static final String FIND_REVISION_BY_ID = "select r from Revision r where r.id =:revisionId";
 
     public RevisionDAO(){super(Revision.class);}
 
@@ -30,11 +31,18 @@ public class RevisionDAO extends BaseDAO {
         return result;
     }
 
-    public List<Revision> allRevisions(Long imageId){
+    public List<Revision> allRevisionsForImage(Long imageId){
         Query query = entityManager.createQuery(FIND_ALL_REVISIONS_FOR_IMAGE);
         query.setParameter("imageId", imageId);
         List<Revision> results = query.getResultList();
         return results;
+    }
+
+    public Revision findById(Long revisionId){
+        Query query = entityManager.createQuery(FIND_REVISION_BY_ID);
+        query.setParameter("revisionId", revisionId);
+        Revision result = (Revision)query.getSingleResult();
+        return result;
     }
 
     public Revision create(final Revision entity){

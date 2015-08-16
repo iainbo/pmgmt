@@ -4,6 +4,7 @@ import org.iainbo.dao.factory.DAOFactory;
 import org.iainbo.dto.GalleryDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.Image;
+import org.iainbo.entities.image.Revision;
 import org.iainbo.entities.user.User;
 import org.iainbo.pmgmt.service.mapper.GalleryMapper;
 
@@ -68,6 +69,13 @@ public class GalleryService {
     public List<Image> getImagesForGallery(Gallery gallery){
         List<Image> imagesForGallery;
         imagesForGallery = daoFactory.imageDAO().findAllImagesForGallery(gallery);
+        for(Image image : imagesForGallery){
+            Long imageId = image.getId();
+            Revision headRevision = daoFactory.revisionDAO().findHeadRevision(imageId);
+            image.setRevision(headRevision);
+            List<Revision> revisions = daoFactory.revisionDAO().allRevisionsForImage(imageId);
+            image.setRevisions(revisions);
+        }
         return imagesForGallery;
     }
 

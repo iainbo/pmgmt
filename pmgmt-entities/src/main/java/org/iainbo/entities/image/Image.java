@@ -5,7 +5,7 @@ import org.iainbo.entities.gallery.Gallery;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "IMAGES")
@@ -32,7 +32,7 @@ public class Image extends BaseEntity{
     private Revision revision;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "image", cascade = CascadeType.ALL)
-    private Set<Revision> revisions;
+    private List<Revision> revisions;
 
     public Image(){
 
@@ -44,7 +44,7 @@ public class Image extends BaseEntity{
         this.revision = revision;
     }
 
-    public Image(String title, Gallery gallery, Revision revision, Set<Revision> revisions){
+    public Image(String title, Gallery gallery, Revision revision, List<Revision> revisions){
         this.title = title;
         this.gallery = gallery;
         this.revision = revision;
@@ -90,11 +90,11 @@ public class Image extends BaseEntity{
         this.revision = revision;
     }
 
-    public Set<Revision> getRevisions() {
+    public List<Revision> getRevisions() {
         return revisions;
     }
 
-    public void setRevisions(Set<Revision> revisions) {
+    public void setRevisions(List<Revision> revisions) {
         this.revisions = revisions;
     }
 

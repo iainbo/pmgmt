@@ -32,17 +32,17 @@ public class ImagesAPI{
     @GET
     @Path("/view/{id}")
     public Response viewImage(@Context HttpHeaders headers,
-                              @PathParam("id") String imageId) throws ServletException, IOException{
-        Long image = Long.valueOf(imageId);
+                              @PathParam("id") String revisionId) throws ServletException, IOException{
+        Long revision = Long.valueOf(revisionId);
 
-        byte[] imageBytes = imageService.getBytesForImage(image);
+        byte[] imageBytes = imageService.getBytesForImage(revision);
         if(imageBytes == null || imageBytes.length == 0){
             InputStream noImageAvailable = ImagesAPI.class.getResourceAsStream("/img/photo_not_available.jpg");
             try {
 
                 imageBytes = IOUtils.toByteArray(noImageAvailable);
             } catch (NullPointerException npe) {
-                System.out.println("No Image Available for this ID: " + imageId);
+                System.out.println("No Image Available for this ID: " + revisionId);
             }
         }
         Response.ResponseBuilder imageResponseBuilder = Response.ok(new ByteArrayInputStream(imageBytes), "image/jpeg");

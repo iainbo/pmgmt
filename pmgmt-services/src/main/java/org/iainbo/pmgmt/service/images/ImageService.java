@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
+import java.util.List;
 
 @Stateless
 @Named
@@ -24,15 +25,33 @@ public class ImageService {
     @Inject
     ImageMapper imageMapper;
 
-    public byte[] getBytesForImage(Long imageId){
-        Revision revision = daoFactory.revisionDAO().findHeadRevision(imageId);
+    public byte[] getBytesForImage(Long revisionId){
+        Revision revision = daoFactory.revisionDAO().findById(revisionId);
+        byte[] imageData;
+        if(revision.getHeadRevision().equalsIgnoreCase("Y")){
+            imageData = getImageForRevision(revision);
+        }
+        else{
+            Revision headRevision = daoFactory.revisionDAO().findHeadRevision(revision.getImage().getId());
+            imageData = getImageForRevision(headRevision);
+        }
+        return imageData;
+    }
+
+    public byte[] getImageForRevision(Revision revision){
         byte[] imageData = new byte[0];
         try{
             imageData = daoFactory.fileDAO().findFileForRevision(revision.getId()).getFile();
         }catch (NoResultException e){
-            System.out.println("More than one image has been found for this ID: " + imageId + ":" + e);
+            System.out.println("More than one image has been found for this ID: " + revision.getImage().getId() + ":" + e);
         }
         return imageData;
+    }
+
+    public List<Revision> getAllRevisionsForImage(Long imageId){
+        List<Revision> revisionsForImage;
+        revisionsForImage = daoFactory.revisionDAO().allRevisionsForImage(imageId);
+        return revisionsForImage;
     }
 
     public boolean persistImage(ImageDTO imageDTO){
