@@ -18,6 +18,7 @@ public class ImageView implements Serializable{
     private String revisionNo;
     private Long revisionId;
     private byte[] fileData;
+    private boolean imageIsCheckedOut;
 
 
     public Long getId() {
@@ -98,5 +99,13 @@ public class ImageView implements Serializable{
 
     public void setRevisionId(Long revisionId) {
         this.revisionId = revisionId;
+    }
+
+    public boolean isImageIsCheckedOut() {
+        return imageIsCheckedOut;
+    }
+
+    public void setImageIsCheckedOut(boolean imageIsCheckedOut) {
+        this.imageIsCheckedOut = imageIsCheckedOut;
     }
 }

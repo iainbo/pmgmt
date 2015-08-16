@@ -43,6 +43,8 @@
                             <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.revisionId}" height="300" width="300"/>
                             <p:ajax event="mouseover" listener="#{imageController.setSelectedImageView(image.id)}"/>
                         </h:panelGrid>
+
+                        <p:commandButton value="Check Image Back In" rendered="#{image.imageIsCheckedOut}"/>
                     </p:panel>
 
                 </p:dataGrid>

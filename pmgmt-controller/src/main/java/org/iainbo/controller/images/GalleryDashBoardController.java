@@ -89,6 +89,13 @@ public class GalleryDashBoardController implements Serializable{
             ImageView imageView = new ImageView();
             imageView.setId(imageDTO.getId());
             imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
+            String isCheckedOut = imageDTO.getRevisionDTO().getCheckedOut();
+            if(isCheckedOut == null || isCheckedOut.equalsIgnoreCase("N")){
+                imageView.setImageIsCheckedOut(false);
+            }else {
+                imageView.setImageIsCheckedOut(true);
+            }
+
             imageView.setTitle(imageDTO.getTitle());
             imageView.setGalleryView(galleryView);
             imageView.setUploadedBy(galleryOwner);
