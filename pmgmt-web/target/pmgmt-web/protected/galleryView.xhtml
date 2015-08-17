@@ -15,6 +15,7 @@
         <div id="galleryView">
 
             <h:form id="galleryForm">
+                <p:growl id="galleryMessages" showDetail="true"/>
 
                 <p:contextMenu for="gallery">
                     <p:menuitem value="View Information" onclick="PF('imageInfo').show()" update=":imageInfoForm"/>
@@ -44,7 +45,8 @@
                             <p:ajax event="mouseover" listener="#{imageController.setSelectedImageView(image.id)}"/>
                         </h:panelGrid>
 
-                        <p:commandButton value="Check Image Back In" rendered="#{image.imageIsCheckedOut}"/>
+                        <p:commandButton value="Check Image Back In" rendered="#{image.imageIsCheckedOut}"
+                                         onclick="PF('checkIn').show()" update=":checkInForm"/>
                     </p:panel>
 
                 </p:dataGrid>
@@ -113,10 +115,10 @@
             <h:form id="checkOutForm">
                 <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
                     <h:outputText id="checkOutTitle" value="Image to be checked out:"/>
-                    <p:outputLabel id="checkOutValue" value="#{imageController.selectedImageView.title}"/>
+                    <p:outputLabel id="checkOutTitleValue" value="#{imageController.selectedImageView.title}"/>
 
-                    <h:outputText id="currentRevNo" value="Current Revsion Number:"/>
-                    <p:outputLabel id="currentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
+                    <h:outputText id="checkOutCurrentRevNo" value="Current Revsion Number:"/>
+                    <p:outputLabel id="checkOutCurrentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
 
                     <p:commandButton id="checkOutButton" value="Check Out" actionListener="#{imageController.checkOut}" ajax="false"
                                      onclick="PF('checkOut').hide()">
@@ -124,6 +126,38 @@
                     </p:commandButton>
                     <p:commandButton id="cancelCheckOut" value="Cancel" widgetVar="cancelCheckOut"
                                      onclick="PF('checkOut').close()"/>
+                </p:panelGrid>
+            </h:form>
+        </p:outputPanel>
+    </p:dialog>
+
+    <p:dialog header="Check Image In" widgetVar="checkIn" resizable="false">
+        <p:outputPanel id="checkInPanel">
+            <h:form id="checkInForm">
+                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                    <h:outputText id="checkInTitle" value="Image to be checked in: "/>
+                    <p:outputLabel id="checkInTitleValue" value="#{imageController.selectedImageView.title}"/>
+
+                    <h:outputText id="checkInCurrentRevNo" value="Current Revsion Number:"/>
+                    <p:outputLabel id="checkInCurrentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
+
+                    <p:fileUpload id="checkInFileUpload" fileUploadListener="#{imageController.handleFileUpload}" mode="advanced"
+                                  label="Select Image" invalidFileMessage="Invalid file type selected. Only .gif, .jpg/.jpeg or .png files are allowed."
+                                  update=":checkInForm"
+                                  auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+                    <p:outputLabel id="checkInFileName" value="#{imageController.newFileName}"/>
+
+                    <h:outputText id="checkInNewRevNo" value="New Revision Number:"/>
+                    <p:inputText id="checkInNewRevNoValue" value="#{imageController.newRevisionNumber}"/>
+
+                    <p:commandButton id="checkInButton" value="Check In" widgetVar="CheckInImage"
+                                     type="submit" actionListener="#{imageController.checkIn(imageController.selectedImageView.id)}"
+                                     onclick="PF('checkOut').close()" update=":galleryForm, :galleryForm:galleryMessages"/>
+
+                    <p:commandButton id="cancelCheckIn" value="Cancel" widgetVar="cancelImageUpload"
+                                     onclick="PF('checkOut').close()"/>
+
                 </p:panelGrid>
             </h:form>
         </p:outputPanel>

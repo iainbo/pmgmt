@@ -92,4 +92,37 @@ public class ImageService {
         revision.setCheckedOutBy(user);
         daoFactory.revisionDAO().update(revision);
     }
+
+    public boolean updateImage(ImageDTO imageDTO){
+        File newFile = newFile(imageDTO);
+        Revision newRevision = newRevision(imageDTO, newFile);
+
+        //Set the existing head revision to no longer be head.
+        Revision oldRevision = daoFactory.revisionDAO().findHeadRevision(imageDTO.getId());
+        oldRevision.setHeadRevision("N");
+        oldRevision.setCheckedOut("N");
+        daoFactory.revisionDAO().update(oldRevision);
+
+        Image image = daoFactory.imageDAO().findImageByID(imageDTO.getId());
+        image.setRevision(newRevision);
+        newRevision.setImage(image);
+        daoFactory.revisionDAO().create(newRevision);
+        daoFactory.fileDAO().create(newFile);
+        daoFactory.imageDAO().update(image);
+        return true;
+    }
+
+    public File newFile(ImageDTO imageDTO){
+        File newFile = new File();
+        newFile.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
+        newFile.setFile(imageDTO.getRevisionDTO().getFileDTO().getFileData());
+        return newFile;
+    }
+
+    public Revision newRevision(ImageDTO imageDTO, File file){
+        User user = daoFactory.userDAO().find(imageDTO.getRevisionDTO().getUploadedBy().getId());
+        Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(), file, imageDTO.getRevisionDTO().getRevisionNumber());
+        file.setRevision(newRevision);
+        return newRevision;
+    }
 }
