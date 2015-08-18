@@ -157,6 +157,7 @@ public class ImageController implements Serializable{
             imageDTO.setTitle(newImageTitle);
             imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
             revisionDTO.setHeadRevision("Y");
+            revisionDTO.setCheckedOut("N");
             revisionDTO.setRevisionNumber("01");
             revisionDTO.setDateUploaded(new Date());
             revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
@@ -171,7 +172,24 @@ public class ImageController implements Serializable{
                 imagePersisted = true;
             }
         }
+        ImageView imageView = createNewImageView(imageDTO);
+        galleryView.getImages().add(imageView);
         return imagePersisted;
+    }
+
+    public ImageView createNewImageView(ImageDTO imageDTO){
+        ImageView imageView = new ImageView();
+        imageView.setId(imageDTO.getId());
+        imageView.setTitle(imageDTO.getTitle());
+        imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
+        if(imageDTO.getRevisionDTO().getCheckedOut().equalsIgnoreCase("Y")){
+            imageView.setImageIsCheckedOut(true);
+        }else{
+            imageView.setImageIsCheckedOut(false);
+        }
+        imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
+        imageView.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
+        return imageView;
     }
 
     public void deleteImage(){
