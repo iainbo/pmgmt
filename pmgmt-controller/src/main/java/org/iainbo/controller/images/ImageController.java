@@ -6,6 +6,7 @@ import org.iainbo.dto.ImageDTO;
 import org.iainbo.dto.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
+import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.iainbo.pmgmt.view.gallery.ImageView;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
@@ -21,6 +22,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 @ManagedBean
 @ViewScoped
@@ -44,6 +47,9 @@ public class ImageController implements Serializable{
 
     @Inject
     ImageService imageService;
+
+    @Inject
+    GalleryView galleryView;
 
     public UploadedFile getNewFile() {
         return newFile;
@@ -170,6 +176,15 @@ public class ImageController implements Serializable{
 
     public void deleteImage(){
         imageService.deleteImage(selectedImageView.getId());
+        List<ImageView> imageViewList = galleryView.getImages();
+        Iterator<ImageView> imageViewIterator = imageViewList.iterator();
+        while(imageViewIterator.hasNext()){
+            ImageView i = imageViewIterator.next();
+            if(i.getId() == selectedImageView.getId()){
+                imageViewIterator.remove();
+            }
+        }
+        selectedImageView = null;
     }
 
     public void checkOut(){

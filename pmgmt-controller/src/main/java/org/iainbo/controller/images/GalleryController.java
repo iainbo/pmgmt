@@ -111,5 +111,4 @@ public class GalleryController implements Serializable{
         galleryService.deleteGallery(Long.valueOf(galleryId));
         return "adminHome";
     }
-
 }

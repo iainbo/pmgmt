@@ -82,7 +82,7 @@
                         <h:outputText id="confirmation" value="Are you sure you wish to delete:"/>
                         <p:outputLabel id="confirmationValue" value="#{imageController.selectedImageView.title}"/>
                         <p:commandButton id="deleteImageButton" value="Delete" actionListener="#{imageController.deleteImage}"
-                                        type="submit" oncomplete="PF('deleteImage').hide()"/>
+                                        type="submit" oncomplete="PF('deleteImage').hide()" update=":galleryForm:gallery"/>
                         <p:commandButton id="cancelDeleteImageButton" value="Cancel" widgetVar="cancelDeleteImage"
                                         onclick="PF('deleteImage').close()"/>
                     </p:panelGrid>
