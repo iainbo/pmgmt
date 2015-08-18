@@ -2,7 +2,7 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://java.sun.com/jsf/core">
+        >
 
     <div>
         #{loginController.getCurrentlyLoggedInUserForPageHeader()}
@@ -22,20 +22,10 @@
                 </p:submenu>
             </p:submenu>
 
-            <p:submenu label="Image" icon="ui-icon-document">
-                <p:submenu label="New" icon="ui-icon-document">
-                    <p:menuitem value="Upload Image"
-                                oncomplete="PF('addImage').show()"/>
-                </p:submenu>
-            </p:submenu>
-
             <p:submenu label="Administration" icon="ui-icon-help">
-                <p:menuitem value="Contents" url="#" />
-                <p:submenu label="Search" icon="ui-icon-search">
-                    <p:submenu label="Text">
-                        <p:menuitem value="Workspace" url="#" />
-                    </p:submenu>
-                    <p:menuitem value="File" url="#" />
+                <p:menuitem value="User" url="#" />
+                <p:submenu label="Gallery" icon="ui-icon-search">
+                    <p:menuitem value="Image" url="#" />
                 </p:submenu>
             </p:submenu>
 
@@ -79,42 +69,6 @@
 
                 </p:panelGrid>
             </p:outputPanel>
-        </p:dialog>
-    </h:form>
-
-    <!--Popup for adding a new image -->
-    <h:form id="addNewImageForm">
-        <p:dialog id="addNewImageDialog" header="Upload Image" widgetVar="addImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-            <p:panelGrid id="imageDetails" columns="2">
-
-                <h:outputText value="Select Image to be uploaded:"/>
-                <p:fileUpload id="fileUploadId" fileUploadListener="#{imageController.handleFileUpload}" mode="advanced"
-                              label="Select Image" invalidFileMessage="Invalid file type selected. Only .gif, .jpg/.jpeg or .png files are allowed."
-                              update="addNewImageForm:imageDetails"
-                              auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-
-                <h:outputText id="filename" value="Filename" />
-                <h:outputText id="newFilename" value="#{imageController.newFileName}"/>
-
-                <p:outputLabel for="galleries" value="Select Gallery: " />
-                <p:selectOneMenu id="galleries" effect="fold" value="#{imageController.galleryToBeLoadedTo}" editable="false" style="width: 195px">
-                    <f:selectItem itemLabel="Select a Gallery..." itemValue="" noSelectionOption="true"/>
-                    <f:selectItems value="#{galleryController.availableGalleriesNames}"/>
-                </p:selectOneMenu>
-
-                <h:outputText value="Enter Image Title: "/>
-                <p:inputText title="imageTitle" value="#{imageController.newImageTitle}"/>
-
-                <h:outputText value="Enter Description: "/>
-                <p:inputText title="imageDescription" value="#{imageController.newImageDescription}"/>
-
-                <p:commandButton id="uploadImage" value="Upload" widgetVar="uploadNewImage"
-                                 type="submit" actionListener="#{imageController.uploadImage}"
-                                 oncomplete="PF('addImage').hide()" update=":headerForm:messages"/>
-
-                <p:commandButton id="cancelUploadImageButton" value="Cancel" widgetVar="cancelImageUpload"
-                                 onclick="PF('addImage').close()"/>
-            </p:panelGrid>
         </p:dialog>
     </h:form>
 

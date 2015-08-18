@@ -34,7 +34,6 @@ public class ImageController implements Serializable{
     private String newFileName;
     private String newImageTitle;
     private String newImageDescription;
-    private String galleryToBeLoadedTo;
     private ImageView selectedImageView;
     private String newRevisionNumber;
     private ImageDTO imageDTO;
@@ -83,13 +82,6 @@ public class ImageController implements Serializable{
         this.newImageDescription = newImageDescription;
     }
 
-    public String getGalleryToBeLoadedTo() {
-        return galleryToBeLoadedTo;
-    }
-
-    public void setGalleryToBeLoadedTo(String galleryToBeLoadedTo) {
-        this.galleryToBeLoadedTo = galleryToBeLoadedTo;
-    }
 
     public byte[] getFileBytes() {
         return fileBytes;
@@ -131,9 +123,9 @@ public class ImageController implements Serializable{
 
     }
 
-    public void uploadImage(){
-        if(saveNewImage(newFile, galleryToBeLoadedTo)){
-            FacesMessage message = new FacesMessage("Succesful", newFileName + " has been uploaded to " + galleryToBeLoadedTo + ".");
+    public void uploadImage(String galleryName){
+        if(saveNewImage(newFile, galleryName)){
+            FacesMessage message = new FacesMessage("Succesful", newFileName + " has been uploaded to " + galleryName + ".");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }else{
             FacesMessage message = new FacesMessage("Error", newFileName + " has not been uploaded.");
@@ -150,12 +142,12 @@ public class ImageController implements Serializable{
         if(bytes == null || bytes.length == 0){
             imagePersisted = false;
         }else{
-            ImageDTO imageDTO = new ImageDTO();
+            ImageDTO newImageDTO = new ImageDTO();
             RevisionDTO revisionDTO = new RevisionDTO();
             FileDTO fileDTO = new FileDTO();
 
-            imageDTO.setTitle(newImageTitle);
-            imageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
+            newImageDTO.setTitle(newImageTitle);
+            newImageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
             revisionDTO.setHeadRevision("Y");
             revisionDTO.setCheckedOut("N");
             revisionDTO.setRevisionNumber("01");
@@ -165,15 +157,15 @@ public class ImageController implements Serializable{
             fileDTO.setFileData(bytes);
             fileDTO.setRevisionDTO(revisionDTO);
             revisionDTO.setFileDTO(fileDTO);
-            revisionDTO.setImageDTO(imageDTO);
-            imageDTO.setRevisionDTO(revisionDTO);
+            revisionDTO.setImageDTO(newImageDTO);
+            newImageDTO.setRevisionDTO(revisionDTO);
 
-            if(imageService.persistImage(imageDTO)){
+            if(imageService.persistImage(newImageDTO)){
                 imagePersisted = true;
             }
+            ImageView imageView = createNewImageView(newImageDTO);
+            galleryView.getImages().add(imageView);
         }
-        ImageView imageView = createNewImageView(imageDTO);
-        galleryView.getImages().add(imageView);
         return imagePersisted;
     }
 
@@ -181,14 +173,11 @@ public class ImageController implements Serializable{
         ImageView imageView = new ImageView();
         imageView.setId(imageDTO.getId());
         imageView.setTitle(imageDTO.getTitle());
+        imageView.setGalleryView(galleryView);
         imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
-        if(imageDTO.getRevisionDTO().getCheckedOut().equalsIgnoreCase("Y")){
-            imageView.setImageIsCheckedOut(true);
-        }else{
-            imageView.setImageIsCheckedOut(false);
-        }
+        imageView.setImageIsCheckedOut(false);
         imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
-        imageView.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
+        imageView.setFilename(newFileName);
         return imageView;
     }
 
