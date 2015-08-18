@@ -220,6 +220,12 @@ public class ImageController implements Serializable{
                 revisionSaved = true;
             }
         }
+        List<ImageView> imageViews = galleryView.getImages();
+        for(ImageView i : imageViews){
+            if(i.getId() == imageDTO.getId()){
+                i.setImageIsCheckedOut(false);
+            }
+        }
         return revisionSaved;
     }
 
