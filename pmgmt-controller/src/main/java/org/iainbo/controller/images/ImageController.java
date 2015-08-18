@@ -189,6 +189,7 @@ public class ImageController implements Serializable{
 
     public void checkOut(){
         imageService.checkOutRevision(loginController.getCurrentUserName(), selectedImageView.getRevisionId());
+        setCheckedOutValue(true);
     }
 
     public StreamedContent getFileForCheckout(){
@@ -220,12 +221,7 @@ public class ImageController implements Serializable{
                 revisionSaved = true;
             }
         }
-        List<ImageView> imageViews = galleryView.getImages();
-        for(ImageView i : imageViews){
-            if(i.getId() == imageDTO.getId()){
-                i.setImageIsCheckedOut(false);
-            }
-        }
+        setCheckedOutValue(false);
         return revisionSaved;
     }
 
@@ -242,5 +238,14 @@ public class ImageController implements Serializable{
         revisionDTO.setFileDTO(fileDTO);
         revisionDTO.setImageDTO(imageDTO);
         imageDTO.setRevisionDTO(revisionDTO);
+    }
+
+    public void setCheckedOutValue(boolean value){
+        List<ImageView> imageViews = galleryView.getImages();
+        for(ImageView i : imageViews){
+            if(i.getId() == imageDTO.getId()){
+                i.setImageIsCheckedOut(value);
+            }
+        }
     }
 }

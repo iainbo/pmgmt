@@ -120,7 +120,7 @@
                     <h:outputText id="checkOutCurrentRevNo" value="Current Revsion Number:"/>
                     <p:outputLabel id="checkOutCurrentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
 
-                    <p:commandButton id="checkOutButton" value="Check Out" actionListener="#{imageController.checkOut}" ajax="false"
+                    <p:commandButton id="checkOutButton" value="Check Out" action="#{imageController.checkOut}" ajax="false"
                                      onclick="PF('checkOut').hide()">
                         <p:fileDownload value="#{imageController.fileForCheckout}"/>
                     </p:commandButton>
