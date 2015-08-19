@@ -182,7 +182,13 @@ public class ImageController implements Serializable{
     }
 
     public void deleteImage(){
-        imageService.deleteImage(selectedImageView.getId());
+        if(imageService.deleteImage(selectedImageView.getId())){
+            FacesMessage message = new FacesMessage("Succesful", selectedImageView.getTitle() + " has been deleted.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }else{
+            FacesMessage message = new FacesMessage("Error", selectedImageView.getTitle() + " has not been deleted.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
         List<ImageView> imageViewList = galleryView.getImages();
         Iterator<ImageView> imageViewIterator = imageViewList.iterator();
         while(imageViewIterator.hasNext()){

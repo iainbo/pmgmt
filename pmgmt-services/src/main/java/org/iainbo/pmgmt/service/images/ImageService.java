@@ -75,8 +75,9 @@ public class ImageService {
         return true;
     }
 
-    public void deleteImage(Long imageId){
+    public boolean deleteImage(Long imageId){
         daoFactory.imageDAO().delete(imageId);
+        return true;
     }
 
     public ImageDTO findImageById(Long imageId){
