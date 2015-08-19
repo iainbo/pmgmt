@@ -91,10 +91,12 @@ public class GalleryService {
         return thumb;
     }
 
-    public void updateExistingGallery(Long galleryId, String newGalleryName){
+    public boolean updateExistingGallery(Long galleryId, String newGalleryName, byte[] file){
         Gallery gallery = daoFactory.galleryDAO().find(galleryId);
         gallery.setGalleryName(newGalleryName);
+        gallery.setThumbnail(file);
         daoFactory.galleryDAO().update(gallery);
+        return true;
     }
 
     public void deleteGallery(Long galleryId){

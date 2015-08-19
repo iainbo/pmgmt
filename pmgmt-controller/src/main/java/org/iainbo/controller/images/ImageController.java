@@ -30,7 +30,6 @@ import java.util.List;
 public class ImageController implements Serializable{
 
     private UploadedFile newFile;
-    private byte[] fileBytes;
     private String newFileName;
     private String newImageTitle;
     private String newImageDescription;
@@ -82,15 +81,6 @@ public class ImageController implements Serializable{
         this.newImageDescription = newImageDescription;
     }
 
-
-    public byte[] getFileBytes() {
-        return fileBytes;
-    }
-
-    public void setFileBytes(byte[] fileBytes) {
-        this.fileBytes = fileBytes;
-    }
-
     public ImageView getSelectedImageView() {
         return selectedImageView;
     }
@@ -118,7 +108,6 @@ public class ImageController implements Serializable{
 
     public void handleFileUpload(FileUploadEvent event) {
         newFile = event.getFile();
-        fileBytes = newFile.getContents();
         newFileName = newFile.getFileName();
 
     }

@@ -66,8 +66,15 @@
                     <h:outputText value="Gallery Description"/>
                     <p:inputText id="galleryDescription" value="#{galleryView.galleryDescription}"/>
 
+                    <p:outputLabel id="thumbailLabel" value="Update Thumbnail"/>
+
+                    <p:fileUpload id="uploadThumbnail" fileUploadListener="#{galleryController.uploadThumbnail}" mode="advanced"
+                                  label="Upload Thumbnail" invalidFileMessage="Invalid file type selected. Only .jpg/.jpeg or .png files are allowed."
+                                  auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(jpe?g|png)$/"/>
+
+
                     <p:commandButton id="updateGallery" value="Update" actionListener="#{galleryController.updateGallery}"
-                                    type="submit" oncomplete="PF('editGallery').hide()" update=":galleryForm"/>
+                                    type="submit" oncomplete="PF('editGallery').hide()" update=":galleryForm, :galleryForm:galleryMessages"/>
                     <p:commandButton id="cancelEditGalleryButton" value="Cancel" widgetVar="cancelEditGallery"
                                     onclick="PF('editGallery').close()"/>
                 </p:panelGrid>

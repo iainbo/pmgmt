@@ -6,6 +6,7 @@ import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.iainbo.pmgmt.view.user.UserView;
+import org.primefaces.event.FileUploadEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -27,6 +28,7 @@ public class GalleryController implements Serializable{
 
     private String galleryName;
     private List<String> availableGalleriesNames;
+    private byte[] thumbnail;
 
     @Inject
     GalleryService galleryService;
@@ -102,13 +104,22 @@ public class GalleryController implements Serializable{
     }
 
     public void updateGallery(){
-        galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName());
-
-        System.out.println("The new description is: " + galleryView.getGalleryDescription());
+        if(galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName(), thumbnail)){
+        FacesMessage message = new FacesMessage("Succesful", galleryView.getGalleryName() + " has been updated.");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }else{
+        FacesMessage message = new FacesMessage("Error", galleryView.getGalleryName() + " has not been updated.");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
     }
 
     public String deleteGallery(String galleryId){
         galleryService.deleteGallery(Long.valueOf(galleryId));
         return "adminHome";
+    }
+
+    public void uploadThumbnail(FileUploadEvent event) {
+        thumbnail = event.getFile().getContents();
+
     }
 }
