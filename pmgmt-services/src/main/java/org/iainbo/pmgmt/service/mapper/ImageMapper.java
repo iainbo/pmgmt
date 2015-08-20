@@ -20,7 +20,8 @@ public interface ImageMapper {
             @Mapping(source = "title", target = "title"),
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "revision", target = "revisionDTO"),
-            @Mapping(source = "gallery", target = "galleryDTO")
+            @Mapping(source = "gallery", target = "galleryDTO"),
+            @Mapping(source = "revisions", target = "revisions")
     })
     ImageDTO imageToImageDTO(Image image);
     RevisionDTO revisionToRevisionDTO(Revision revision);

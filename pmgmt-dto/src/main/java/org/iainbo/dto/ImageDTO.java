@@ -1,5 +1,7 @@
 package org.iainbo.dto;
 
+import java.util.List;
+
 public class ImageDTO {
 
     private Long id;
@@ -7,6 +9,7 @@ public class ImageDTO {
     private String description;
     private GalleryDTO galleryDTO;
     private RevisionDTO revisionDTO;
+    private List<RevisionDTO> revisions;
 
     public Long getId() {
         return id;
@@ -46,5 +49,13 @@ public class ImageDTO {
 
     public void setRevisionDTO(RevisionDTO revisionDTO) {
         this.revisionDTO = revisionDTO;
+    }
+
+    public List<RevisionDTO> getRevisions() {
+        return revisions;
+    }
+
+    public void setRevisions(List<RevisionDTO> revisions) {
+        this.revisions = revisions;
     }
 }

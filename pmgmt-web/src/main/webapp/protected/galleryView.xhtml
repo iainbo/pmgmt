@@ -106,13 +106,23 @@
                         <p:outputLabel id="imageTitleValue" value="#{imageController.selectedImageView.title}"/>
 
                         <h:outputText id="revNo" value="Revision Number"/>
-                        <p:outputLabel id="revisionNumber" value="#{imageController.selectedImageView.revisionNo}"/>
+                        <p:selectOneMenu id="revisions" effect="fold" value="#{imageController.temp}" editable="false" style="width: 195px">
+                            <f:selectItem itemLabel="Select Revision..." noSelectionOption="true"/>
+                            <f:selectItems value="#{imageController.selectedImageView.revisions.entrySet()}" var="rev"
+                                    itemValue="#{rev.key}" itemLabel="#{rev.value}"/>
+                            <p:ajax update=":imageInfoForm:revLink"/>
+                        </p:selectOneMenu>
 
                         <h:outputText id="date" value="Date Uploaded"/>
                         <p:outputLabel id="dateUploaded" value="#{imageController.selectedImageView.dateUploaded}"/>
 
                         <h:outputText id="photographer" value="Photographer"/>
                         <p:outputLabel id="photographerName" value="#{imageController.selectedImageView.uploadedBy}"/>
+
+                        <h:outputText id="revFilename" value="Revision Filename"/>
+                        <p:commandLink value="#{imageController.temp}" ajax="false" id="revLink">
+                            <p:fileDownload value="#{imageController.fileForCheckout}"/>
+                        </p:commandLink>
                     </p:panelGrid>
                 </h:form>
             </p:outputPanel>

@@ -3,6 +3,7 @@ package org.iainbo.pmgmt.view.gallery;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Map;
 
 @Named
 @SessionScoped
@@ -19,6 +20,7 @@ public class ImageView implements Serializable{
     private Long revisionId;
     private byte[] fileData;
     private boolean imageIsCheckedOut;
+    private Map<Long, String> revisions;
 
 
     public Long getId() {
@@ -107,5 +109,13 @@ public class ImageView implements Serializable{
 
     public void setImageIsCheckedOut(boolean imageIsCheckedOut) {
         this.imageIsCheckedOut = imageIsCheckedOut;
+    }
+
+    public Map<Long, String> getRevisions() {
+        return revisions;
+    }
+
+    public void setRevisions(Map<Long, String> revisions) {
+        this.revisions = revisions;
     }
 }

@@ -21,9 +21,7 @@ import javax.inject.Inject;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @ManagedBean
 @ViewScoped
@@ -36,6 +34,7 @@ public class ImageController implements Serializable{
     private ImageView selectedImageView;
     private String newRevisionNumber;
     private ImageDTO imageDTO;
+    private String temp;
 
     @Inject
     GalleryService galleryService;
@@ -85,6 +84,14 @@ public class ImageController implements Serializable{
         return selectedImageView;
     }
 
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
+    }
+
     public void setSelectedImageView(String imageId) {
         imageDTO = imageService.findImageById(Long.valueOf(imageId));
         selectedImageView = new ImageView();
@@ -96,6 +103,13 @@ public class ImageController implements Serializable{
         selectedImageView.setDateUploaded(date);
         String uploadedBy = imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname();
         selectedImageView.setUploadedBy(uploadedBy);
+        Map<Long, String> revIds = new HashMap<>();
+        for(RevisionDTO r : imageDTO.getRevisions()){
+            Long id = r.getId();
+            String revNo = r.getRevisionNumber();
+            revIds.put(id, revNo);
+        }
+        selectedImageView.setRevisions(revIds);
     }
 
     public String getNewRevisionNumber() {
