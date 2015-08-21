@@ -3,6 +3,7 @@ package org.iainbo.pmgmt.service.mapper;
 import org.iainbo.dto.*;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.gallery.GalleryMetadata;
+import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.image.Revision;
 import org.iainbo.entities.user.User;
@@ -42,6 +43,7 @@ public abstract class GalleryMapper {
                 revisionDTO.setUploadedBy( userToUserDTO( revision.getUploadedBy() ) );
                 revisionDTO.setHeadRevision( revision.getHeadRevision() );
                 revisionDTO.setDateUploaded( revision.getDateUploaded() );
+                revisionDTO.setFileDTO(fileToFileDTO(revision.getFile()));
 
 
                 return revisionDTO;
@@ -49,6 +51,11 @@ public abstract class GalleryMapper {
 
             @Override
             public UserDTO userToUserDTO(User user) {
+                return null;
+            }
+
+            @Override
+            public FileDTO fileToFileDTO(File file) {
                 return null;
             }
         };

@@ -6,8 +6,9 @@ import org.iainbo.dto.ImageDTO;
 import org.iainbo.dto.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
+import org.iainbo.pmgmt.view.Image.ImageView;
+import org.iainbo.pmgmt.view.Image.RevisionView;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
-import org.iainbo.pmgmt.view.gallery.ImageView;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -34,7 +35,8 @@ public class ImageController implements Serializable{
     private ImageView selectedImageView;
     private String newRevisionNumber;
     private ImageDTO imageDTO;
-    private String temp;
+    private String selectedRevisionId;
+    RevisionView selectedRevisionView;
 
     @Inject
     GalleryService galleryService;
@@ -84,12 +86,21 @@ public class ImageController implements Serializable{
         return selectedImageView;
     }
 
-    public String getTemp() {
-        return temp;
+    public String getSelectedRevisionId() {
+        return selectedRevisionId;
     }
 
-    public void setTemp(String temp) {
-        this.temp = temp;
+    public void setSelectedRevisionId(String selectedRevisionId) {
+        this.selectedRevisionId = selectedRevisionId;
+        getSelectedRevisionView(this.selectedRevisionId);
+    }
+
+    public RevisionView getSelectedRevisionView() {
+        return selectedRevisionView;
+    }
+
+    public void setSelectedRevisionView(RevisionView selectedRevisionView) {
+        this.selectedRevisionView = selectedRevisionView;
     }
 
     public void setSelectedImageView(String imageId) {
@@ -254,6 +265,9 @@ public class ImageController implements Serializable{
         revisionDTO.setFileDTO(fileDTO);
         revisionDTO.setImageDTO(imageDTO);
         imageDTO.setRevisionDTO(revisionDTO);
+        List<RevisionDTO> revisionDTOs = imageDTO.getRevisions();
+        revisionDTOs.add(revisionDTO);
+        imageDTO.setRevisions(revisionDTOs);
     }
 
     public void setCheckedOutValue(boolean value){
@@ -263,5 +277,22 @@ public class ImageController implements Serializable{
                 i.setImageIsCheckedOut(value);
             }
         }
+    }
+
+    public void getSelectedRevisionView(String revisionId){
+        Long revId = Long.valueOf(revisionId);
+        RevisionDTO revisionDTO = imageService.getRevision(revId);
+        selectedRevisionView = new RevisionView();
+        selectedRevisionView.setId(revisionDTO.getId());
+        selectedRevisionView.setRevisionNumber(revisionDTO.getRevisionNumber());
+        selectedRevisionView.setFilename(revisionDTO.getFileDTO().getFilename());
+
+        InputStream fileStream = new ByteArrayInputStream(imageService.getBytesForImage(revId));
+        StreamedContent file = new DefaultStreamedContent(fileStream, "image/jpg", selectedRevisionView.getFilename());
+        selectedRevisionView.setFileData(file);
+
+
+        selectedRevisionView.setUploadedBy(revisionDTO.getUploadedBy().getFirstName() + " " + revisionDTO.getUploadedBy().getSurname());
+        selectedRevisionView.setUploadedDate(revisionDTO.getDateUploaded().toString());
     }
 }

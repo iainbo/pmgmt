@@ -1,5 +1,7 @@
 package org.iainbo.pmgmt.view.gallery;
 
+import org.iainbo.pmgmt.view.Image.ImageView;
+
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;

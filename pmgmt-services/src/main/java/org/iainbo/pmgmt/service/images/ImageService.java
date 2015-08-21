@@ -2,12 +2,14 @@ package org.iainbo.pmgmt.service.images;
 
 import org.iainbo.dao.factory.DAOFactory;
 import org.iainbo.dto.ImageDTO;
+import org.iainbo.dto.RevisionDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.image.Revision;
 import org.iainbo.entities.user.User;
 import org.iainbo.pmgmt.service.mapper.ImageMapper;
+import org.iainbo.pmgmt.service.mapper.RevisionMapper;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -25,15 +27,18 @@ public class ImageService {
     @Inject
     ImageMapper imageMapper;
 
+    @Inject
+    RevisionMapper revisionMapper;
+
     public byte[] getBytesForImage(Long revisionId){
         Revision revision = daoFactory.revisionDAO().findById(revisionId);
         byte[] imageData;
         if(revision.getHeadRevision().equalsIgnoreCase("Y")){
-            imageData = getImageForRevision(revision);
-        }
-        else{
             Revision headRevision = daoFactory.revisionDAO().findHeadRevision(revision.getImage().getId());
             imageData = getImageForRevision(headRevision);
+        }
+        else{
+            imageData = getImageForRevision(revision);
         }
         return imageData;
     }
@@ -125,5 +130,11 @@ public class ImageService {
         Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(), file, imageDTO.getRevisionDTO().getRevisionNumber());
         file.setRevision(newRevision);
         return newRevision;
+    }
+
+    public RevisionDTO getRevision(Long revisionId){
+        Revision revision = daoFactory.revisionDAO().findById(revisionId);
+        RevisionDTO revisionDTO = revisionMapper.revisionToRevisionDTO(revision);
+        return revisionDTO;
     }
 }
