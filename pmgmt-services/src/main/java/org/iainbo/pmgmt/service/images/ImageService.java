@@ -72,7 +72,7 @@ public class ImageService {
         newFile.setFile(imageDTO.getRevisionDTO().getFileDTO().getFileData());
         Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(),newFile, imageDTO.getRevisionDTO().getRevisionNumber());
         newFile.setRevision(newRevision);
-        Image newImage = new Image(imageDTO.getTitle(), gallery, newRevision);
+        Image newImage = new Image(imageDTO.getTitle(), gallery, newRevision, imageDTO.getDescription());
         newRevision.setImage(newImage);
         daoFactory.imageDAO().create(newImage);
         daoFactory.revisionDAO().create(newRevision);

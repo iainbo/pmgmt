@@ -108,6 +108,7 @@ public class ImageController implements Serializable{
         selectedImageView = new ImageView();
         selectedImageView.setId(imageDTO.getId());
         selectedImageView.setTitle(imageDTO.getTitle());
+        selectedImageView.setDescription(imageDTO.getDescription());
         selectedImageView.setRevisionNo(imageDTO.getRevisionDTO().getRevisionNumber());
         selectedImageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         String date = imageDTO.getRevisionDTO().getDateUploaded().toString();
@@ -162,6 +163,7 @@ public class ImageController implements Serializable{
 
             newImageDTO.setTitle(newImageTitle);
             newImageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
+            newImageDTO.setDescription(newImageDescription);
             revisionDTO.setHeadRevision("Y");
             revisionDTO.setCheckedOut("N");
             revisionDTO.setRevisionNumber("01");
@@ -187,6 +189,7 @@ public class ImageController implements Serializable{
         ImageView imageView = new ImageView();
         imageView.setId(imageDTO.getId());
         imageView.setTitle(imageDTO.getTitle());
+        imageView.setDescription(imageDTO.getDescription());
         imageView.setGalleryView(galleryView);
         imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         imageView.setImageIsCheckedOut(false);

@@ -25,16 +25,16 @@
 
                 <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
                                rendered="#{galleryView.containsImages}" style="border: 5px"/>
-                <p:commandButton value="Delete Gallery" action="#{galleryController.deleteGallery(galleryView.id)}" rendered="#{galleryView.containsImages}"/>
 
                 <!-- Datagrid to display images stored in the gallery -->
                 <p:dataGrid var="image" value="#{galleryView.images}" columns="3" layout="grid"
                             rows="12" paginator="true" id="gallery"
                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                            rowsPerPageTemplate="6,12,16" widgetVar="galleryGridForm"
-                            rendered="#{!galleryView.containsImages}">
+                            rowsPerPageTemplate="6,12,16" widgetVar="galleryGridForm">
 
                     <f:facet name="header">
+                        <p:commandButton value="Delete Gallery" action="#{galleryController.deleteGallery(galleryView.id)}"
+                                         rendered="#{galleryView.containsImages}" style="float: left"/>
                         #{galleryView.galleryName}
                         <p:commandButton id="editGalleryButton" value="Edit Gallery" onclick="PF('editGallery').show()"/>
                         <p:commandButton id="addImageButton" value="Add Image" style="float: right" onclick="PF('addImage').show()"/>
@@ -118,6 +118,9 @@
 
                         <h:outputText id="photographer" value="Photographer"/>
                         <p:outputLabel id="photographerName" value="#{imageController.selectedImageView.uploadedBy}"/>
+
+                        <h:outputText id="description" value="Description"/>
+                        <p:outputLabel id="photoDescription" value="#{imageController.selectedImageView.description}"/>
 
                         <h:outputText id="revFilename" value="Revision Filename"/>
                         <p:commandLink value="#{imageController.selectedRevisionView.filename}" ajax="false" id="revLink">

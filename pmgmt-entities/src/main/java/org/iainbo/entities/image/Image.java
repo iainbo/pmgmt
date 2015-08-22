@@ -38,14 +38,16 @@ public class Image extends BaseEntity{
 
     }
 
-    public Image(String title, Gallery gallery, Revision revision){
+    public Image(String title, Gallery gallery, Revision revision, String description){
         this.title = title;
+        this.description = description;
         this.gallery = gallery;
         this.revision = revision;
     }
 
-    public Image(String title, Gallery gallery, Revision revision, List<Revision> revisions){
+    public Image(String title, Gallery gallery, Revision revision, List<Revision> revisions, String description){
         this.title = title;
+        this.description = description;
         this.gallery = gallery;
         this.revision = revision;
         this.revisions = revisions;
