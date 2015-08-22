@@ -80,6 +80,9 @@ public class GalleryDashBoardController implements Serializable{
             List<ImageView> imageViews = createImageViewList(imageDTOs, galleryView, galleryOwner);
             galleryView.setImages(imageViews);
             galleryView.setNumberOfImages(Integer.toString(galleryDTO.getImageDTOList().size()));
+        }else{
+            galleryView.setImages(null);
+            galleryView.setNumberOfImages(null);
         }
     }
 
