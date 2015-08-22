@@ -29,20 +29,6 @@
                 </p:submenu>
             </p:submenu>
 
-            <p:submenu label="Actions" icon="ui-icon-gear">
-                <p:submenu label="Ajax" icon="ui-icon-refresh">
-                    <p:menuitem value="Save" actionListener="#{menuViewController.save}" icon="ui-icon-disk" update="messages"/>
-                    <p:menuitem value="Update" actionListener="#{menuViewController.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-                </p:submenu>
-                <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-                    <p:menuitem value="Delete" actionListener="#{menuViewController.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-                </p:submenu>
-            </p:submenu>
-
-            <p:submenu label="Shopping Basket">
-                <p:menuitem value="View Basket" icon="fa fa-shopping-cart"/>
-            </p:submenu>
-
             <p:menuitem value="Logout" action="#{menuViewController.logout}"
                         icon="ui-icon-close" />
 
