@@ -70,7 +70,7 @@ public class ImageService {
         File newFile = new File();
         newFile.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
         newFile.setFile(imageDTO.getRevisionDTO().getFileDTO().getFileData());
-        Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(),newFile, imageDTO.getRevisionDTO().getRevisionNumber());
+        Revision newRevision = newRevision(imageDTO, newFile);
         newFile.setRevision(newRevision);
         Image newImage = new Image(imageDTO.getTitle(), gallery, newRevision, imageDTO.getDescription());
         newRevision.setImage(newImage);
@@ -127,7 +127,9 @@ public class ImageService {
 
     public Revision newRevision(ImageDTO imageDTO, File file){
         User user = daoFactory.userDAO().find(imageDTO.getRevisionDTO().getUploadedBy().getId());
-        Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(), imageDTO.getRevisionDTO().getHeadRevision(), file, imageDTO.getRevisionDTO().getRevisionNumber());
+        Revision newRevision = new Revision(user, imageDTO.getRevisionDTO().getDateUploaded(),
+                imageDTO.getRevisionDTO().getHeadRevision(), file,
+                imageDTO.getRevisionDTO().getRevisionNumber(), imageDTO.getRevisionDTO().getRevisionComment());
         file.setRevision(newRevision);
         return newRevision;
     }

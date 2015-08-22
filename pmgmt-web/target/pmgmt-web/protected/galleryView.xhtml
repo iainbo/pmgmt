@@ -126,6 +126,10 @@
                         <p:commandLink value="#{imageController.selectedRevisionView.filename}" ajax="false" id="revLink">
                             <p:fileDownload value="#{imageController.selectedRevisionView.fileData}"/>
                         </p:commandLink>
+
+                        <h:outputText id="comment" value="Revision Comment"/>
+                        <p:outputLabel id="revComment" value="#{imageController.selectedRevisionView.revisionComment}"/>
+
                     </p:panelGrid>
                 </h:form>
             </p:outputPanel>

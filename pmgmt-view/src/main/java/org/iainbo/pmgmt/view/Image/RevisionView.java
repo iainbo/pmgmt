@@ -11,6 +11,7 @@ import java.io.Serializable;
 public class RevisionView implements Serializable {
     private Long id;
     private String revisionNumber;
+    private String revisionComment;
     private String filename;
     private StreamedContent fileData;
     private String uploadedBy;
@@ -30,6 +31,14 @@ public class RevisionView implements Serializable {
 
     public void setRevisionNumber(String revisionNumber) {
         this.revisionNumber = revisionNumber;
+    }
+
+    public String getRevisionComment() {
+        return revisionComment;
+    }
+
+    public void setRevisionComment(String revisionComment) {
+        this.revisionComment = revisionComment;
     }
 
     public String getFilename() {

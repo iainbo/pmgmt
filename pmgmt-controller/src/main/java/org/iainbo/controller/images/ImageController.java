@@ -165,6 +165,7 @@ public class ImageController implements Serializable{
             newImageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
             newImageDTO.setDescription(newImageDescription);
             revisionDTO.setHeadRevision("Y");
+            revisionDTO.setRevisionComment("Initial Revision");
             revisionDTO.setCheckedOut("N");
             revisionDTO.setRevisionNumber("01");
             revisionDTO.setDateUploaded(new Date());
@@ -288,6 +289,7 @@ public class ImageController implements Serializable{
         selectedRevisionView = new RevisionView();
         selectedRevisionView.setId(revisionDTO.getId());
         selectedRevisionView.setRevisionNumber(revisionDTO.getRevisionNumber());
+        selectedRevisionView.setRevisionComment(revisionDTO.getRevisionComment());
         selectedRevisionView.setFilename(revisionDTO.getFileDTO().getFilename());
 
         InputStream fileStream = new ByteArrayInputStream(imageService.getBytesForImage(revId));

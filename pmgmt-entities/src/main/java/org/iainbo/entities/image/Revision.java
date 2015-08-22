@@ -35,6 +35,9 @@ public class Revision extends BaseEntity {
     @NotNull
     private String headRevision;
 
+    @Column(name = "REVISION_COMMENT")
+    private String revisionComment;
+
     @NotNull
     @OneToOne
     @JoinColumn(name = "USER_ID")
@@ -56,10 +59,11 @@ public class Revision extends BaseEntity {
         this.headRevision = "Y";
     }
 
-    public Revision(User uploadedBy, Date dateUploaded, String headRevision, File file, String revisionNumber){
+    public Revision(User uploadedBy, Date dateUploaded, String headRevision, File file, String revisionNumber, String revisionComment){
         this.uploadedBy = uploadedBy;
         this.dateUploaded = dateUploaded;
         this.headRevision = headRevision;
+        this.revisionComment = revisionComment;
         this.revisionNumber = revisionNumber;
         this.file = file;
     }
@@ -97,6 +101,14 @@ public class Revision extends BaseEntity {
 
     public void setHeadRevision(String headRevision) {
         this.headRevision = headRevision;
+    }
+
+    public String getRevisionComment() {
+        return revisionComment;
+    }
+
+    public void setRevisionComment(String revisionComment) {
+        this.revisionComment = revisionComment;
     }
 
     public File getFile() {
