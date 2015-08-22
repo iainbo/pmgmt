@@ -9,7 +9,6 @@ public class GalleryDTO {
     private String galleryName;
     private Date dateCreated;
     private UserDTO owner;
-    private List<GalleryMetadataDTO> galleryMetadataDTOList;
     private List<ImageDTO> imageDTOList;
     private byte[] thumbnail;
 
@@ -43,14 +42,6 @@ public class GalleryDTO {
 
     public void setOwner(UserDTO owner) {
         this.owner = owner;
-    }
-
-    public List<GalleryMetadataDTO> getGalleryMetadataDTOList() {
-        return galleryMetadataDTOList;
-    }
-
-    public void setGalleryMetadataDTOList(List<GalleryMetadataDTO> galleryMetadataDTOList) {
-        this.galleryMetadataDTOList = galleryMetadataDTOList;
     }
 
     public List<ImageDTO> getImageDTOList() {

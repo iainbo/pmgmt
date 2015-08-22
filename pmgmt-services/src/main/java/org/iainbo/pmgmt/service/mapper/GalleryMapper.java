@@ -2,7 +2,6 @@ package org.iainbo.pmgmt.service.mapper;
 
 import org.iainbo.dto.*;
 import org.iainbo.entities.gallery.Gallery;
-import org.iainbo.entities.gallery.GalleryMetadata;
 import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.image.Revision;
@@ -19,13 +18,11 @@ public abstract class GalleryMapper {
             @Mapping(source = "galleryName", target = "galleryName"),
             @Mapping(source = "dateCreated", target = "dateCreated"),
             @Mapping(source = "owner", target = "owner"),
-            @Mapping(source = "metadataList", target = "galleryMetadataDTOList"),
             @Mapping(source = "images", target = "imageDTOList"),
             @Mapping(source = "thumbnail", target = "thumbnail")
     })
     public abstract GalleryDTO galleryToGalleryDTO(Gallery gallery);
     public abstract UserDTO userToUserDTO(User user);
-    public abstract GalleryMetadataDTO galleryMetadataToGalleryMetadataDTO(GalleryMetadata galleryMetadata);
 
     public ImageDTO imageToImageDTO(Image image){
         if ( image == null ) {

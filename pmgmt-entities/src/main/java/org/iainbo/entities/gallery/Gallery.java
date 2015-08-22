@@ -31,9 +31,6 @@ public class Gallery extends BaseEntity {
     private User owner;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "gallery", cascade = CascadeType.ALL)
-    private List<GalleryMetadata> metadataList;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "gallery", cascade = CascadeType.ALL)
     @Transient
     private List<Image> images;
 
@@ -82,14 +79,6 @@ public class Gallery extends BaseEntity {
 
     public void setOwner(User owner) {
         this.owner = owner;
-    }
-
-    public List<GalleryMetadata> getMetadataList() {
-        return metadataList;
-    }
-
-    public void setMetadataList(List<GalleryMetadata> metadataList) {
-        this.metadataList = metadataList;
     }
 
     public List<Image> getImages() {

@@ -5,5 +5,4 @@ org/iainbo/entities/user/Role.class
 org/iainbo/entities/gallery/Gallery.class
 org/iainbo/entities/image/File.class
 org/iainbo/entities/common/BaseEntity.class
-org/iainbo/entities/gallery/GalleryMetadata.class
 org/iainbo/entities/user/User.class
