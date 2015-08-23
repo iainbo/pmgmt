@@ -15,6 +15,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -64,20 +65,24 @@ public class ImageService {
         return revisionsForImage;
     }
 
-    public Long persistImage(ImageDTO imageDTO){
+    public ImageDTO persistImage(ImageDTO imageDTO){
         Gallery gallery = daoFactory.galleryDAO().find(imageDTO.getGalleryDTO().getId());
         File newFile = new File();
         newFile.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
         newFile.setFile(imageDTO.getRevisionDTO().getFileDTO().getFileData());
         Revision newRevision = newRevision(imageDTO, newFile);
+        List<Revision> revisions = new ArrayList<>();
+        revisions.add(newRevision);
         newFile.setRevision(newRevision);
-        Image newImage = new Image(imageDTO.getTitle(), gallery, newRevision, imageDTO.getDescription());
+        Image newImage = new Image(imageDTO.getTitle(), gallery, newRevision, revisions, imageDTO.getDescription());
         newRevision.setImage(newImage);
         daoFactory.imageDAO().create(newImage);
         daoFactory.revisionDAO().create(newRevision);
         daoFactory.fileDAO().create(newFile);
-        Long newId = daoFactory.imageDAO().findImageByTitleAndGallery(newImage.getTitle(), newImage.getGallery().getId()).getId();
-        return newId;
+
+        Image savedImage = daoFactory.imageDAO().findImageByTitleAndGallery(newImage.getTitle(), newImage.getGallery().getId());
+        ImageDTO newSavedImageDTO = imageMapper.imageToImageDTO(savedImage);
+        return newSavedImageDTO;
     }
 
     public boolean deleteImage(Long imageId){
