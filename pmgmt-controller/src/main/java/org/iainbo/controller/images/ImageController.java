@@ -34,6 +34,7 @@ public class ImageController implements Serializable{
     private String newImageDescription;
     private ImageView selectedImageView;
     private String newRevisionNumber;
+    private String newRevisionComment;
     private ImageDTO imageDTO;
     private String selectedRevisionId;
     RevisionView selectedRevisionView;
@@ -103,6 +104,22 @@ public class ImageController implements Serializable{
         this.selectedRevisionView = selectedRevisionView;
     }
 
+    public String getNewRevisionNumber() {
+        return newRevisionNumber;
+    }
+
+    public void setNewRevisionNumber(String newRevisionNumber) {
+        this.newRevisionNumber = newRevisionNumber;
+    }
+
+    public String getNewRevisionComment() {
+        return newRevisionComment;
+    }
+
+    public void setNewRevisionComment(String newRevisionComment) {
+        this.newRevisionComment = newRevisionComment;
+    }
+
     public void setSelectedImageView(String imageId) {
         imageDTO = imageService.findImageById(Long.valueOf(imageId));
         selectedImageView = new ImageView();
@@ -122,14 +139,6 @@ public class ImageController implements Serializable{
             revIds.put(id, revNo);
         }
         selectedImageView.setRevisions(revIds);
-    }
-
-    public String getNewRevisionNumber() {
-        return newRevisionNumber;
-    }
-
-    public void setNewRevisionNumber(String newRevisionNumber) {
-        this.newRevisionNumber = newRevisionNumber;
     }
 
     public void handleFileUpload(FileUploadEvent event) {
@@ -264,6 +273,7 @@ public class ImageController implements Serializable{
         FileDTO fileDTO = new FileDTO();
         revisionDTO.setHeadRevision("Y");
         revisionDTO.setRevisionNumber(getNewRevisionNumber());
+        revisionDTO.setRevisionComment(getNewRevisionComment());
         revisionDTO.setDateUploaded(new Date());
         revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
         fileDTO.setFilename(getNewFileName());

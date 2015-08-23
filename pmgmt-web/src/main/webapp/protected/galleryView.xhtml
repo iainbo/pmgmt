@@ -176,6 +176,9 @@
                     <h:outputText id="checkInNewRevNo" value="New Revision Number:"/>
                     <p:inputText id="checkInNewRevNoValue" value="#{imageController.newRevisionNumber}"/>
 
+                    <h:outputText id="checkInNewRevComment" value="Revision Comment:"/>
+                    <p:inputText id="checkInNewRevCommentValue" value="#{imageController.newRevisionComment}"/>
+
                     <p:commandButton id="checkInButton" value="Check In" widgetVar="CheckInImage"
                                      type="submit" actionListener="#{imageController.checkIn(imageController.selectedImageView.id)}"
                                      onclick="PF('checkOut').close()" update=":galleryForm, :galleryForm:galleryMessages"/>

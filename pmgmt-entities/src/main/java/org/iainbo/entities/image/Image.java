@@ -8,7 +8,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "IMAGES")
+@Table(name = "IMAGES",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"TITLE", "GALLERY_ID"})})
 public class Image extends BaseEntity{
 
     @Id
