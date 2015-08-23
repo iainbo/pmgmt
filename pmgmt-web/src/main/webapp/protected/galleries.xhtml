@@ -27,6 +27,8 @@
                         <p:graphicImage id="galleryThumb" value="/api/image/thumb/#{gallery.id}" height="200" width="200"/>
                     </p:commandLink>
 
+                    <p:outputLabel id="galleryDesc" value="#{gallery.description}"/>
+
 
                     <p:commandButton value="View Gallery" ajax="false" action="#{galleryDashBoardController.viewGallery(gallery.galleryName)}"
                             widgetVar="editGalleryButton"/>

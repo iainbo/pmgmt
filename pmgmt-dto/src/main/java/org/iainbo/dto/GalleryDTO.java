@@ -7,6 +7,7 @@ public class GalleryDTO {
 
     private Long id;
     private String galleryName;
+    private String description;
     private Date dateCreated;
     private UserDTO owner;
     private List<ImageDTO> imageDTOList;
@@ -26,6 +27,14 @@ public class GalleryDTO {
 
     public void setGalleryName(String galleryName) {
         this.galleryName = galleryName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getDateCreated() {

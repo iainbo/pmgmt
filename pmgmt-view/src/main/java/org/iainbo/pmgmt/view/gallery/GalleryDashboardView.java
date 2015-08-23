@@ -13,6 +13,7 @@ public class GalleryDashboardView implements Serializable{
 
     private Long id;
     private String galleryName;
+    private String description;
     private List<GalleryDTO> galleryDTOs;
 
     public Long getId() {
@@ -37,5 +38,13 @@ public class GalleryDashboardView implements Serializable{
 
     public void setGalleryDTOs(List<GalleryDTO> galleryDTOs) {
         this.galleryDTOs = galleryDTOs;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

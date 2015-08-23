@@ -16,6 +16,7 @@ public abstract class GalleryMapper {
     @Mappings({
             @Mapping(source = "id", target = "id"),
             @Mapping(source = "galleryName", target = "galleryName"),
+            @Mapping(source = "description", target = "description"),
             @Mapping(source = "dateCreated", target = "dateCreated"),
             @Mapping(source = "owner", target = "owner"),
             @Mapping(source = "images", target = "imageDTOList"),

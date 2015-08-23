@@ -6,7 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "FILES")
+@Table(name = "FILES",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"REVISION_ID"})})
 public class File extends BaseEntity {
 
     @Id

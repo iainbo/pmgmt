@@ -54,6 +54,7 @@ public class GalleryDashBoardController implements Serializable{
             GalleryDashboardView galleryDashboardView = new GalleryDashboardView();
             galleryDashboardView.setId(g.getId());
             galleryDashboardView.setGalleryName(g.getGalleryName());
+            galleryDashboardView.setDescription(g.getDescription());
             galleryDashboardViews.add(galleryDashboardView);
         }
     }
@@ -100,6 +101,7 @@ public class GalleryDashBoardController implements Serializable{
             }
 
             imageView.setTitle(imageDTO.getTitle());
+            imageView.setDescription(imageDTO.getDescription());
             imageView.setGalleryView(galleryView);
             imageView.setUploadedBy(galleryOwner);
             imageViews.add(imageView);

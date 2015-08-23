@@ -23,6 +23,10 @@ public class Gallery extends BaseEntity {
     private String galleryName;
 
     @NotNull
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    @NotNull
     @Column(name = "DATE_CREATED")
     private Date dateCreated;
 
@@ -63,6 +67,14 @@ public class Gallery extends BaseEntity {
 
     public void setGalleryName(String name) {
         this.galleryName = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getDateCreated() {

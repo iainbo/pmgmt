@@ -13,7 +13,7 @@ import org.iainbo.entities.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2015-08-23T19:58:23+0100"
+    date = "2015-08-23T20:55:07+0100"
 )
 @ApplicationScoped
 public class GalleryMapperImpl extends GalleryMapper {
@@ -29,6 +29,7 @@ public class GalleryMapperImpl extends GalleryMapper {
         galleryDTO.setOwner( userToUserDTO( gallery.getOwner() ) );
         galleryDTO.setThumbnail( gallery.getThumbnail() );
         galleryDTO.setDateCreated( gallery.getDateCreated() );
+        galleryDTO.setDescription( gallery.getDescription() );
         galleryDTO.setId( gallery.getId() );
         galleryDTO.setGalleryName( gallery.getGalleryName() );
         galleryDTO.setImageDTOList( imageListToImageDTOList( gallery.getImages() ) );
