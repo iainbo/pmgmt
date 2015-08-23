@@ -104,7 +104,7 @@ public class GalleryController implements Serializable{
     }
 
     public void updateGallery(){
-        if(galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName(), thumbnail)){
+        if(galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName(), thumbnail, galleryView.getDescription())){
         FacesMessage message = new FacesMessage("Succesful", galleryView.getGalleryName() + " has been updated.");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }else{

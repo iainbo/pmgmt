@@ -91,10 +91,17 @@ public class GalleryService {
         return thumb;
     }
 
-    public boolean updateExistingGallery(Long galleryId, String newGalleryName, byte[] file){
+    public boolean updateExistingGallery(Long galleryId, String newGalleryName, byte[] file, String newDescription){
         Gallery gallery = daoFactory.galleryDAO().find(galleryId);
-        gallery.setGalleryName(newGalleryName);
-        gallery.setThumbnail(file);
+        if(!gallery.getGalleryName().equals(newGalleryName)){
+            gallery.setGalleryName(newGalleryName);
+        }
+        if(!gallery.getDescription().equals(newDescription)){
+            gallery.setDescription(newDescription);
+        }
+        if(file != null){
+            gallery.setThumbnail(file);
+        }
         daoFactory.galleryDAO().update(gallery);
         return true;
     }

@@ -74,6 +74,7 @@ public class GalleryDashBoardController implements Serializable{
                 + " " + galleryDTO.getOwner().getSurname();
         galleryView.setId(galleryDTO.getId());
         galleryView.setGalleryName(galleryDTO.getGalleryName());
+        galleryView.setDescription(galleryDTO.getDescription());
         galleryView.setOwner(galleryOwner);
         galleryView.setContainsImages(galleryDTO.getImageDTOList().isEmpty());
         if(!galleryDTO.getImageDTOList().isEmpty()){

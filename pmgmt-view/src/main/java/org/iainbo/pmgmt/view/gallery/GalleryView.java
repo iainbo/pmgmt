@@ -17,7 +17,7 @@ public class GalleryView implements Serializable{
     private boolean containsImages;
     private List<ImageView> images;
     private String numberOfImages;
-    private String galleryDescription;
+    private String description;
 
     public Long getId() {
         return id;
@@ -67,11 +67,11 @@ public class GalleryView implements Serializable{
         this.numberOfImages = numberOfImages;
     }
 
-    public String getGalleryDescription() {
-        return galleryDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setGalleryDescription(String galleryDescription) {
-        this.galleryDescription = galleryDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
