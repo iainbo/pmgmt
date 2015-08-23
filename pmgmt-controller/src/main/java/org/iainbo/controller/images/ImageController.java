@@ -151,9 +151,11 @@ public class ImageController implements Serializable{
         if(saveNewImage(newFile, galleryName)){
             FacesMessage message = new FacesMessage("Succesful", newFileName + " has been uploaded to " + galleryName + ".");
             FacesContext.getCurrentInstance().addMessage(null, message);
+            resetValues();
         }else{
             FacesMessage message = new FacesMessage("Error", newFileName + " has not been uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
+            resetValues();
         }
 
 
@@ -246,9 +248,11 @@ public class ImageController implements Serializable{
         if(checkInRevision(newFile, Long.valueOf(imageId))){
             FacesMessage message = new FacesMessage("Succesful", selectedImageView.getTitle() + " has been checked in.");
             FacesContext.getCurrentInstance().addMessage(null, message);
+            resetValues();
         }else{
             FacesMessage message = new FacesMessage("Error", selectedImageView.getTitle() + "check in has failed.");
             FacesContext.getCurrentInstance().addMessage(null, message);
+            resetValues();
         }
     }
 
@@ -260,8 +264,20 @@ public class ImageController implements Serializable{
             revisionSaved = false;
         }else{
             createRevisionDTOAndFileDTO(imageDTO, bytes);
-            if(imageService.updateImage(imageDTO)){
+            ImageDTO updatedImage = imageService.updateImage(imageDTO);
+            if(null != updatedImage){
                 revisionSaved = true;
+                ImageView updatedImageView = createNewImageView(updatedImage);
+
+                List<ImageView> imageViews = galleryView.getImages();
+                Iterator<ImageView> imageViewIterator = imageViews.iterator();
+                while(imageViewIterator.hasNext()){
+                    ImageView i = imageViewIterator.next();
+                    if(i.getId() == updatedImageView.getId()){
+                        imageViewIterator.remove();
+                    }
+                }
+                imageViews.add(updatedImageView);
             }
         }
         setCheckedOutValue(false);
@@ -312,5 +328,14 @@ public class ImageController implements Serializable{
 
         selectedRevisionView.setUploadedBy(revisionDTO.getUploadedBy().getFirstName() + " " + revisionDTO.getUploadedBy().getSurname());
         selectedRevisionView.setUploadedDate(revisionDTO.getDateUploaded().toString());
+    }
+
+    public void resetValues(){
+        newFile = null;
+        newFileName = null;
+        newImageDescription = null;
+        newImageTitle = null;
+        newRevisionNumber = null;
+        newRevisionNumber = null;
     }
 }

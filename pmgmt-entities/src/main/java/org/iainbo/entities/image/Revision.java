@@ -9,7 +9,8 @@ import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 @Entity
-@Table(name = "REVISIONS")
+@Table(name = "REVISIONS",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"REVISION_NUMBER", "IMAGE_ID"})})
 public class Revision extends BaseEntity {
 
     @Id

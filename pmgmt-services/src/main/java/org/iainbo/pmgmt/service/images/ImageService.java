@@ -104,7 +104,7 @@ public class ImageService {
         daoFactory.revisionDAO().update(revision);
     }
 
-    public boolean updateImage(ImageDTO imageDTO){
+    public ImageDTO updateImage(ImageDTO imageDTO){
         File newFile = newFile(imageDTO);
         Revision newRevision = newRevision(imageDTO, newFile);
 
@@ -120,7 +120,10 @@ public class ImageService {
         daoFactory.revisionDAO().create(newRevision);
         daoFactory.fileDAO().create(newFile);
         daoFactory.imageDAO().update(image);
-        return true;
+
+        Image updatedImage = daoFactory.imageDAO().findImageByID(imageDTO.getId());
+        ImageDTO updatedImageDTO = imageMapper.imageToImageDTO(updatedImage);
+        return updatedImageDTO;
     }
 
     public File newFile(ImageDTO imageDTO){
