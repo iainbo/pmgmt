@@ -64,8 +64,7 @@ public class ImageService {
         return revisionsForImage;
     }
 
-    public boolean persistImage(ImageDTO imageDTO){
-        User user = daoFactory.userDAO().find(imageDTO.getRevisionDTO().getUploadedBy().getId());
+    public Long persistImage(ImageDTO imageDTO){
         Gallery gallery = daoFactory.galleryDAO().find(imageDTO.getGalleryDTO().getId());
         File newFile = new File();
         newFile.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
@@ -77,7 +76,8 @@ public class ImageService {
         daoFactory.imageDAO().create(newImage);
         daoFactory.revisionDAO().create(newRevision);
         daoFactory.fileDAO().create(newFile);
-        return true;
+        Long newId = daoFactory.imageDAO().findImageByTitleAndGallery(newImage.getTitle(), newImage.getGallery().getId()).getId();
+        return newId;
     }
 
     public boolean deleteImage(Long imageId){

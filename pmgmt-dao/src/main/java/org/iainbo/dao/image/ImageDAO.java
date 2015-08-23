@@ -16,6 +16,7 @@ public class ImageDAO extends BaseDAO {
     private static final String FIND_BY_IMAGE_TITLE = "select i from Image i where i.title =:imageTitle";
     private static final String FIND_BY_IMAGES_FOR_GALLERY = "select i from Image i where i.gallery =:gallery";
     private static final String FIND_IMAGE_BY_ID = "select i from Image i where i.id =:imageId";
+    private static final String FIND_BY_IMAGE_BY_TITLE_AND_GALLERY = "select i from Image i where i.title =:imageTitle and i.gallery.id =:galleryId";
 
     public ImageDAO(){super(Image.class);}
 
@@ -27,6 +28,14 @@ public class ImageDAO extends BaseDAO {
     public Image findImageByTitle(String imageTitle){
         Query query = entityManager.createQuery(FIND_BY_IMAGE_TITLE);
         query.setParameter("imageTitle", imageTitle);
+        Image result = (Image) query.getSingleResult();
+        return result;
+    }
+
+    public Image findImageByTitleAndGallery(String imageTitle, Long galleryId){
+        Query query = entityManager.createQuery(FIND_BY_IMAGE_BY_TITLE_AND_GALLERY);
+        query.setParameter("imageTitle", imageTitle);
+        query.setParameter("galleryId", galleryId);
         Image result = (Image) query.getSingleResult();
         return result;
     }
