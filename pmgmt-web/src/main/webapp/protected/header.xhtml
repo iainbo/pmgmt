@@ -5,12 +5,8 @@
                 xmlns:f="http://java.sun.com/jsf/core"
         >
 
-    <div>
-        #{loginController.getCurrentlyLoggedInUserForPageHeader()}
-        <p>Hello #{userView.fullName}</p>
-    </div>
-
     <h:form id="headerForm">
+        #{loginController.getCurrentlyLoggedInUserForPageHeader()}
         <p:growl id="messages" showDetail="true"/>
 
         <p:menubar>
@@ -31,6 +27,7 @@
             </p:submenu>
 
             <f:facet name="options">
+                <p:outputLabel id="userName" value="#{userView.fullName}" style="margin: 100px"/>
                 <p:commandButton type="submit" value="Logout" icon="ui-icon-extlink"
                                  actionListener="#{menuViewController.logout}"
                                  style="float: right"/>

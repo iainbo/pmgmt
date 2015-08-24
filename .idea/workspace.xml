@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="An Image description can be edited.">
+    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="Logout button added to menubar.&#10;Removed logout menuitem">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" />
@@ -20,8 +20,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/galleryView.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/galleryView.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/header.xhtml" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/protected/header.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" />
@@ -118,8 +116,8 @@
       <file leaf-file-name="header.xhtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4828326">
-              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.64377683">
+              <caret line="30" column="84" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -931,13 +929,7 @@
       <workItem from="1440256659694" duration="1299000" />
       <workItem from="1440337185809" duration="13239000" />
       <workItem from="1440397073854" duration="724000" />
-      <workItem from="1440438071309" duration="1797000" />
-    </task>
-    <task id="LOCAL-00066" summary="A gallery thumbnail can be clicked on to navigate to the respective gallery.">
-      <created>1439234856337</created>
-      <option name="number" value="00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1439234856337</updated>
+      <workItem from="1440438071309" duration="2576000" />
     </task>
     <task id="LOCAL-00067" summary="Edit gallery button added. Still to be wired up and positioned.">
       <created>1439235238114</created>
@@ -1227,11 +1219,17 @@
       <option name="project" value="LOCAL" />
       <updated>1440438878226</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Logout button added to menubar.&#10;Removed logout menuitem">
+      <created>1440439996880</created>
+      <option name="number" value="00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1440439996880</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455289000" />
+    <option name="totallyTimeSpent" value="456068000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1330,7 +1328,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="System Outs removed in checkout image.&#10;Popup now closes after clicking checkout." />
     <MESSAGE value="Button appears beneath Image indicating it is currently checked out and can be checked back in.&#10;Check in functionality still to be done." />
     <MESSAGE value="An image can be checked out, then a new revision of the image can be checked back in." />
     <MESSAGE value="When an image is deleted, it is now removed from the screen automatically." />
@@ -1355,7 +1352,8 @@
     <MESSAGE value="A gallery description is now displayed on the select gallery screen.&#10;Unique constraint added to files(revision_id)." />
     <MESSAGE value="A gallery description can be edited." />
     <MESSAGE value="An Image description can be edited." />
-    <option name="LAST_COMMIT_MESSAGE" value="An Image description can be edited." />
+    <MESSAGE value="Logout button added to menubar.&#10;Removed logout menuitem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logout button added to menubar.&#10;Removed logout menuitem" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1748,8 +1746,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-web/src/main/webapp/protected/header.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4828326">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.64377683">
+          <caret line="30" column="84" selection-start-line="30" selection-start-column="84" selection-end-line="30" selection-end-column="84" />
           <folding />
         </state>
       </provider>
