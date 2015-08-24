@@ -26,7 +26,7 @@ import java.util.List;
 public class GalleryController implements Serializable{
 
 
-    private String galleryName;
+    private String newGalleryName;
     private String newDescription;
     private List<String> availableGalleriesNames;
     private byte[] thumbnail;
@@ -58,11 +58,11 @@ public class GalleryController implements Serializable{
     }
 
     public String getNewGalleryName() {
-        return galleryName;
+        return newGalleryName;
     }
 
     public void setNewGalleryName(String galleryName) {
-        this.galleryName = galleryName;
+        this.newGalleryName = galleryName;
     }
 
     public String getNewDescription() {
