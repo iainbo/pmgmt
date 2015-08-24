@@ -23,9 +23,6 @@
                     <p:menuitem value="Delete Image" onclick="PF('deleteImage').show()" update=":deleteImageForm"/>
                 </p:contextMenu>
 
-                <p:outputLabel id="gallerySizeEmpty" value="There are no images in this Gallery! PLease upload an image."
-                               rendered="#{galleryView.containsImages}" style="border: 5px"/>
-
                 <!-- Datagrid to display images stored in the gallery -->
                 <p:dataGrid var="image" value="#{galleryView.images}" columns="3" layout="grid"
                             rows="12" paginator="true" id="gallery"
