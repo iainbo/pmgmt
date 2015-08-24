@@ -263,6 +263,7 @@ public class ImageController implements Serializable{
         if(bytes == null || bytes.length == 0 || imageDTO == null){
             revisionSaved = false;
         }else{
+            imageDTO.setDescription(selectedImageView.getDescription());
             createRevisionDTOAndFileDTO(imageDTO, bytes);
             ImageDTO updatedImage = imageService.updateImage(imageDTO);
             if(null != updatedImage){

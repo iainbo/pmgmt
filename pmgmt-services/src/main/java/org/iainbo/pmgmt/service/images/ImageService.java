@@ -115,6 +115,7 @@ public class ImageService {
         daoFactory.revisionDAO().update(oldRevision);
 
         Image image = daoFactory.imageDAO().findImageByID(imageDTO.getId());
+        image.setDescription(imageDTO.getDescription());
         image.setRevision(newRevision);
         newRevision.setImage(image);
         daoFactory.revisionDAO().create(newRevision);
