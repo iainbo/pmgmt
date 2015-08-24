@@ -46,9 +46,12 @@
                     <h:outputText value="Enter Gallery Name:" />
                     <p:inputText title="galleryName" value="#{galleryController.newGalleryName}"/>
 
+                    <h:outputText value="Enter Gallery Description:" />
+                    <p:inputText title="galleryName" value="#{galleryController.newDescription}"/>
+
                     <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
                                      type="submit"
-                                     action="#{galleryController.addGallery}"
+                                     actionListener="#{galleryController.addGallery}"
                                      oncomplete="PF('createGallery').hide()"/>
 
                     <p:commandButton id="cancelCreateGallery" value="Cancel" widgetVar="cancelGalleryCreation"

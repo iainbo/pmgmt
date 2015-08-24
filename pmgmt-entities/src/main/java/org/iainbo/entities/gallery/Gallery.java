@@ -45,10 +45,11 @@ public class Gallery extends BaseEntity {
 
     }
 
-    public Gallery(String galleryName, Date date, User user){
+    public Gallery(String galleryName, Date date, User user, String description){
         this.galleryName = galleryName;
         this.dateCreated = date;
         this.owner = user;
+        this.description = description;
     }
 
     @Override

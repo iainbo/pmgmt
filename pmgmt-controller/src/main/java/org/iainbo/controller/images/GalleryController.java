@@ -27,6 +27,7 @@ public class GalleryController implements Serializable{
 
 
     private String galleryName;
+    private String newDescription;
     private List<String> availableGalleriesNames;
     private byte[] thumbnail;
 
@@ -64,6 +65,14 @@ public class GalleryController implements Serializable{
         this.galleryName = galleryName;
     }
 
+    public String getNewDescription() {
+        return newDescription;
+    }
+
+    public void setNewDescription(String newDescription) {
+        this.newDescription = newDescription;
+    }
+
     public List<String> getAvailableGalleriesNames() {
         return availableGalleriesNames;
     }
@@ -78,7 +87,7 @@ public class GalleryController implements Serializable{
         }
         else{
             String userName = userView.getUserName();
-            if(galleryService.createGallery(getNewGalleryName(), userName)){
+            if(galleryService.createGallery(getNewGalleryName(), userName, getNewDescription())){
                 addMessage(FacesMessage.SEVERITY_INFO, "Gallery Created!");
                 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
                 try {

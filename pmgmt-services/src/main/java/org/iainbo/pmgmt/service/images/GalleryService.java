@@ -59,9 +59,9 @@ public class GalleryService {
         }
     }
 
-    public boolean createGallery(String galleryName, String userName){
+    public boolean createGallery(String galleryName, String userName, String description){
         User user = daoFactory.userDAO().findByUsername(userName);
-        Gallery newGallery = new Gallery(galleryName, new Date(), user);
+        Gallery newGallery = new Gallery(galleryName, new Date(), user, description);
         daoFactory.galleryDAO().create(newGallery);
         return true;
     }
