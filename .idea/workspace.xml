@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="Removed commented out method from GalleryDAO">
+    <list default="true" id="cb323cf6-e60f-4011-8d06-b9c725c5a471" name="Default" comment="Removed unused method findByImageTitle in ImageDAO">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/classes/org/iainbo/dao/BaseDAO.class" afterPath="$PROJECT_DIR$/pmgmt-dao/target/classes/org/iainbo/dao/BaseDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-controller/target/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-controller-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-dao/target/pmgmt-dao-1.0-SNAPSHOT.jar" />
@@ -18,8 +19,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-view-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web/WEB-INF/lib/pmgmt-view-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-ear/target/pmgmt-ear/pmgmt-web-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/pmgmt-ear/target/pmgmt-ear/pmgmt-web-1.0-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" afterPath="$PROJECT_DIR$/pmgmt-web/target/pmgmt-web.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java" afterPath="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/ImageDAO.java" afterPath="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/ImageDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" afterPath="$PROJECT_DIR$/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-controller/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/pmgmt-dao/target/maven-archiver/pom.properties" />
@@ -78,12 +79,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/ImageDAO.java">
+      <file leaf-file-name="BaseDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18367347">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.12244898">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+              <folding>
+                <element signature="e#404#405#0" expanded="true" />
+                <element signature="e#461#462#0" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#678#679#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,7 +108,6 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="FORCE_PUSH_ALLOWED" value="true" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -110,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pmgmt-web/src/main/webapp/WEB-INF/faces-config.xml" />
         <option value="$PROJECT_DIR$/pmgmt-controller/src/main/java/org/iainbo/controller/GalleryDashBoardController.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/user/User.java" />
         <option value="$PROJECT_DIR$/pmgmt-entities/src/main/java/org/iainbo/entities/user/Role.java" />
@@ -161,6 +167,7 @@
         <option value="$PROJECT_DIR$/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java" />
         <option value="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/gallery/GalleryDAO.java" />
         <option value="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/ImageDAO.java" />
+        <option value="$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java" />
       </list>
     </option>
   </component>
@@ -413,7 +420,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="image" />
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -999,13 +1006,7 @@
       <workItem from="1440397073854" duration="724000" />
       <workItem from="1440438071309" duration="3937000" />
       <workItem from="1440483121080" duration="1006000" />
-      <workItem from="1440577821025" duration="5104000" />
-    </task>
-    <task id="LOCAL-00077" summary="Right clicking on the image now works to populate the description field with data.&#10;At the moment, it only populates using the id. To be refctored to display the correct information.&#10;">
-      <created>1439535599566</created>
-      <option name="number" value="00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1439535599569</updated>
+      <workItem from="1440577821025" duration="5492000" />
     </task>
     <task id="LOCAL-00078" summary="After right clicking, the imageView is now populated.&#10;ImageView Information still needs to be displayed on the page.">
       <created>1439536005886</created>
@@ -1295,11 +1296,17 @@
       <option name="project" value="LOCAL" />
       <updated>1440595266707</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Removed unused method findByImageTitle in ImageDAO">
+      <created>1440595443436</created>
+      <option name="number" value="00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1440595443436</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463539000" />
+    <option name="totallyTimeSpent" value="463927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1398,7 +1405,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
-    <MESSAGE value="A user is able to select a previous revision from the image information popup and download it to there computer." />
     <MESSAGE value="The menubar has been tidied up to remove unwanted options." />
     <MESSAGE value="The image metadata class has been removed" />
     <MESSAGE value="An image can have a description and it is displayed on the Image Information popup." />
@@ -1423,7 +1429,8 @@
     <MESSAGE value="When the last image is deleted from a gallery, the delete gallery button is displayed." />
     <MESSAGE value="Added a constructor to File to take in the filename and file data." />
     <MESSAGE value="Removed commented out method from GalleryDAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed commented out method from GalleryDAO" />
+    <MESSAGE value="Removed unused method findByImageTitle in ImageDAO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed unused method findByImageTitle in ImageDAO" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1448,11 +1455,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pmgmt-controller/src/main/resources/img/photo_not_available.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-controller/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1488,13 +1490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6659619">
           <caret line="106" column="20" selection-start-line="96" selection-start-column="7" selection-end-line="106" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/user/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="107" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="107" />
         </state>
       </provider>
     </entry>
@@ -1662,14 +1657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38177875">
           <caret line="16" column="168" selection-start-line="16" selection-start-column="168" selection-end-line="16" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/RevisionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8315565">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1845,9 +1832,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/ImageDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18367347">
+        <state vertical-scroll-proportion="-0.37755102">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/image/RevisionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7244898">
+          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/user/UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18367347">
+          <caret line="12" column="107" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pmgmt-dao/src/main/java/org/iainbo/dao/BaseDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12244898">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#678#679#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

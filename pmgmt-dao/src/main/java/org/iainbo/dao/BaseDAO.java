@@ -1,7 +1,5 @@
 package org.iainbo.dao;
 
-import org.iainbo.entities.user.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.Serializable;
@@ -17,22 +15,9 @@ public abstract class BaseDAO<T> implements Serializable{
         this.entityClass = (Class<T>) entityClass;
     }
 
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
-
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
     public Class<T> getEntityClass() {
         return entityClass;
     }
-
-    public void setEntityClass(Class<T> entityClass) {
-        this.entityClass = entityClass;
-    }
-
 
     //Base database query methods
     public T find(final Object id){
@@ -48,9 +33,6 @@ public abstract class BaseDAO<T> implements Serializable{
         return (T) this.entityManager.merge(t);
     }
 
-    public void insert(T t) {
-        this.entityManager.persist(t);
-    }
 
     public List findAll(){
         return entityManager.createQuery("Select entity FROM " + getEntityClass().getSimpleName()
