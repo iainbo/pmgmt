@@ -1984,23 +1984,15 @@
     <table name="GALLERIES" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="DATE_CREATED" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="THUMBNAIL" sqlType="MEDIUMBLOB" precision="16777215" scale="0" nullable="true" jdbcType="-4"/>
       <column name="USER_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <exported-key name="FK_40m9v9exq8c4td18tnttkkv6f" table="GALLERY_METADATA" schema="" catalog="pmgmt" columns="GALLERY_ID"/>
+      <foreign-key name="FK_o02c5ejrmusuol8tphpfxnugq" columns="USER_ID" ref-table="USERS" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK_ou7k4bkdnpfjrqx8e59v0ni6e" table="IMAGES" schema="" catalog="pmgmt" columns="GALLERY_ID"/>
       <index name="UK_l6caquvg8r5w6cfwparx6xapw" unique="true" columns="NAME"/>
       <index name="FK_o02c5ejrmusuol8tphpfxnugq" unique="false" columns="USER_ID"/>
-    </table>
-    <table name="GALLERY_METADATA" schema="" catalog="pmgmt" type="TABLE">
-      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="VALUE" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
-      <column name="GALLERY_ID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-      <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="FK_40m9v9exq8c4td18tnttkkv6f" columns="GALLERY_ID" ref-table="GALLERIES" ref-schema="" ref-catalog="pmgmt" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="FK_40m9v9exq8c4td18tnttkkv6f" unique="false" columns="GALLERY_ID"/>
     </table>
     <table name="IMAGES" schema="" catalog="pmgmt" type="TABLE">
       <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -2051,6 +2043,7 @@
       <column name="SURNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <column name="USER_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ID"/>
+      <exported-key name="FK_o02c5ejrmusuol8tphpfxnugq" table="GALLERIES" schema="" catalog="pmgmt" columns="USER_ID"/>
       <exported-key name="FK_7w8w8cmc4pw1bnma2xeaktpi4" table="REVISIONS" schema="" catalog="pmgmt" columns="USER_ID"/>
       <exported-key name="FK_mqrwwxsroi93a5ppuoxeeb53k" table="REVISIONS" schema="" catalog="pmgmt" columns="CHECKED_OUT_BY"/>
       <exported-key name="FK_isqniqpjxwcvf0iip6l1qy0r2" table="USER_ROLES" schema="" catalog="pmgmt" columns="USER_ID"/>

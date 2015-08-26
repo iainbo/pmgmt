@@ -100,7 +100,7 @@ public class ImageService {
     }
 
     public ImageDTO updateImage(ImageDTO imageDTO){
-        File newFile = newFile(imageDTO);
+        File newFile = new File(imageDTO.getRevisionDTO().getFileDTO().getFilename(), imageDTO.getRevisionDTO().getFileDTO().getFileData());
         Revision newRevision = newRevision(imageDTO, newFile);
 
         //Set the existing head revision to no longer be head.
@@ -120,13 +120,6 @@ public class ImageService {
         Image updatedImage = daoFactory.imageDAO().findImageByID(imageDTO.getId());
         ImageDTO updatedImageDTO = imageMapper.imageToImageDTO(updatedImage);
         return updatedImageDTO;
-    }
-
-    public File newFile(ImageDTO imageDTO){
-        File newFile = new File();
-        newFile.setFilename(imageDTO.getRevisionDTO().getFileDTO().getFilename());
-        newFile.setFile(imageDTO.getRevisionDTO().getFileDTO().getFileData());
-        return newFile;
     }
 
     public Revision newRevision(ImageDTO imageDTO, File file){
