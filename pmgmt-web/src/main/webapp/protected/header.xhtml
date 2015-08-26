@@ -44,10 +44,10 @@
                 <p:panelGrid  columns="2">
 
                     <h:outputText value="Enter Gallery Name:" />
-                    <p:inputText title="galleryName" value="#{galleryController.newGalleryName}"/>
+                    <p:inputText title="galleryName" value="#{galleryView.galleryName}"/>
 
                     <h:outputText value="Enter Gallery Description:" />
-                    <p:inputText title="galleryName" value="#{galleryController.newDescription}"/>
+                    <p:inputText title="galleryName" value="#{galleryView.description}"/>
 
                     <p:commandButton id="createGallery" value="Create" widgetVar="createNewGallery"
                                      type="submit"

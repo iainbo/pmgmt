@@ -21,9 +21,6 @@ import java.io.Serializable;
 @ViewScoped
 public class GalleryController implements Serializable{
 
-
-    private String newGalleryName;
-    private String newDescription;
     private byte[] thumbnail;
 
     @Inject
@@ -47,30 +44,13 @@ public class GalleryController implements Serializable{
     @Inject
     ImageController imageController;
 
-
-    public String getNewGalleryName() {
-        return newGalleryName;
-    }
-
-    public void setNewGalleryName(String galleryName) {
-        this.newGalleryName = galleryName;
-    }
-
-    public String getNewDescription() {
-        return newDescription;
-    }
-
-    public void setNewDescription(String newDescription) {
-        this.newDescription = newDescription;
-    }
-
     public void addGallery(){
-        if(galleryService.galleryExists(getNewGalleryName())){
+        if(galleryService.galleryExists(galleryView.getGalleryName())){
             addMessage(FacesMessage.SEVERITY_ERROR, "Gallery already exists!");
         }
         else{
-            String userName = userView.getUserName();
-            if(galleryService.createGallery(getNewGalleryName(), userName, getNewDescription())){
+            galleryView.setOwner(userView.getUserName());
+            if(galleryService.createGallery(galleryView.getGalleryName(), galleryView.getOwner(), galleryView.getDescription())){
                 addMessage(FacesMessage.SEVERITY_INFO, "Gallery Created!");
                 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
                 try {
