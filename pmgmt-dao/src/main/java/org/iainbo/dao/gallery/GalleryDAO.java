@@ -38,11 +38,4 @@ public class GalleryDAO extends BaseDAO<Gallery> {
         return entity;
     }
 
-    /*public Gallery findById(Long galleryId) throws NoResultException{
-        Query query = entityManager.createQuery(FIND_BY_ID);
-        query.setParameter("galleryId", galleryId);
-        Gallery result = (Gallery) query.getSingleResult();
-        return result;
-    }*/
-
 }
