@@ -1,7 +1,7 @@
 package org.iainbo.pmgmt.service;
 
 import org.iainbo.dao.factory.DAOFactory;
-import org.iainbo.dto.UserDTO;
+import org.iainbo.dto.User.UserDTO;
 import org.iainbo.entities.user.User;
 import org.iainbo.pmgmt.service.mapper.UserMapper;
 

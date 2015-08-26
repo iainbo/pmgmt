@@ -1,8 +1,8 @@
 package org.iainbo.pmgmt.service.images;
 
 import org.iainbo.dao.factory.DAOFactory;
-import org.iainbo.dto.ImageDTO;
-import org.iainbo.dto.RevisionDTO;
+import org.iainbo.dto.Image.ImageDTO;
+import org.iainbo.dto.Image.RevisionDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;

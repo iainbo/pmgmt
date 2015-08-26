@@ -1,7 +1,7 @@
 package org.iainbo.pmgmt.service.images;
 
 import org.iainbo.dao.factory.DAOFactory;
-import org.iainbo.dto.GalleryDTO;
+import org.iainbo.dto.Gallery.GalleryDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.image.Revision;

@@ -1,8 +1,8 @@
 package org.iainbo.pmgmt.service.mapper;
 
-import org.iainbo.dto.FileDTO;
-import org.iainbo.dto.RevisionDTO;
-import org.iainbo.dto.UserDTO;
+import org.iainbo.dto.Image.FileDTO;
+import org.iainbo.dto.Image.RevisionDTO;
+import org.iainbo.dto.User.UserDTO;
 import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Revision;
 import org.iainbo.entities.user.User;

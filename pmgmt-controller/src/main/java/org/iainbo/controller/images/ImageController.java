@@ -1,9 +1,9 @@
 package org.iainbo.controller.images;
 
 import org.iainbo.controller.LoginController;
-import org.iainbo.dto.FileDTO;
-import org.iainbo.dto.ImageDTO;
-import org.iainbo.dto.RevisionDTO;
+import org.iainbo.dto.Image.FileDTO;
+import org.iainbo.dto.Image.ImageDTO;
+import org.iainbo.dto.Image.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.Image.ImageView;

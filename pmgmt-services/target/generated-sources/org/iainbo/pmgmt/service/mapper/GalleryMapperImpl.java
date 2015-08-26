@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 import javax.enterprise.context.ApplicationScoped;
-import org.iainbo.dto.GalleryDTO;
-import org.iainbo.dto.ImageDTO;
-import org.iainbo.dto.UserDTO;
+import org.iainbo.dto.Gallery.GalleryDTO;
+import org.iainbo.dto.Image.ImageDTO;
+import org.iainbo.dto.User.UserDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2015-08-26T14:27:35+0100"
+    date = "2015-08-26T14:47:06+0100"
 )
 @ApplicationScoped
 public class GalleryMapperImpl extends GalleryMapper {

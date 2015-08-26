@@ -1,6 +1,10 @@
 package org.iainbo.pmgmt.service.mapper;
 
-import org.iainbo.dto.*;
+import org.iainbo.dto.Gallery.GalleryDTO;
+import org.iainbo.dto.Image.FileDTO;
+import org.iainbo.dto.Image.ImageDTO;
+import org.iainbo.dto.Image.RevisionDTO;
+import org.iainbo.dto.User.UserDTO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;

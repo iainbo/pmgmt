@@ -1,7 +1,7 @@
 package org.iainbo.controller.images;
 
-import org.iainbo.dto.GalleryDTO;
-import org.iainbo.dto.ImageDTO;
+import org.iainbo.dto.Gallery.GalleryDTO;
+import org.iainbo.dto.Image.ImageDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.view.Image.ImageView;
 import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;

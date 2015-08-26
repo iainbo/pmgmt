@@ -1,6 +1,6 @@
 package org.iainbo.pmgmt.service.mapper;
 
-import org.iainbo.dto.UserDTO;
+import org.iainbo.dto.User.UserDTO;
 import org.iainbo.entities.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

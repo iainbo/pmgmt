@@ -1,6 +1,6 @@
 package org.iainbo.pmgmt.view.gallery;
 
-import org.iainbo.dto.GalleryDTO;
+import org.iainbo.dto.Gallery.GalleryDTO;
 
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

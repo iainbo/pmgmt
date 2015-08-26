@@ -1,7 +1,7 @@
 package org.iainbo.controller;
 
 
-import org.iainbo.dto.UserDTO;
+import org.iainbo.dto.User.UserDTO;
 import org.iainbo.pmgmt.service.AuthenticationService;
 import org.iainbo.pmgmt.view.user.UserView;
 

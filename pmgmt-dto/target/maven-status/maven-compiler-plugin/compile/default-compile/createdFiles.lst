@@ -1,5 +1,5 @@
-org/iainbo/dto/UserDTO.class
-org/iainbo/dto/GalleryDTO.class
-org/iainbo/dto/RevisionDTO.class
-org/iainbo/dto/FileDTO.class
-org/iainbo/dto/ImageDTO.class
+org/iainbo/dto/Image/FileDTO.class
+org/iainbo/dto/Gallery/GalleryDTO.class
+org/iainbo/dto/User/UserDTO.class
+org/iainbo/dto/Image/ImageDTO.class
+org/iainbo/dto/Image/RevisionDTO.class

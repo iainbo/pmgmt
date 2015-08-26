@@ -1,5 +1,5 @@
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/FileDTO.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/UserDTO.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/RevisionDTO.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/ImageDTO.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/GalleryDTO.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/Image/FileDTO.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/User/UserDTO.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/Gallery/GalleryDTO.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/Image/ImageDTO.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-dto/src/main/java/org/iainbo/dto/Image/RevisionDTO.java
