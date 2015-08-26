@@ -15,6 +15,7 @@ public class GalleryView implements Serializable{
     private String galleryName;
     private String owner;
     private boolean galleryIsEmpty;
+    private byte[] thumbnail;
     private List<ImageView> images;
     private String numberOfImages;
     private String description;
@@ -49,6 +50,14 @@ public class GalleryView implements Serializable{
 
     public void setGalleryIsEmpty(boolean galleryIsEmpty) {
         this.galleryIsEmpty = galleryIsEmpty;
+    }
+
+    public byte[] getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(byte[] thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
     public List<ImageView> getImages() {

@@ -21,8 +21,6 @@ import java.io.Serializable;
 @ViewScoped
 public class GalleryController implements Serializable{
 
-    private byte[] thumbnail;
-
     @Inject
     GalleryService galleryService;
 
@@ -69,7 +67,7 @@ public class GalleryController implements Serializable{
 
 
     public void updateGallery(){
-        if(galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName(), thumbnail, galleryView.getDescription())){
+        if(galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName(), galleryView.getThumbnail(), galleryView.getDescription())){
         FacesMessage message = new FacesMessage("Succesful", galleryView.getGalleryName() + " has been updated.");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }else{
@@ -84,7 +82,7 @@ public class GalleryController implements Serializable{
     }
 
     public void uploadThumbnail(FileUploadEvent event) {
-        thumbnail = event.getFile().getContents();
+        galleryView.setThumbnail(event.getFile().getContents());
 
     }
 }
