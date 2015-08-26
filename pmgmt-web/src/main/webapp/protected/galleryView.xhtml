@@ -214,7 +214,7 @@
 
                 <p:commandButton id="uploadImage" value="Upload" widgetVar="uploadNewImage"
                                  type="submit" actionListener="#{imageController.uploadImage(galleryView.galleryName)}"
-                                 oncomplete="PF('addImage').hide()" update=":galleryForm:gallery, :galleryForm:galleryMessages"/>
+                                 oncomplete="PF('addImage').hide()" update=":galleryForm"/>
 
                 <p:commandButton id="cancelUploadImageButton" value="Cancel" widgetVar="cancelImageUpload"
                                  onclick="PF('addImage').close()"/>
