@@ -195,7 +195,14 @@ public class ImageController implements Serializable{
                 newImageDTO.getRevisionDTO().setId(savedImage.getRevisionDTO().getId());
             }
             ImageView imageView = createNewImageView(newImageDTO);
-            galleryView.getImages().add(imageView);
+            if(null != galleryView.getImages()){
+                galleryView.getImages().add(imageView);
+            }else{
+                List<ImageView> newImageViewList = new ArrayList<>();
+                newImageViewList.add(imageView);
+                galleryView.setImages(newImageViewList);
+                galleryView.setGalleryIsEmpty(false);
+            }
         }
         return imagePersisted;
     }

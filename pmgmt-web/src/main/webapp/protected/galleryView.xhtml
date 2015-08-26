@@ -31,7 +31,7 @@
 
                     <f:facet name="header">
                         <p:commandButton value="Delete Gallery" action="#{galleryController.deleteGallery(galleryView.id)}"
-                                         rendered="#{galleryView.containsImages}" style="float: left"/>
+                                         rendered="#{galleryView.galleryIsEmpty}" style="float: left"/>
                         #{galleryView.galleryName}
                         <p:commandButton id="editGalleryButton" value="Edit Gallery" onclick="PF('editGallery').show()"/>
                         <p:commandButton id="addImageButton" value="Add Image" style="float: right" onclick="PF('addImage').show()"/>
@@ -84,7 +84,7 @@
         <p:dialog header="Delete Image" widgetVar="deleteImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
             <p:outputPanel id="deleteImagePanel">
                 <h:form id="deleteImageForm">
-                    <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                    <p:panelGrid columns="2" rendered="#{!galleryView.galleryIsEmpty}">
                         <h:outputText id="confirmation" value="Are you sure you wish to delete:"/>
                         <p:outputLabel id="confirmationValue" value="#{imageController.selectedImageView.title}"/>
                         <p:commandButton id="deleteImageButton" value="Delete" actionListener="#{imageController.deleteImage}"
@@ -99,7 +99,7 @@
         <p:dialog header="Image Information" widgetVar="imageInfo" resizable="false">
             <p:outputPanel id="imageInfoPanel">
                 <h:form id="imageInfoForm">
-                    <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                    <p:panelGrid columns="2" rendered="#{!galleryView.galleryIsEmpty}">
                         <h:outputText id="title" value="Title"/>
                         <p:outputLabel id="imageTitleValue" value="#{imageController.selectedImageView.title}"/>
 
@@ -136,7 +136,7 @@
     <p:dialog header="Check Out Image" widgetVar="checkOut" resizable="false">
         <p:outputPanel id="checkOutPanel">
             <h:form id="checkOutForm">
-                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                <p:panelGrid columns="2" rendered="#{!galleryView.galleryIsEmpty}">
                     <h:outputText id="checkOutTitle" value="Image to be checked out:"/>
                     <p:outputLabel id="checkOutTitleValue" value="#{imageController.selectedImageView.title}"/>
 
@@ -157,7 +157,7 @@
     <p:dialog header="Check Image In" widgetVar="checkIn" resizable="false">
         <p:outputPanel id="checkInPanel">
             <h:form id="checkInForm">
-                <p:panelGrid columns="2" rendered="#{!galleryView.containsImages}">
+                <p:panelGrid columns="2" rendered="#{!galleryView.galleryIsEmpty}">
                     <h:outputText id="checkInTitle" value="Image to be checked in: "/>
                     <p:outputLabel id="checkInTitleValue" value="#{imageController.selectedImageView.title}"/>
 

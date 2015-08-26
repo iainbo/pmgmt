@@ -14,7 +14,7 @@ public class GalleryView implements Serializable{
     private Long id;
     private String galleryName;
     private String owner;
-    private boolean containsImages;
+    private boolean galleryIsEmpty;
     private List<ImageView> images;
     private String numberOfImages;
     private String description;
@@ -43,12 +43,12 @@ public class GalleryView implements Serializable{
         this.owner = owner;
     }
 
-    public boolean isContainsImages() {
-        return containsImages;
+    public boolean isGalleryIsEmpty() {
+        return galleryIsEmpty;
     }
 
-    public void setContainsImages(boolean containsImages) {
-        this.containsImages = containsImages;
+    public void setGalleryIsEmpty(boolean galleryIsEmpty) {
+        this.galleryIsEmpty = galleryIsEmpty;
     }
 
     public List<ImageView> getImages() {
