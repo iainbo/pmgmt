@@ -1,4 +1,4 @@
-package org.iainbo.pmgmt.service;
+package org.iainbo.pmgmt.service.user;
 
 import org.iainbo.dao.factory.DAOFactory;
 import org.iainbo.dto.User.UserDTO;

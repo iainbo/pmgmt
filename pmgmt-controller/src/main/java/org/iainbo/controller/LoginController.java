@@ -2,7 +2,7 @@ package org.iainbo.controller;
 
 
 import org.iainbo.dto.User.UserDTO;
-import org.iainbo.pmgmt.service.AuthenticationService;
+import org.iainbo.pmgmt.service.user.AuthenticationService;
 import org.iainbo.pmgmt.view.user.UserView;
 
 import javax.enterprise.context.RequestScoped;
