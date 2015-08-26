@@ -1,11 +1,8 @@
 package org.iainbo.pmgmt.view.gallery;
 
-import org.iainbo.dto.Gallery.GalleryDTO;
-
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.List;
 
 @Named
 @SessionScoped
@@ -14,7 +11,6 @@ public class GalleryDashboardView implements Serializable{
     private Long id;
     private String galleryName;
     private String description;
-    private List<GalleryDTO> galleryDTOs;
 
     public Long getId() {
         return id;
@@ -30,14 +26,6 @@ public class GalleryDashboardView implements Serializable{
 
     public void setGalleryName(String galleryName) {
         this.galleryName = galleryName;
-    }
-
-    public List<GalleryDTO> getGalleryDTOs() {
-        return galleryDTOs;
-    }
-
-    public void setGalleryDTOs(List<GalleryDTO> galleryDTOs) {
-        this.galleryDTOs = galleryDTOs;
     }
 
     public String getDescription() {
