@@ -59,11 +59,6 @@ public class ImageService {
         return imageData;
     }
 
-    public List<Revision> getAllRevisionsForImage(Long imageId){
-        List<Revision> revisionsForImage;
-        revisionsForImage = daoFactory.revisionDAO().allRevisionsForImage(imageId);
-        return revisionsForImage;
-    }
 
     public ImageDTO persistImage(ImageDTO imageDTO){
         Gallery gallery = daoFactory.galleryDAO().find(imageDTO.getGalleryDTO().getId());
