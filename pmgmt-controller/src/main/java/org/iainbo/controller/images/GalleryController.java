@@ -1,14 +1,12 @@
 package org.iainbo.controller.images;
 
 import org.iainbo.controller.LoginController;
-import org.iainbo.dto.GalleryDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.iainbo.pmgmt.view.user.UserView;
 import org.primefaces.event.FileUploadEvent;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -18,8 +16,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @ManagedBean
 @ViewScoped
@@ -28,7 +24,6 @@ public class GalleryController implements Serializable{
 
     private String newGalleryName;
     private String newDescription;
-    private List<String> availableGalleriesNames;
     private byte[] thumbnail;
 
     @Inject
@@ -52,10 +47,6 @@ public class GalleryController implements Serializable{
     @Inject
     ImageController imageController;
 
-    @PostConstruct
-    public void init(){
-        getGalleryNames();
-    }
 
     public String getNewGalleryName() {
         return newGalleryName;
@@ -71,14 +62,6 @@ public class GalleryController implements Serializable{
 
     public void setNewDescription(String newDescription) {
         this.newDescription = newDescription;
-    }
-
-    public List<String> getAvailableGalleriesNames() {
-        return availableGalleriesNames;
-    }
-
-    public void setAvailableGalleriesNames(List<String> availableGalleriesNames) {
-        this.availableGalleriesNames = availableGalleriesNames;
     }
 
     public void addGallery(){
@@ -104,13 +87,6 @@ public class GalleryController implements Serializable{
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
-    public void getGalleryNames(){
-        List<GalleryDTO> allAvailableGalleries = galleryService.getAllAvailableGalleries();
-        availableGalleriesNames = new ArrayList<>();
-        for(GalleryDTO g : allAvailableGalleries){
-            availableGalleriesNames.add(g.getGalleryName());
-        }
-    }
 
     public void updateGallery(){
         if(galleryService.updateExistingGallery(galleryView.getId(), galleryView.getGalleryName(), thumbnail, galleryView.getDescription())){
