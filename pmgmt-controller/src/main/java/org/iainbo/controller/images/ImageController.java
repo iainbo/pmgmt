@@ -236,6 +236,10 @@ public class ImageController implements Serializable{
                 imageViewIterator.remove();
             }
         }
+        galleryView.setImages(imageViewList);
+        if(galleryView.getImages().size() == 0){
+            galleryView.setGalleryIsEmpty(true);
+        }
         selectedImageView = null;
     }
 
