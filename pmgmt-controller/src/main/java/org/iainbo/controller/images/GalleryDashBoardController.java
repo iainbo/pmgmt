@@ -45,10 +45,10 @@ public class GalleryDashBoardController implements Serializable{
 
     public void getGalleries(){
         List<GalleryDTO> allAvailableGalleries = galleryService.getAllAvailableGalleries();
-        createGalleriesView(allAvailableGalleries);
+        createGalleriesDashboardView(allAvailableGalleries);
     }
 
-    public void createGalleriesView(List<GalleryDTO> galleries){
+    public void createGalleriesDashboardView(List<GalleryDTO> galleries){
         galleryDashboardViews = new ArrayList<>();
         for(GalleryDTO g : galleries){
             GalleryDashboardView galleryDashboardView = new GalleryDashboardView();
