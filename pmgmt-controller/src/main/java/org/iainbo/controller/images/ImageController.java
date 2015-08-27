@@ -12,7 +12,6 @@ import org.iainbo.pmgmt.view.gallery.GalleryView;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import org.primefaces.model.UploadedFile;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -28,13 +27,7 @@ import java.util.*;
 @ViewScoped
 public class ImageController implements Serializable{
 
-    private UploadedFile newFile;
-    private String newFileName;
-    private String newImageTitle;
-    private String newImageDescription;
     private ImageView selectedImageView;
-    private String newRevisionNumber;
-    private String newRevisionComment;
     private ImageDTO imageDTO;
     private String selectedRevisionId;
     RevisionView selectedRevisionView;
@@ -51,37 +44,11 @@ public class ImageController implements Serializable{
     @Inject
     GalleryView galleryView;
 
-    public UploadedFile getNewFile() {
-        return newFile;
-    }
+    @Inject
+    ImageView imageView;
 
-    public void setNewFile(UploadedFile newFile) {
-        this.newFile = newFile;
-    }
-
-    public String getNewFileName() {
-        return newFileName;
-    }
-
-    public void setNewFileName(String newFileName) {
-        this.newFileName = newFileName;
-    }
-
-    public String getNewImageTitle() {
-        return newImageTitle;
-    }
-
-    public void setNewImageTitle(String newImageTitle) {
-        this.newImageTitle = newImageTitle;
-    }
-
-    public String getNewImageDescription() {
-        return newImageDescription;
-    }
-
-    public void setNewImageDescription(String newImageDescription) {
-        this.newImageDescription = newImageDescription;
-    }
+    @Inject
+    RevisionView revisionView;
 
     public ImageView getSelectedImageView() {
         return selectedImageView;
@@ -102,22 +69,6 @@ public class ImageController implements Serializable{
 
     public void setSelectedRevisionView(RevisionView selectedRevisionView) {
         this.selectedRevisionView = selectedRevisionView;
-    }
-
-    public String getNewRevisionNumber() {
-        return newRevisionNumber;
-    }
-
-    public void setNewRevisionNumber(String newRevisionNumber) {
-        this.newRevisionNumber = newRevisionNumber;
-    }
-
-    public String getNewRevisionComment() {
-        return newRevisionComment;
-    }
-
-    public void setNewRevisionComment(String newRevisionComment) {
-        this.newRevisionComment = newRevisionComment;
     }
 
     public void setSelectedImageView(String imageId) {
@@ -142,47 +93,42 @@ public class ImageController implements Serializable{
     }
 
     public void handleFileUpload(FileUploadEvent event) {
-        newFile = event.getFile();
-        newFileName = newFile.getFileName();
+        revisionView.setBytes(event.getFile().getContents());
+        revisionView.setFilename(event.getFile().getFileName());
 
     }
 
     public void uploadImage(String galleryName){
-        if(saveNewImage(newFile, galleryName)){
-            FacesMessage message = new FacesMessage("Succesful", newFileName + " has been uploaded to " + galleryName + ".");
+        if(saveNewImage(galleryName)){
+            FacesMessage message = new FacesMessage("Succesful", revisionView.getFilename() + " has been uploaded to " + galleryName + ".");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            resetValues();
         }else{
-            FacesMessage message = new FacesMessage("Error", newFileName + " has not been uploaded.");
+            FacesMessage message = new FacesMessage("Error", revisionView.getFilename() + " has not been uploaded.");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            resetValues();
         }
-
-
+        resetValues();
     }
 
-    public boolean saveNewImage(UploadedFile file, String galleryName){
-        byte[] bytes = file.getContents();
-        String filename = file.getFileName();
+    public boolean saveNewImage(String galleryName){
         boolean imagePersisted = false;
-        if(bytes == null || bytes.length == 0){
+        if(revisionView.getBytes() == null || revisionView.getBytes().length == 0){
             imagePersisted = false;
         }else{
             ImageDTO newImageDTO = new ImageDTO();
             RevisionDTO revisionDTO = new RevisionDTO();
             FileDTO fileDTO = new FileDTO();
 
-            newImageDTO.setTitle(newImageTitle);
+            newImageDTO.setTitle(imageView.getTitle());
             newImageDTO.setGalleryDTO(galleryService.galleryDTOByName(galleryName));
-            newImageDTO.setDescription(newImageDescription);
+            newImageDTO.setDescription(imageView.getDescription());
             revisionDTO.setHeadRevision("Y");
             revisionDTO.setRevisionComment("Initial Revision");
             revisionDTO.setCheckedOut("N");
             revisionDTO.setRevisionNumber("01");
             revisionDTO.setDateUploaded(new Date());
             revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
-            fileDTO.setFilename(filename);
-            fileDTO.setFileData(bytes);
+            fileDTO.setFilename(revisionView.getFilename());
+            fileDTO.setFileData(revisionView.getBytes());
             fileDTO.setRevisionDTO(revisionDTO);
             revisionDTO.setFileDTO(fileDTO);
             revisionDTO.setImageDTO(newImageDTO);
@@ -216,7 +162,7 @@ public class ImageController implements Serializable{
         imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         imageView.setImageIsCheckedOut(false);
         imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
-        imageView.setFilename(newFileName);
+        imageView.setFilename(revisionView.getFilename());
         return imageView;
     }
 
@@ -256,27 +202,25 @@ public class ImageController implements Serializable{
     }
 
     public void checkIn(String imageId){
-        if(checkInRevision(newFile, Long.valueOf(imageId))){
+        if(checkInRevision(Long.valueOf(imageId))){
             FacesMessage message = new FacesMessage("Succesful", selectedImageView.getTitle() + " has been checked in.");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            resetValues();
         }else{
             FacesMessage message = new FacesMessage("Error", selectedImageView.getTitle() + "check in has failed.");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            resetValues();
         }
+        resetValues();
     }
 
-    public boolean checkInRevision(UploadedFile file, Long imageId){
-        byte[] bytes = file.getContents();
+    public boolean checkInRevision(Long imageId){
         boolean revisionSaved = false;
         ImageDTO imageDTO = imageService.findImageById(imageId);
-        if(bytes == null || bytes.length == 0 || imageDTO == null){
+        if(revisionView.getBytes() == null || revisionView.getBytes().length == 0 || imageDTO == null){
             revisionSaved = false;
         }else{
             imageDTO.setDescription(selectedImageView.getDescription());
-            createRevisionDTOAndFileDTO(imageDTO, bytes);
-            ImageDTO updatedImage = imageService.updateImage(imageDTO);
+            ImageDTO newImageDTO = createRevisionDTOAndFileDTO(imageDTO);
+            ImageDTO updatedImage = imageService.updateImage(newImageDTO);
             if(null != updatedImage){
                 revisionSaved = true;
                 ImageView updatedImageView = createNewImageView(updatedImage);
@@ -296,16 +240,16 @@ public class ImageController implements Serializable{
         return revisionSaved;
     }
 
-    public void createRevisionDTOAndFileDTO(ImageDTO imageDTO, byte[] bytes){
+    public ImageDTO createRevisionDTOAndFileDTO(ImageDTO imageDTO){
         RevisionDTO revisionDTO = new RevisionDTO();
         FileDTO fileDTO = new FileDTO();
         revisionDTO.setHeadRevision("Y");
-        revisionDTO.setRevisionNumber(getNewRevisionNumber());
-        revisionDTO.setRevisionComment(getNewRevisionComment());
+        revisionDTO.setRevisionNumber(revisionView.getRevisionNumber());
+        revisionDTO.setRevisionComment(revisionView.getRevisionComment());
         revisionDTO.setDateUploaded(new Date());
         revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
-        fileDTO.setFilename(getNewFileName());
-        fileDTO.setFileData(bytes);
+        fileDTO.setFilename(revisionView.getFilename());
+        fileDTO.setFileData(revisionView.getBytes());
         fileDTO.setRevisionDTO(revisionDTO);
         revisionDTO.setFileDTO(fileDTO);
         revisionDTO.setImageDTO(imageDTO);
@@ -313,6 +257,7 @@ public class ImageController implements Serializable{
         List<RevisionDTO> revisionDTOs = imageDTO.getRevisions();
         revisionDTOs.add(revisionDTO);
         imageDTO.setRevisions(revisionDTOs);
+        return imageDTO;
     }
 
     public void setCheckedOutValue(boolean value){
@@ -335,7 +280,7 @@ public class ImageController implements Serializable{
 
         InputStream fileStream = new ByteArrayInputStream(imageService.getBytesForImage(revId));
         StreamedContent file = new DefaultStreamedContent(fileStream, "image/jpg", selectedRevisionView.getFilename());
-        selectedRevisionView.setFileData(file);
+        selectedRevisionView.setStreamedContent(file);
 
 
         selectedRevisionView.setUploadedBy(revisionDTO.getUploadedBy().getFirstName() + " " + revisionDTO.getUploadedBy().getSurname());
@@ -343,11 +288,11 @@ public class ImageController implements Serializable{
     }
 
     public void resetValues(){
-        newFile = null;
-        newFileName = null;
-        newImageDescription = null;
-        newImageTitle = null;
-        newRevisionNumber = null;
-        newRevisionNumber = null;
+        imageView.setTitle(null);
+        imageView.setDescription(null);
+        revisionView.setBytes(null);
+        revisionView.setFilename(null);
+        revisionView.setRevisionNumber(null);
+        revisionView.setRevisionComment(null);
     }
 }

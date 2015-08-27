@@ -7,7 +7,7 @@ import org.iainbo.entities.user.User;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2015-08-27T17:16:01+0100"
+    date = "2015-08-27T21:25:30+0100"
 )
 @ApplicationScoped
 public class UserMapperImpl implements UserMapper {

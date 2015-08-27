@@ -2,18 +2,19 @@ package org.iainbo.pmgmt.view.Image;
 
 import org.primefaces.model.StreamedContent;
 
-import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
 @Named
-@SessionScoped
+@ViewScoped
 public class RevisionView implements Serializable {
     private Long id;
     private String revisionNumber;
     private String revisionComment;
     private String filename;
-    private StreamedContent fileData;
+    private byte[] bytes;
+    private StreamedContent streamedContent;
     private String uploadedBy;
     private String uploadedDate;
 
@@ -49,12 +50,20 @@ public class RevisionView implements Serializable {
         this.filename = filename;
     }
 
-    public StreamedContent getFileData() {
-        return fileData;
+    public StreamedContent getStreamedContent() {
+        return streamedContent;
     }
 
-    public void setFileData(StreamedContent fileData) {
-        this.fileData = fileData;
+    public void setStreamedContent(StreamedContent streamedContent) {
+        this.streamedContent = streamedContent;
+    }
+
+    public byte[] getBytes() {
+        return bytes;
+    }
+
+    public void setBytes(byte[] bytes) {
+        this.bytes = bytes;
     }
 
     public String getUploadedBy() {

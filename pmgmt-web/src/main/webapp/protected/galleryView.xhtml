@@ -122,7 +122,7 @@
 
                         <h:outputText id="revFilename" value="Revision Filename"/>
                         <p:commandLink value="#{imageController.selectedRevisionView.filename}" ajax="false" id="revLink">
-                            <p:fileDownload value="#{imageController.selectedRevisionView.fileData}"/>
+                            <p:fileDownload value="#{imageController.selectedRevisionView.streamedContent}"/>
                         </p:commandLink>
 
                         <h:outputText id="comment" value="Revision Comment"/>
@@ -169,16 +169,16 @@
                                   update=":checkInForm"
                                   auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
-                    <p:outputLabel id="checkInFileName" value="#{imageController.newFileName}"/>
+                    <p:outputLabel id="checkInFileName" value="#{revisionView.filename}"/>
 
                     <h:outputText id="checkInNewDesc" value="Image Description:"/>
                     <p:inputText id="checkInNewDescValue" value="#{imageController.selectedImageView.description}"/>
 
                     <h:outputText id="checkInNewRevNo" value="New Revision Number:"/>
-                    <p:inputText id="checkInNewRevNoValue" value="#{imageController.newRevisionNumber}"/>
+                    <p:inputText id="checkInNewRevNoValue" value="#{revisionView.revisionNumber}"/>
 
                     <h:outputText id="checkInNewRevComment" value="Revision Comment:"/>
-                    <p:inputText id="checkInNewRevCommentValue" value="#{imageController.newRevisionComment}"/>
+                    <p:inputText id="checkInNewRevCommentValue" value="#{revisionView.revisionComment}"/>
 
                     <p:commandButton id="checkInButton" value="Check In" widgetVar="CheckInImage"
                                      type="submit" actionListener="#{imageController.checkIn(imageController.selectedImageView.id)}"
@@ -193,8 +193,8 @@
     </p:dialog>
 
     <!--Popup for adding a new image -->
-    <h:form id="addNewImageForm">
-        <p:dialog id="addNewImageDialog" header="Upload Image" widgetVar="addImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+    <p:dialog id="addNewImageDialog" header="Upload Image" widgetVar="addImage" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+        <h:form id="addNewImageForm">
             <p:panelGrid id="imageDetails" columns="2">
 
                 <h:outputText value="Select Image to be uploaded:"/>
@@ -204,23 +204,23 @@
                               auto="true" sizeLimit="100000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
 
                 <h:outputText id="filename" value="Filename" />
-                <h:outputText id="newFilename" value="#{imageController.newFileName}"/>
+                <h:outputText id="newFilename" value="#{revisionView.filename}"/>
 
                 <h:outputText value="Enter Image Title: "/>
-                <p:inputText title="imageTitle" value="#{imageController.newImageTitle}"/>
+                <p:inputText title="imageTitle" value="#{imageView.title}"/>
 
                 <h:outputText value="Enter Description: "/>
-                <p:inputText title="imageDescription" value="#{imageController.newImageDescription}"/>
+                <p:inputText title="imageDescription" value="#{imageView.description}"/>
 
                 <p:commandButton id="uploadImage" value="Upload" widgetVar="uploadNewImage"
                                  type="submit" actionListener="#{imageController.uploadImage(galleryView.galleryName)}"
-                                 oncomplete="PF('addImage').hide()" update=":galleryForm"/>
+                                 oncomplete="PF('addImage').hide()" update=":galleryForm, :addNewImageForm"/>
 
                 <p:commandButton id="cancelUploadImageButton" value="Cancel" widgetVar="cancelImageUpload"
                                  onclick="PF('addImage').close()"/>
             </p:panelGrid>
-        </p:dialog>
-    </h:form>
+        </h:form>
+    </p:dialog>
 
 
 </ui:composition>

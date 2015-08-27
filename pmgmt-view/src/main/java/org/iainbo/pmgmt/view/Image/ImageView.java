@@ -2,13 +2,13 @@ package org.iainbo.pmgmt.view.Image;
 
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 
-import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Map;
 
 @Named
-@SessionScoped
+@ViewScoped
 public class ImageView implements Serializable{
 
     private Long id;
