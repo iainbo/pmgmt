@@ -28,7 +28,7 @@ public class GalleryDashBoardController implements Serializable{
     private List<GalleryDashboardView> galleryDashboardViews;
 
     @PostConstruct
-    //Method which is used to initialise the object after it has been injected.
+    //Method which is used to initialise the class.
     public void init(){
         getGalleries();
     }
