@@ -15,9 +15,7 @@ public class ImageView implements Serializable{
     private String title;
     private String Description;
     private GalleryView galleryView;
-    private String uploadedBy;
-    private String dateUploaded;
-    private String revisionNo;
+    private RevisionView revisionView;
     private Long revisionId;
     private boolean imageIsCheckedOut;
     private Map<Long, String> revisions;
@@ -55,28 +53,12 @@ public class ImageView implements Serializable{
         this.galleryView = galleryView;
     }
 
-    public String getUploadedBy() {
-        return uploadedBy;
+    public RevisionView getRevisionView() {
+        return revisionView;
     }
 
-    public void setUploadedBy(String uploadedBy) {
-        this.uploadedBy = uploadedBy;
-    }
-
-    public String getDateUploaded() {
-        return dateUploaded;
-    }
-
-    public void setDateUploaded(String dateUploaded) {
-        this.dateUploaded = dateUploaded;
-    }
-
-    public String getRevisionNo() {
-        return revisionNo;
-    }
-
-    public void setRevisionNo(String revisionNo) {
-        this.revisionNo = revisionNo;
+    public void setRevisionView(RevisionView revisionView) {
+        this.revisionView = revisionView;
     }
 
     public Long getRevisionId() {

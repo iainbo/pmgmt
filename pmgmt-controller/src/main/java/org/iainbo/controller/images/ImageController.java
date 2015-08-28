@@ -60,7 +60,7 @@ public class ImageController implements Serializable{
 
     public void setSelectedRevisionId(String selectedRevisionId) {
         this.selectedRevisionId = selectedRevisionId;
-        getSelectedRevisionView(this.selectedRevisionId);
+        getSelectedRevisionView(Long.valueOf(this.selectedRevisionId));
     }
 
     public RevisionView getSelectedRevisionView() {
@@ -77,12 +77,8 @@ public class ImageController implements Serializable{
         selectedImageView.setId(imageDTO.getId());
         selectedImageView.setTitle(imageDTO.getTitle());
         selectedImageView.setDescription(imageDTO.getDescription());
-        selectedImageView.setRevisionNo(imageDTO.getRevisionDTO().getRevisionNumber());
+        selectedImageView.setRevisionView(getSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
         selectedImageView.setRevisionId(imageDTO.getRevisionDTO().getId());
-        String date = imageDTO.getRevisionDTO().getDateUploaded().toString();
-        selectedImageView.setDateUploaded(date);
-        String uploadedBy = imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname();
-        selectedImageView.setUploadedBy(uploadedBy);
         Map<Long, String> revIds = new HashMap<>();
         for(RevisionDTO r : imageDTO.getRevisions()){
             Long id = r.getId();
@@ -161,7 +157,6 @@ public class ImageController implements Serializable{
         imageView.setGalleryView(galleryView);
         imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         imageView.setImageIsCheckedOut(false);
-        imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
         return imageView;
     }
 
@@ -268,7 +263,7 @@ public class ImageController implements Serializable{
         }
     }
 
-    public void getSelectedRevisionView(String revisionId){
+    public RevisionView getSelectedRevisionView(Long revisionId){
         Long revId = Long.valueOf(revisionId);
         RevisionDTO revisionDTO = imageService.getRevision(revId);
         selectedRevisionView = new RevisionView();
@@ -284,6 +279,7 @@ public class ImageController implements Serializable{
 
         selectedRevisionView.setUploadedBy(revisionDTO.getUploadedBy().getFirstName() + " " + revisionDTO.getUploadedBy().getSurname());
         selectedRevisionView.setUploadedDate(revisionDTO.getDateUploaded().toString());
+        return selectedRevisionView;
     }
 
     public void resetValues(){

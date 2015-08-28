@@ -112,10 +112,10 @@
                         </p:selectOneMenu>
 
                         <h:outputText id="date" value="Date Uploaded"/>
-                        <p:outputLabel id="dateUploaded" value="#{imageController.selectedImageView.dateUploaded}"/>
+                        <p:outputLabel id="dateUploaded" value="#{imageController.selectedRevisionView.uploadedDate}"/>
 
                         <h:outputText id="photographer" value="Photographer"/>
-                        <p:outputLabel id="photographerName" value="#{imageController.selectedImageView.uploadedBy}"/>
+                        <p:outputLabel id="photographerName" value="#{imageController.selectedRevisionView.uploadedBy}"/>
 
                         <h:outputText id="description" value="Description"/>
                         <p:outputLabel id="photoDescription" value="#{imageController.selectedImageView.description}"/>
@@ -141,7 +141,7 @@
                     <p:outputLabel id="checkOutTitleValue" value="#{imageController.selectedImageView.title}"/>
 
                     <h:outputText id="checkOutCurrentRevNo" value="Current Revsion Number:"/>
-                    <p:outputLabel id="checkOutCurrentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
+                    <p:outputLabel id="checkOutCurrentRevValue" value="#{imageController.selectedImageView.revisionView.revisionNumber}"/>
 
                     <p:commandButton id="checkOutButton" value="Check Out" action="#{imageController.checkOut}" ajax="false"
                                      onclick="PF('checkOut').hide()">
@@ -162,7 +162,7 @@
                     <p:outputLabel id="checkInTitleValue" value="#{imageController.selectedImageView.title}"/>
 
                     <h:outputText id="checkInCurrentRevNo" value="Current Revsion Number:"/>
-                    <p:outputLabel id="checkInCurrentRevValue" value="#{imageController.selectedImageView.revisionNo}"/>
+                    <p:outputLabel id="checkInCurrentRevValue" value="#{imageController.selectedImageView.revisionView.revisionNumber}"/>
 
                     <p:fileUpload id="checkInFileUpload" fileUploadListener="#{imageController.handleFileUpload}" mode="advanced"
                                   label="Select Image" invalidFileMessage="Invalid file type selected. Only .gif, .jpg/.jpeg or .png files are allowed."

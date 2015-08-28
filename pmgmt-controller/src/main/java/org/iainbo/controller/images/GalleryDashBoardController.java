@@ -104,7 +104,6 @@ public class GalleryDashBoardController implements Serializable{
             imageView.setTitle(imageDTO.getTitle());
             imageView.setDescription(imageDTO.getDescription());
             imageView.setGalleryView(galleryView);
-            imageView.setUploadedBy(galleryOwner);
             imageViews.add(imageView);
         }
         return  imageViews;
