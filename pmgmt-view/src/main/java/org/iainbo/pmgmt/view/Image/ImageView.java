@@ -20,7 +20,6 @@ public class ImageView implements Serializable{
     private String filename;
     private String revisionNo;
     private Long revisionId;
-    private byte[] fileData;
     private boolean imageIsCheckedOut;
     private Map<Long, String> revisions;
 
@@ -79,14 +78,6 @@ public class ImageView implements Serializable{
 
     public void setFilename(String filename) {
         this.filename = filename;
-    }
-
-    public byte[] getFileData() {
-        return fileData;
-    }
-
-    public void setFileData(byte[] fileData) {
-        this.fileData = fileData;
     }
 
     public String getRevisionNo() {
