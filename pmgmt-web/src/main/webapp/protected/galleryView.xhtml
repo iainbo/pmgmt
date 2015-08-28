@@ -39,7 +39,7 @@
 
                     <p:panel header="#{image.title}" style="text-align:center;">
                         <h:panelGrid columns="1" style="width:100%; align-items: center">
-                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.revisionId}" height="300" width="300"/>
+                            <p:graphicImage id="galleryThumb" value="/api/image/view/#{image.revisionView.id}" height="300" width="300"/>
                             <p:ajax event="mouseover" listener="#{imageController.setSelectedImageView(image.id)}"/>
                             <p:outputLabel id="imageDesc" value="#{image.description}"/>
                         </h:panelGrid>

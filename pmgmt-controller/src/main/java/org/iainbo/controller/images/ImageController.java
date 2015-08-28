@@ -78,7 +78,6 @@ public class ImageController implements Serializable{
         selectedImageView.setTitle(imageDTO.getTitle());
         selectedImageView.setDescription(imageDTO.getDescription());
         selectedImageView.setRevisionView(getSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
-        selectedImageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         Map<Long, String> revIds = new HashMap<>();
         for(RevisionDTO r : imageDTO.getRevisions()){
             Long id = r.getId();
@@ -155,7 +154,7 @@ public class ImageController implements Serializable{
         imageView.setTitle(imageDTO.getTitle());
         imageView.setDescription(imageDTO.getDescription());
         imageView.setGalleryView(galleryView);
-        imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
+        imageView.setRevisionView(getSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
         imageView.setImageIsCheckedOut(false);
         return imageView;
     }
@@ -184,13 +183,13 @@ public class ImageController implements Serializable{
     }
 
     public void checkOut(){
-        imageService.checkOutRevision(loginController.getCurrentUserName(), selectedImageView.getRevisionId());
+        imageService.checkOutRevision(loginController.getCurrentUserName(), selectedImageView.getRevisionView().getId());
         setCheckedOutValue(true);
     }
 
     public StreamedContent getFileForCheckout(){
-        InputStream fileStream = new ByteArrayInputStream(imageService.getFile(selectedImageView.getRevisionId()).getFile());
-        String filename = imageService.getFile(selectedImageView.getRevisionId()).getFilename();
+        InputStream fileStream = new ByteArrayInputStream(imageService.getFile(selectedImageView.getRevisionView().getId()).getFile());
+        String filename = imageService.getFile(selectedImageView.getRevisionView().getId()).getFilename();
         StreamedContent file = new DefaultStreamedContent(fileStream, "image/jpg", filename);
         return file;
     }

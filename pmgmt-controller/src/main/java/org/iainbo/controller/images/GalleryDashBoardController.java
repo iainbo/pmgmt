@@ -2,8 +2,11 @@ package org.iainbo.controller.images;
 
 import org.iainbo.dto.Gallery.GalleryDTO;
 import org.iainbo.dto.Image.ImageDTO;
+import org.iainbo.dto.Image.RevisionDTO;
 import org.iainbo.pmgmt.service.images.GalleryService;
+import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.Image.ImageView;
+import org.iainbo.pmgmt.view.Image.RevisionView;
 import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 
@@ -24,6 +27,9 @@ public class GalleryDashBoardController implements Serializable{
 
     @Inject
     GalleryView galleryView;
+
+    @Inject
+    ImageService imageService;
 
     private List<GalleryDashboardView> galleryDashboardViews;
 
@@ -93,7 +99,7 @@ public class GalleryDashBoardController implements Serializable{
         for(ImageDTO imageDTO : imageDTOs){
             ImageView imageView = new ImageView();
             imageView.setId(imageDTO.getId());
-            imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
+            imageView.setRevisionView(createRevisionView(imageDTO));
             String isCheckedOut = imageDTO.getRevisionDTO().getCheckedOut();
             if(isCheckedOut == null || isCheckedOut.equalsIgnoreCase("N")){
                 imageView.setImageIsCheckedOut(false);
@@ -107,6 +113,18 @@ public class GalleryDashBoardController implements Serializable{
             imageViews.add(imageView);
         }
         return  imageViews;
+    }
+
+    public RevisionView createRevisionView(ImageDTO imageDTO){
+        RevisionDTO revisionDTO = imageService.getRevision(imageDTO.getRevisionDTO().getId());
+        RevisionView revisionView = new RevisionView();
+        revisionView.setId(revisionDTO.getId());
+        revisionView.setRevisionNumber(revisionDTO.getRevisionNumber());
+        revisionView.setRevisionComment(revisionDTO.getRevisionComment());
+        revisionView.setFilename(revisionDTO.getFileDTO().getFilename());
+        revisionView.setUploadedBy(revisionDTO.getUploadedBy().getFirstName() + " " + revisionDTO.getUploadedBy().getSurname());
+        revisionView.setUploadedDate(revisionDTO.getDateUploaded().toString());
+        return revisionView;
     }
 
 }

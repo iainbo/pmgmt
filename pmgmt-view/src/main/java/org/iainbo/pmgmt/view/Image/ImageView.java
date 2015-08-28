@@ -16,7 +16,6 @@ public class ImageView implements Serializable{
     private String Description;
     private GalleryView galleryView;
     private RevisionView revisionView;
-    private Long revisionId;
     private boolean imageIsCheckedOut;
     private Map<Long, String> revisions;
 
@@ -59,14 +58,6 @@ public class ImageView implements Serializable{
 
     public void setRevisionView(RevisionView revisionView) {
         this.revisionView = revisionView;
-    }
-
-    public Long getRevisionId() {
-        return revisionId;
-    }
-
-    public void setRevisionId(Long revisionId) {
-        this.revisionId = revisionId;
     }
 
     public boolean isImageIsCheckedOut() {
