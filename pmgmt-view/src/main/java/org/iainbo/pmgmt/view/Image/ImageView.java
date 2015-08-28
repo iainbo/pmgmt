@@ -17,7 +17,6 @@ public class ImageView implements Serializable{
     private GalleryView galleryView;
     private String uploadedBy;
     private String dateUploaded;
-    private String filename;
     private String revisionNo;
     private Long revisionId;
     private boolean imageIsCheckedOut;
@@ -70,14 +69,6 @@ public class ImageView implements Serializable{
 
     public void setDateUploaded(String dateUploaded) {
         this.dateUploaded = dateUploaded;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
     }
 
     public String getRevisionNo() {

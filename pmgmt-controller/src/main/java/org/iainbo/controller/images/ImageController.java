@@ -162,7 +162,6 @@ public class ImageController implements Serializable{
         imageView.setRevisionId(imageDTO.getRevisionDTO().getId());
         imageView.setImageIsCheckedOut(false);
         imageView.setUploadedBy(imageDTO.getRevisionDTO().getUploadedBy().getFirstName() + " " + imageDTO.getRevisionDTO().getUploadedBy().getSurname());
-        imageView.setFilename(revisionView.getFilename());
         return imageView;
     }
 
