@@ -29,8 +29,7 @@ public class LoginController implements Serializable{
     public void getCurrentlyLoggedInUserForPageHeader(){
         String userName = getCurrentUserName();
         if (authenticationService.verifyUserExisits(userName)){
-            UserDTO userDTO = new UserDTO();
-            userDTO = authenticationService.getUser(userName);
+            UserDTO userDTO = authenticationService.getUser(userName);
             userView.setUserName(userDTO.getUserName());
             userView.setFirstName(userDTO.getFirstName());
             userView.setSurname(userDTO.getSurname());
@@ -39,8 +38,7 @@ public class LoginController implements Serializable{
     }
 
     public UserDTO getUserDTOForLoggedInUser(){
-        UserDTO userDTO = new UserDTO();
-        userDTO = authenticationService.getUser(getCurrentUserName());
+        UserDTO userDTO = authenticationService.getUser(getCurrentUserName());
         return userDTO;
     }
 
