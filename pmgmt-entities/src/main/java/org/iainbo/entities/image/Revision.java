@@ -32,7 +32,6 @@ public class Revision extends BaseEntity {
 
     @Column(name = "HEAD_REVISION")
     @Pattern(regexp = "[YN]{1}")
-    @Basic(fetch = FetchType.LAZY)
     @NotNull
     private String headRevision;
 

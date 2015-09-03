@@ -53,7 +53,7 @@
                 </configuration>
             </plugin>
             <!-- The WildFly plugin deploys your ear to a local WildFly container -->
-            <!-- Due to Maven's lack of intelligence with EARs we need to configure 
+            <!-- Due to Maven's lack of intelligence with EARs we need to configure
                 the wildfly maven plugin to skip deployment for all modules. We then enable
                 it specifically in the ear module. -->
             <plugin>
