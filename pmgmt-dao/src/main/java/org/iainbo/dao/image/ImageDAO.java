@@ -1,6 +1,6 @@
 package org.iainbo.dao.image;
 
-import org.iainbo.dao.BaseDAO;
+import org.iainbo.dao.common.BaseDAO;
 import org.iainbo.entities.gallery.Gallery;
 import org.iainbo.entities.image.Image;
 
@@ -13,9 +13,9 @@ import java.util.List;
 @Stateless
 public class ImageDAO extends BaseDAO {
 
-    private static final String FIND_BY_IMAGES_FOR_GALLERY = "select i from Image i where i.gallery =:gallery";
+    private static final String FIND_ALL_IMAGES_FOR_GALLERY = "select i from Image i where i.gallery =:gallery";
     private static final String FIND_IMAGE_BY_ID = "select i from Image i where i.id =:imageId";
-    private static final String FIND_BY_IMAGE_BY_TITLE_AND_GALLERY = "select i from Image i where i.title =:imageTitle and i.gallery.id =:galleryId";
+    private static final String FIND_IMAGE_BY_TITLE_AND_GALLERY = "select i from Image i where i.title =:imageTitle and i.gallery.id =:galleryId";
 
     public ImageDAO(){super(Image.class);}
 
@@ -25,7 +25,7 @@ public class ImageDAO extends BaseDAO {
     }
 
     public Image findImageByTitleAndGallery(String imageTitle, Long galleryId){
-        Query query = entityManager.createQuery(FIND_BY_IMAGE_BY_TITLE_AND_GALLERY);
+        Query query = entityManager.createQuery(FIND_IMAGE_BY_TITLE_AND_GALLERY);
         query.setParameter("imageTitle", imageTitle);
         query.setParameter("galleryId", galleryId);
         Image result = (Image) query.getSingleResult();
@@ -33,7 +33,7 @@ public class ImageDAO extends BaseDAO {
     }
 
     public List<Image> findAllImagesForGallery(Gallery galleryId){
-        Query query = entityManager.createQuery(FIND_BY_IMAGES_FOR_GALLERY);
+        Query query = entityManager.createQuery(FIND_ALL_IMAGES_FOR_GALLERY);
         query.setParameter("gallery", galleryId);
         List<Image> results = query.getResultList();
         return results;

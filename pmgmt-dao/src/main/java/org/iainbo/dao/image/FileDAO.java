@@ -1,6 +1,6 @@
 package org.iainbo.dao.image;
 
-import org.iainbo.dao.BaseDAO;
+import org.iainbo.dao.common.BaseDAO;
 import org.iainbo.entities.image.File;
 
 import javax.persistence.EntityManager;

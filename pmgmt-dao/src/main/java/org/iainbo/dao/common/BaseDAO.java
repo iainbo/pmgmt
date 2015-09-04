@@ -1,4 +1,4 @@
-package org.iainbo.dao;
+package org.iainbo.dao.common;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -1,6 +1,6 @@
 package org.iainbo.dao.user;
 
-import org.iainbo.dao.BaseDAO;
+import org.iainbo.dao.common.BaseDAO;
 import org.iainbo.entities.user.User;
 
 import javax.ejb.Stateless;
