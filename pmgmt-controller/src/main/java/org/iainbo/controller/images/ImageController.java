@@ -188,7 +188,7 @@ public class ImageController implements Serializable{
     }
 
     public StreamedContent getFileForCheckout(){
-        InputStream fileStream = new ByteArrayInputStream(imageService.getFile(selectedImageView.getRevisionView().getId()).getFile());
+        InputStream fileStream = new ByteArrayInputStream(imageService.getFile(selectedImageView.getRevisionView().getId()).getFileData());
         String filename = imageService.getFile(selectedImageView.getRevisionView().getId()).getFilename();
         StreamedContent file = new DefaultStreamedContent(fileStream, "image/jpg", filename);
         return file;

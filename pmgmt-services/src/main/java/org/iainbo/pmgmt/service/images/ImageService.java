@@ -1,6 +1,7 @@
 package org.iainbo.pmgmt.service.images;
 
 import org.iainbo.dao.factory.DAOFactory;
+import org.iainbo.dto.Image.FileDTO;
 import org.iainbo.dto.Image.ImageDTO;
 import org.iainbo.dto.Image.RevisionDTO;
 import org.iainbo.entities.gallery.Gallery;
@@ -8,6 +9,7 @@ import org.iainbo.entities.image.File;
 import org.iainbo.entities.image.Image;
 import org.iainbo.entities.image.Revision;
 import org.iainbo.entities.user.User;
+import org.iainbo.pmgmt.service.mapper.FileMapper;
 import org.iainbo.pmgmt.service.mapper.ImageMapper;
 import org.iainbo.pmgmt.service.mapper.RevisionMapper;
 
@@ -31,6 +33,9 @@ public class ImageService {
     @Inject
     RevisionMapper revisionMapper;
 
+    @Inject
+    FileMapper fileMapper;
+
     public byte[] getBytesForImage(Long revisionId){
         Revision revision = daoFactory.revisionDAO().findById(revisionId);
         byte[] imageData;
@@ -44,9 +49,10 @@ public class ImageService {
         return imageData;
     }
 
-    public File getFile(Long revisionId){
+    public FileDTO getFile(Long revisionId){
         File file = daoFactory.fileDAO().findFileForRevision(revisionId);
-        return file;
+        FileDTO fileDTO = fileMapper.fileToFileDTO(file);
+        return fileDTO;
     }
 
     public byte[] getImageForRevision(Revision revision){

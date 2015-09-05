@@ -1,11 +1,13 @@
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/RevisionMapper.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/GalleryService.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/FileMapperImpl.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/user/AuthenticationService.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/GalleryMapperImpl.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/UserMapper.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/RevisionMapperImpl.java
-/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/ImageMapperImpl.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/GalleryMapper.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/ImageMapper.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/FileMapper.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/ImageService.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/mapper/RevisionMapper.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/src/main/java/org/iainbo/pmgmt/service/images/GalleryService.java
+/Users/iainb/IdeaProjects/pmgmt/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/ImageMapperImpl.java
 /Users/iainb/IdeaProjects/pmgmt/pmgmt-services/target/generated-sources/org/iainbo/pmgmt/service/mapper/UserMapperImpl.java
