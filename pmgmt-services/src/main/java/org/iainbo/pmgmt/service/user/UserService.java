@@ -12,7 +12,7 @@ import javax.persistence.NoResultException;
 
 @Stateless
 @Named
-public class AuthenticationService {
+public class UserService {
 
     @Inject
     DAOFactory daoFactory;

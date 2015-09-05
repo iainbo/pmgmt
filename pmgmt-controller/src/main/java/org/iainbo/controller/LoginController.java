@@ -2,7 +2,7 @@ package org.iainbo.controller;
 
 
 import org.iainbo.dto.User.UserDTO;
-import org.iainbo.pmgmt.service.user.AuthenticationService;
+import org.iainbo.pmgmt.service.user.UserService;
 import org.iainbo.pmgmt.view.user.UserView;
 
 import javax.enterprise.context.RequestScoped;
@@ -19,7 +19,7 @@ public class LoginController implements Serializable{
     UserView userView;
 
     @Inject
-    AuthenticationService authenticationService;
+    UserService userService;
 
     public String getCurrentUserName(){
         return FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
@@ -28,8 +28,8 @@ public class LoginController implements Serializable{
     //Method which is called from the header to display the username at the top of the page
     public void getCurrentlyLoggedInUserForPageHeader(){
         String userName = getCurrentUserName();
-        if (authenticationService.verifyUserExisits(userName)){
-            UserDTO userDTO = authenticationService.getUser(userName);
+        if (userService.verifyUserExisits(userName)){
+            UserDTO userDTO = userService.getUser(userName);
             userView.setUserName(userDTO.getUserName());
             userView.setFirstName(userDTO.getFirstName());
             userView.setSurname(userDTO.getSurname());
@@ -38,7 +38,7 @@ public class LoginController implements Serializable{
     }
 
     public UserDTO getUserDTOForLoggedInUser(){
-        UserDTO userDTO = authenticationService.getUser(getCurrentUserName());
+        UserDTO userDTO = userService.getUser(getCurrentUserName());
         return userDTO;
     }
 

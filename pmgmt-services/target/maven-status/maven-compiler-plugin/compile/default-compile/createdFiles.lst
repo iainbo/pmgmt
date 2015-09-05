@@ -2,6 +2,7 @@ org/iainbo/pmgmt/service/images/ImageService.class
 org/iainbo/pmgmt/service/mapper/GalleryMapper$1.class
 org/iainbo/pmgmt/service/mapper/GalleryMapper.class
 org/iainbo/pmgmt/service/mapper/FileMapper.class
+org/iainbo/pmgmt/service/user/UserService.class
 org/iainbo/pmgmt/service/mapper/UserMapper.class
 org/iainbo/pmgmt/service/mapper/ImageMapper.class
 org/iainbo/pmgmt/service/mapper/UserMapperImpl.class
@@ -11,4 +12,3 @@ org/iainbo/pmgmt/service/mapper/ImageMapperImpl.class
 org/iainbo/pmgmt/service/mapper/RevisionMapper.class
 org/iainbo/pmgmt/service/images/GalleryService.class
 org/iainbo/pmgmt/service/mapper/RevisionMapperImpl.class
-org/iainbo/pmgmt/service/user/AuthenticationService.class
