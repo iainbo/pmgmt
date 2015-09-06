@@ -30,7 +30,7 @@ public class ImageController implements Serializable{
     private ImageView selectedImageView;
     private ImageDTO imageDTO;
     private String selectedRevisionId;
-    RevisionView selectedRevisionView;
+    private RevisionView selectedRevisionView;
 
     @Inject
     GalleryService galleryService;
@@ -60,7 +60,7 @@ public class ImageController implements Serializable{
 
     public void setSelectedRevisionId(String selectedRevisionId) {
         this.selectedRevisionId = selectedRevisionId;
-        getSelectedRevisionView(Long.valueOf(this.selectedRevisionId));
+        createSelectedRevisionView(Long.valueOf(this.selectedRevisionId));
     }
 
     public RevisionView getSelectedRevisionView() {
@@ -77,7 +77,7 @@ public class ImageController implements Serializable{
         selectedImageView.setId(imageDTO.getId());
         selectedImageView.setTitle(imageDTO.getTitle());
         selectedImageView.setDescription(imageDTO.getDescription());
-        selectedImageView.setRevisionView(getSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
+        selectedImageView.setRevisionView(createSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
         Map<Long, String> revIds = new HashMap<>();
         for(RevisionDTO r : imageDTO.getRevisions()){
             Long id = r.getId();
@@ -154,7 +154,7 @@ public class ImageController implements Serializable{
         imageView.setTitle(imageDTO.getTitle());
         imageView.setDescription(imageDTO.getDescription());
         imageView.setGalleryView(galleryView);
-        imageView.setRevisionView(getSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
+        imageView.setRevisionView(createSelectedRevisionView(imageDTO.getRevisionDTO().getId()));
         imageView.setImageIsCheckedOut(false);
         return imageView;
     }
@@ -262,7 +262,7 @@ public class ImageController implements Serializable{
         }
     }
 
-    public RevisionView getSelectedRevisionView(Long revisionId){
+    public RevisionView createSelectedRevisionView(Long revisionId){
         Long revId = Long.valueOf(revisionId);
         RevisionDTO revisionDTO = imageService.getRevision(revId);
         selectedRevisionView = new RevisionView();
