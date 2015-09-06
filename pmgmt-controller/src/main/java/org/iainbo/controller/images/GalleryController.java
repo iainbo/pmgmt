@@ -1,6 +1,6 @@
 package org.iainbo.controller.images;
 
-import org.iainbo.controller.LoginController;
+import org.iainbo.controller.user.UserController;
 import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
@@ -25,7 +25,7 @@ public class GalleryController implements Serializable{
     GalleryService galleryService;
 
     @Inject
-    LoginController loginController;
+    UserController userController;
 
     @Inject
     GalleryDashBoardController galleryDashBoardController;

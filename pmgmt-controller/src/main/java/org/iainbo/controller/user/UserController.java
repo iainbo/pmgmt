@@ -1,4 +1,4 @@
-package org.iainbo.controller;
+package org.iainbo.controller.user;
 
 
 import org.iainbo.dto.User.UserDTO;
@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 @Named
 @RequestScoped
-public class LoginController implements Serializable{
+public class UserController implements Serializable{
 
     @Inject
     UserView userView;

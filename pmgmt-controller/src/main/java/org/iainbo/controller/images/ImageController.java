@@ -1,6 +1,6 @@
 package org.iainbo.controller.images;
 
-import org.iainbo.controller.LoginController;
+import org.iainbo.controller.user.UserController;
 import org.iainbo.dto.Image.FileDTO;
 import org.iainbo.dto.Image.ImageDTO;
 import org.iainbo.dto.Image.RevisionDTO;
@@ -36,7 +36,7 @@ public class ImageController implements Serializable{
     GalleryService galleryService;
 
     @Inject
-    LoginController loginController;
+    UserController userController;
 
     @Inject
     ImageService imageService;
@@ -121,7 +121,7 @@ public class ImageController implements Serializable{
             revisionDTO.setCheckedOut("N");
             revisionDTO.setRevisionNumber("01");
             revisionDTO.setDateUploaded(new Date());
-            revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
+            revisionDTO.setUploadedBy(userController.getUserDTOForLoggedInUser());
             fileDTO.setFilename(revisionView.getFilename());
             fileDTO.setFileData(revisionView.getBytes());
             fileDTO.setRevisionDTO(revisionDTO);
@@ -183,7 +183,7 @@ public class ImageController implements Serializable{
     }
 
     public void checkOut(){
-        imageService.checkOutRevision(loginController.getCurrentUserName(), selectedImageView.getRevisionView().getId());
+        imageService.checkOutRevision(userController.getCurrentUserName(), selectedImageView.getRevisionView().getId());
         setCheckedOutValue(true);
     }
 
@@ -240,7 +240,7 @@ public class ImageController implements Serializable{
         revisionDTO.setRevisionNumber(revisionView.getRevisionNumber());
         revisionDTO.setRevisionComment(revisionView.getRevisionComment());
         revisionDTO.setDateUploaded(new Date());
-        revisionDTO.setUploadedBy(loginController.getUserDTOForLoggedInUser());
+        revisionDTO.setUploadedBy(userController.getUserDTOForLoggedInUser());
         fileDTO.setFilename(revisionView.getFilename());
         fileDTO.setFileData(revisionView.getBytes());
         fileDTO.setRevisionDTO(revisionDTO);

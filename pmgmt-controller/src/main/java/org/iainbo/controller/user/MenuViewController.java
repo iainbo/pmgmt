@@ -1,4 +1,4 @@
-package org.iainbo.controller;
+package org.iainbo.controller.user;
 
 
 import javax.faces.application.FacesMessage;
