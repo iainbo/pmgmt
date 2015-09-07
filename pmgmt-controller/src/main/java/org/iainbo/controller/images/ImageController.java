@@ -28,7 +28,6 @@ import java.util.*;
 public class ImageController implements Serializable{
 
     private ImageView selectedImageView;
-    private ImageDTO imageDTO;
     private String selectedRevisionId;
     private RevisionView selectedRevisionView;
 
@@ -72,7 +71,7 @@ public class ImageController implements Serializable{
     }
 
     public void setSelectedImageView(String imageId) {
-        imageDTO = imageService.findImageById(Long.valueOf(imageId));
+        ImageDTO imageDTO = imageService.findImageById(Long.valueOf(imageId));
         selectedImageView = new ImageView();
         selectedImageView.setId(imageDTO.getId());
         selectedImageView.setTitle(imageDTO.getTitle());
@@ -256,7 +255,7 @@ public class ImageController implements Serializable{
     public void setCheckedOutValue(boolean value){
         List<ImageView> imageViews = galleryView.getImages();
         for(ImageView i : imageViews){
-            if(i.getId() == imageDTO.getId()){
+            if(i.getId() == selectedImageView.getId()){
                 i.setImageIsCheckedOut(value);
             }
         }
