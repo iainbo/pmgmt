@@ -195,7 +195,7 @@ public class ImageController implements Serializable{
 
     public void checkIn(String imageId){
         if(checkInRevision(Long.valueOf(imageId))){
-            FacesMessage message = new FacesMessage("Succesful", selectedImageView.getTitle() + " has been checked in.");
+            FacesMessage message = new FacesMessage("Successful", selectedImageView.getTitle() + " has been checked in.");
             FacesContext.getCurrentInstance().addMessage(null, message);
         }else{
             FacesMessage message = new FacesMessage("Error", selectedImageView.getTitle() + "check in has failed.");
