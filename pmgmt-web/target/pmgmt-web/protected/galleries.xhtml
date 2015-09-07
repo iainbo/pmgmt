@@ -10,7 +10,7 @@
         <p:growl id="growl"/>
 
         <!-- PrimeFaces dataGrid which displays list of Galleries -->
-        <p:dataGrid var="gallery" value="#{galleryDashBoardController.galleryDashboardViews}" columns="3" layout="grid"
+        <p:dataGrid var="gallery" value="#{galleryDashBoardController.galleryViews}" columns="3" layout="grid"
                     rows="12" paginator="true" id="galleries"
                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                     rowsPerPageTemplate="6,12,16" widgetVar="galleryGridForm">

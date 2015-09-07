@@ -7,7 +7,6 @@ import org.iainbo.pmgmt.service.images.GalleryService;
 import org.iainbo.pmgmt.service.images.ImageService;
 import org.iainbo.pmgmt.view.Image.ImageView;
 import org.iainbo.pmgmt.view.Image.RevisionView;
-import org.iainbo.pmgmt.view.gallery.GalleryDashboardView;
 import org.iainbo.pmgmt.view.gallery.GalleryView;
 
 import javax.annotation.PostConstruct;
@@ -31,7 +30,7 @@ public class GalleryDashBoardController implements Serializable{
     @Inject
     ImageService imageService;
 
-    private List<GalleryDashboardView> galleryDashboardViews;
+    private List<GalleryView> galleryViews;
 
     @PostConstruct
     //Method which is used to initialise the class.
@@ -40,12 +39,12 @@ public class GalleryDashBoardController implements Serializable{
     }
 
 
-    public List<GalleryDashboardView> getGalleryDashboardViews() {
-        return galleryDashboardViews;
+    public List<GalleryView> getGalleryViews() {
+        return galleryViews;
     }
 
-    public void setGalleryDashboardViews(List<GalleryDashboardView> galleryDashboardViews) {
-        this.galleryDashboardViews = galleryDashboardViews;
+    public void setGalleryDashboardViews(List<GalleryView> galleryDashboardViews) {
+        this.galleryViews = galleryDashboardViews;
     }
 
 
@@ -55,13 +54,13 @@ public class GalleryDashBoardController implements Serializable{
     }
 
     public void createGalleriesDashboardView(List<GalleryDTO> galleries){
-        galleryDashboardViews = new ArrayList<>();
+        galleryViews = new ArrayList<>();
         for(GalleryDTO g : galleries){
-            GalleryDashboardView galleryDashboardView = new GalleryDashboardView();
-            galleryDashboardView.setId(g.getId());
-            galleryDashboardView.setGalleryName(g.getGalleryName());
-            galleryDashboardView.setDescription(g.getDescription());
-            galleryDashboardViews.add(galleryDashboardView);
+            GalleryView galleryView = new GalleryView();
+            galleryView.setId(g.getId());
+            galleryView.setGalleryName(g.getGalleryName());
+            galleryView.setDescription(g.getDescription());
+            galleryViews.add(galleryView);
         }
     }
 
