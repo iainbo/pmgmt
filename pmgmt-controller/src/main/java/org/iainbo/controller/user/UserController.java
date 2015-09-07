@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 
 @Named
@@ -40,6 +41,15 @@ public class UserController implements Serializable{
     public UserDTO getUserDTOForLoggedInUser(){
         UserDTO userDTO = userService.getUser(getCurrentUserName());
         return userDTO;
+    }
+
+    public void logout(){
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/pmgmt/");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

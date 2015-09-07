@@ -1,5 +1,4 @@
 org/iainbo/controller/user/UserController.class
-org/iainbo/controller/user/MenuViewController.class
 org/iainbo/controller/images/GalleryDashBoardController.class
 org/iainbo/controller/utils/JaxRsActivator.class
 org/iainbo/controller/images/ImageController.class
