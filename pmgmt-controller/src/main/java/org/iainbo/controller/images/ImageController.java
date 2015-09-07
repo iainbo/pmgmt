@@ -226,9 +226,9 @@ public class ImageController implements Serializable{
                     }
                 }
                 imageViews.add(updatedImageView);
+                setCheckedOutValue(false);
             }
         }
-        setCheckedOutValue(false);
         return revisionSaved;
     }
 
